@@ -98,5 +98,14 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:${okHttpLibVersion}"
     debugImplementation "com.facebook.stetho:stetho-okhttp3:${stethoLibVersion}"
 
+    // FFmpeg Android/Java wrapper
+    implementation "com.writingminds:FFmpegAndroid:0.3.2"
+
+    // Espresso
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'com.azimolabs.conditionwatcher:conditionwatcher:0.2'
+
     compile project(':smartlooksdk')
 }
