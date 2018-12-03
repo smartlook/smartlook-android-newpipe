@@ -1,0 +1,3 @@
+[submodule "smartlook-android-sdk"]
+	path = smartlook-android-sdk
+	url = git@github.com:smartsupp/smartlook-android-sdk.git
