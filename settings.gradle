@@ -1,1 +1,2 @@
-include ':app'
+include ':app', ':smartlooksdk'
+project(':smartlooksdk').projectDir = new File('smartlook-android-sdk/smartlooksdk')

@@ -97,4 +97,6 @@ dependencies {
 
     implementation "com.squareup.okhttp3:okhttp:${okHttpLibVersion}"
     debugImplementation "com.facebook.stetho:stetho-okhttp3:${stethoLibVersion}"
+
+    compile project(':smartlooksdk')
 }
