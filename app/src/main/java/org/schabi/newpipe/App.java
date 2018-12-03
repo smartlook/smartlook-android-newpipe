@@ -5,13 +5,14 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.nostra13.universalimageloader.cache.memory.impl.LRULimitedMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.smartlook.sdk.smartlook.Smartlook;
+import com.smartlook.sdk.smartlook.api.client.Server;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -22,11 +23,11 @@ import org.acra.config.ConfigurationBuilder;
 import org.acra.sender.ReportSenderFactory;
 import org.schabi.newpipe.extractor.Downloader;
 import org.schabi.newpipe.extractor.NewPipe;
-import org.schabi.newpipe.extractor.utils.Localization;
 import org.schabi.newpipe.report.AcraReportSenderFactory;
 import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.settings.SettingsActivity;
+import org.schabi.newpipe.smartlook.SmartlookPreferences;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.StateSaver;
 
@@ -100,6 +101,20 @@ public class App extends Application {
         ImageLoader.getInstance().init(getImageLoaderConfigurations(10, 50));
 
         configureRxJavaErrorHandler();
+
+        smartlookInit();
+    }
+
+    private void smartlookInit() {
+        int server = SmartlookPreferences.loadServerSelection(this);
+        String apiKey = SmartlookPreferences.loadApiKey(this, server);
+        boolean debugSelectors = SmartlookPreferences.loadDebugSelectors(this);
+
+        Log.i("SmartlookInit", "Initialize smartlook: server=[" + new Server(server).getBaseRawUrl() + "] apiKey=[" + apiKey + "] debugSelectors=[" + debugSelectors + "]");
+
+        Smartlook.changeServer(server);
+        Smartlook.debugSelectors(debugSelectors);
+        Smartlook.init(apiKey);
     }
 
     protected Downloader getDownloader() {
