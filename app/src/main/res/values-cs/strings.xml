@@ -142,7 +142,7 @@
 otevření ve vyskakovacím okně</string>
 
     <string name="use_old_player_title">Použít starý přehrávač</string>
-<string name="use_external_video_player_summary">Některé formáty rozlišení NEBUDOU obsahovat zvukovou stopu po zapnutí této funkce</string>
+    <string name="use_external_video_player_summary">Některé formáty rozlišení NEBUDOU obsahovat zvukovou stopu po zapnutí této funkce</string>
     <string name="show_higher_resolutions_title">Zobrazovat vyšší rozlišení</string>
     <string name="show_higher_resolutions_summary">Pouze některá zařízení podporují přehrávání 2K/4K videí</string>
     <string name="default_video_format_title">Výchozí formát videa</string>
@@ -200,24 +200,24 @@ otevření ve vyskakovacím okně</string>
 
     <string name="no_subscribers">Žádní odběratelé</string>
     <plurals name="subscribers">
-	<item quantity="one">%s odběratel</item>
-	<item quantity="few">%s odběratelé</item>
-	<item quantity="other">%s odběratelů</item>
-</plurals>
+        <item quantity="one">%s odběratel</item>
+        <item quantity="few">%s odběratelé</item>
+        <item quantity="other">%s odběratelů</item>
+    </plurals>
 
     <string name="no_views">Žádná zhlédnutí</string>
     <plurals name="views">
-	<item quantity="one">%s zhlédnutí</item>
-	<item quantity="few">%s zhlédnutí</item>
-	<item quantity="other">%s zhlédnutí</item>
-</plurals>
+        <item quantity="one">%s zhlédnutí</item>
+        <item quantity="few">%s zhlédnutí</item>
+        <item quantity="other">%s zhlédnutí</item>
+    </plurals>
 
     <string name="no_videos">Žádná videa</string>
     <plurals name="videos">
-	<item quantity="one">%s video</item>
-	<item quantity="few">%s videa</item>
-	<item quantity="other">%s videí</item>
-</plurals>
+        <item quantity="one">%s video</item>
+        <item quantity="few">%s videa</item>
+        <item quantity="other">%s videí</item>
+    </plurals>
 
     <string name="settings_category_downloads_title">Stahování</string>
     <string name="settings_file_charset_title">Povolené znaky v názvech souborů</string>
@@ -252,7 +252,7 @@ otevření ve vyskakovacím okně</string>
     <string name="history_empty">Historie je prázdná</string>
     <string name="history_cleared">Historie vymazána</string>
     <string name="item_deleted">Položka byla odstraněna</string>
-<string name="show_hold_to_append_title">Zobrazovat tip \"podržet pro přidání\"</string>
+    <string name="show_hold_to_append_title">Zobrazovat tip \"podržet pro přidání\"</string>
     <string name="show_hold_to_append_summary">Zobrazí se po stisku tlačítek přehrát na pozadí nebo přehrát v okně na stránce s videem</string>
     <string name="background_player_append">Ve frontě přehrávače na pozadí</string>
     <string name="popup_playing_append">Ve frontě přehrávače v okně</string>
@@ -284,14 +284,14 @@ otevření ve vyskakovacím okně</string>
     <string name="play_queue_stream_detail">Podrobnosti</string>
     <string name="play_queue_audio_settings">Nastavení zvuku</string>
     <string name="hold_to_append">Podrž pro zařazení do fronty</string>
-<string name="unknown_content">[Neznámý]</string>
+    <string name="unknown_content">[Neznámý]</string>
 
     <string name="enqueue_on_background">Do fronty na pozadí</string>
     <string name="enqueue_on_popup">Do fronty v okně</string>
     <string name="start_here_on_main">Začne hrát zde</string>
     <string name="start_here_on_background">Začne zde na pozadí</string>
     <string name="start_here_on_popup">Začne zde v okně</string>
-<string name="donation_title">Donate</string>
+    <string name="donation_title">Donate</string>
     <string name="donation_encouragement">NewPipe je vyvíjen dobrovolníky, kteří tráví svůj čas, aby vaše zkušenost s aplikací byla co nejlepší. Vraťte vývojářům něco zpět, aby mohli NewPipe dále zlepšovat a zároveň si vychutnat šálek kávy.</string>
     <string name="give_back">Daruj</string>
     <string name="website_title">Webová stránka</string>
@@ -328,10 +328,10 @@ otevření ve vyskakovacím okně</string>
     <string name="background_player">Přehrávač na pozadí</string>
     <string name="popup_player">Přehrávač v okně</string>
     <string name="always_ask_player">Vždy se ptát</string>
-    
+
     <string name="preferred_player_fetcher_notification_title">Získávám informace…</string>
     <string name="preferred_player_fetcher_notification_message">Načítání požadovaného obsahu</string>
-<string name="controls_download_desc">Stáhnout soubor streamu.</string>
+    <string name="controls_download_desc">Stáhnout soubor streamu.</string>
     <string name="show_info">Ukázat informace</string>
 
     <string name="tab_bookmarks">Záložky</string>
@@ -355,7 +355,7 @@ otevření ve vyskakovacím okně</string>
 
 
     <string name="always_ask_open_action">Vždy se zeptat</string>
-    
+
     <string name="create_playlist">Vytvořit nový playlist</string>
     <string name="delete_playlist">Vymazat playlist</string>
     <string name="rename_playlist">Přejmenovat playlist</string>
@@ -385,7 +385,7 @@ otevření ve vyskakovacím okně</string>
 
     <string name="toggle_leak_canary">Sledovat únik paměti</string>
     <string name="disable_leak_canary_notice">Sledování úniku paměti vypnuto</string>
-<string name="enable_leak_canary_notice">Sledování úniku paměti povoleno, aplikace může při zátěži přestat reagovat</string>
+    <string name="enable_leak_canary_notice">Sledování úniku paměti povoleno, aplikace může při zátěži přestat reagovat</string>
     <string name="settings_category_debug_title">Ladění</string>
     <string name="caption_auto_generated">"Automaticky generováno "</string>
     <string name="enable_leak_canary_title">Povolit službu LeakCanary</string>
@@ -394,7 +394,7 @@ otevření ve vyskakovacím okně</string>
     <string name="enable_disposed_exceptions_title">Nahlásit mimo-cyklické chyby</string>
     <string name="enable_disposed_exceptions_summary">Vynutit vykazování výjimek Rx mimo fragment nebo životnost cyklu po odstranění</string>
 
-<string name="use_inexact_seek_title">Použít rychlé nepřesné hledání</string>
+    <string name="use_inexact_seek_title">Použít rychlé nepřesné hledání</string>
     <string name="use_inexact_seek_summary">Nepřesné hledání umožní přehrávači posouvat se rychleji, ale se sníženou přesností</string>
     <string name="download_thumbnail_title">Načítat náhledy</string>
     <string name="download_thumbnail_summary">Zakažte, chcete-li zabránit načítání všech náhledů a tím šetřit data a využití paměti. Změnou tohoto nastavení dojde k vyčištění mezipaměti obrázků</string>
@@ -452,7 +452,7 @@ otevření ve vyskakovacím okně</string>
     <string name="unhook_checkbox">Rozpojit (může způsobit zkreslení)</string>
     <string name="playback_nightcore">Nightcore mód</string>
     <string name="playback_default">Výchozí nastavení</string>
-<string name="no_streams_available_download">Ke stažení nejsou dostupné žádné streamy</string>
+    <string name="no_streams_available_download">Ke stažení nejsou dostupné žádné streamy</string>
 
     <string name="preferred_open_action_settings_title">Preferovaná \'otevřít\' akce</string>
     <string name="preferred_open_action_settings_summary">Výchozí chování při otevírání obsahu — %s</string>
@@ -507,5 +507,11 @@ otevření ve vyskakovacím okně</string>
     <string name="exit_dialog_message">Všechny neuložené změny budou ztraceny!</string>
     <string name="smartlook_api_key">Smartlook api klíč:</string>
     <string name="show_view_selector_on_click">Zobraz \"selector\" pohledu při kliknutí:</string>
+
+    <string-array name="server_array">
+        <item>Alfa (manager.alfa.smartlook.com)</item>
+        <item>Beta (manager.beta.smartlook.com)</item>
+        <item>Produkce (manager.smartlook.com)</item>
+    </string-array>
 
 </resources>

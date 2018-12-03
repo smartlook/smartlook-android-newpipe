@@ -238,5 +238,10 @@
         <service
             android:name=".RouterActivity$FetcherService"
             android:exported="false"/>
+
+        <!--Smartlook stuff-->
+        <activity android:name=".smartlook.SmartlookPlaygroundActivity" />
+        <activity android:name=".smartlook.SmartlookSettingsActivity" />
+
     </application>
 </manifest>

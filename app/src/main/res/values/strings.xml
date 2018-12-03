@@ -532,4 +532,10 @@
     <string name="smartlook_server">Smartlook server:</string>
     <string name="smartlook_api_key">Smartlook api key:</string>
     <string name="show_view_selector_on_click">Show View \"selector\" on click:</string>
+
+    <string-array name="server_array">
+        <item>Alfa (manager.alfa.smartlook.com)</item>
+        <item>Beta (manager.beta.smartlook.com)</item>
+        <item>Production (manager.smartlook.com)</item>
+    </string-array>
 </resources>
