@@ -33,11 +33,11 @@ import org.schabi.newpipe.extractor.stream.VideoStream;
 import org.schabi.newpipe.fragments.MainFragment;
 import org.schabi.newpipe.fragments.detail.VideoDetailFragment;
 import org.schabi.newpipe.fragments.list.channel.ChannelFragment;
-import org.schabi.newpipe.local.bookmark.BookmarkFragment;
-import org.schabi.newpipe.local.feed.FeedFragment;
 import org.schabi.newpipe.fragments.list.kiosk.KioskFragment;
 import org.schabi.newpipe.fragments.list.playlist.PlaylistFragment;
 import org.schabi.newpipe.fragments.list.search.SearchFragment;
+import org.schabi.newpipe.local.bookmark.BookmarkFragment;
+import org.schabi.newpipe.local.feed.FeedFragment;
 import org.schabi.newpipe.local.history.StatisticsPlaylistFragment;
 import org.schabi.newpipe.local.playlist.LocalPlaylistFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionFragment;
@@ -51,6 +51,7 @@ import org.schabi.newpipe.player.PopupVideoPlayerActivity;
 import org.schabi.newpipe.player.VideoPlayer;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.settings.SettingsActivity;
+import org.schabi.newpipe.smartlook.SmartlookSettingsActivity;
 
 import java.util.ArrayList;
 
@@ -416,6 +417,11 @@ public class NavigationHelper {
 
     public static void openSettings(Context context) {
         Intent intent = new Intent(context, SettingsActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void openSmartlookSettings(Context context) {
+        Intent intent = new Intent(context, SmartlookSettingsActivity.class);
         context.startActivity(intent);
     }
 

@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int ITEM_ID_DOWNLOADS = - 4;
     private static final int ITEM_ID_HISTORY = - 5;
     private static final int ITEM_ID_SETTINGS = 0;
+    private static final int ITEM_ID_SMARTLOOK_SETTINGS = 2;
     private static final int ITEM_ID_ABOUT = 1;
 
     private static final int ORDER = 0;
@@ -154,6 +155,9 @@ public class MainActivity extends AppCompatActivity {
         //Settings and About
         drawerItems.getMenu()
                 .add(R.id.menu_options_about_group, ITEM_ID_SETTINGS, ORDER, R.string.settings)
+                .setIcon(ThemeHelper.resolveResourceIdFromAttr(this, R.attr.settings));
+        drawerItems.getMenu()
+                .add(R.id.menu_options_about_group, ITEM_ID_SMARTLOOK_SETTINGS, ORDER, R.string.smartlook_settings)
                 .setIcon(ThemeHelper.resolveResourceIdFromAttr(this, R.attr.settings));
         drawerItems.getMenu()
                 .add(R.id.menu_options_about_group, ITEM_ID_ABOUT, ORDER, R.string.tab_about)
@@ -253,6 +257,9 @@ public class MainActivity extends AppCompatActivity {
         switch(item.getItemId()) {
             case ITEM_ID_SETTINGS:
                 NavigationHelper.openSettings(this);
+                break;
+            case ITEM_ID_SMARTLOOK_SETTINGS:
+                NavigationHelper.openSmartlookSettings(this);
                 break;
             case ITEM_ID_ABOUT:
                 NavigationHelper.openAbout(this);
