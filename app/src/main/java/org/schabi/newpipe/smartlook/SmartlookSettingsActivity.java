@@ -34,6 +34,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
     private Button reloadDefaultApiKeyButton;
     private EditText apiKeyInput;
     private Switch debugSelectors;
+    private Button goToPlayground;
 
     private int lastSpinnerPosition;
 
@@ -60,6 +61,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
         handleSpinner();
         handleReloadDefault();
         handleConfirm();
+        handleGoToPlayground();
     }
 
     @Override
@@ -99,6 +101,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
         reloadDefaultApiKeyButton = findViewById(R.id.smartlook_reload_default);
         apiKeyInput = findViewById(R.id.smartlook_input_api_key);
         debugSelectors = findViewById(R.id.smartlook_debug_selectors_switch);
+        goToPlayground = findViewById(R.id.smartlook_go_to_playground);
     }
 
     private void handleToolbar() {
@@ -152,6 +155,11 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
             // let app settle before restart
             (new Handler()).postDelayed(this::doRestart, APP_SETTLE_DELAY);
         });
+    }
+
+    private void handleGoToPlayground() {
+        goToPlayground.setOnClickListener(v ->
+                startActivity(new Intent(this, SmartlookPlaygroundActivity.class)));
     }
 
     private void displayActualServerApiKey(int server) {
