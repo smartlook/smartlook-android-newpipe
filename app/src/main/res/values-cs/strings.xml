@@ -507,6 +507,7 @@ otevření ve vyskakovacím okně</string>
     <string name="exit_dialog_message">Všechny neuložené změny budou ztraceny!</string>
     <string name="smartlook_api_key">Smartlook api klíč:</string>
     <string name="show_view_selector_on_click">Zobraz \"selector\" pohledu při kliknutí:</string>
+    <string name="go_to_playground">Jdi na hřiště</string>
 
     <string-array name="server_array">
         <item>Alfa (manager.alfa.smartlook.com)</item>

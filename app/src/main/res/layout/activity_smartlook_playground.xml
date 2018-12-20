@@ -1,68 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="org.schabi.newpipe.smartlook.SmartlookPlaygroundActivity">
+    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/top_frame"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
-
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@color/audio_already_load_color" />
-
-        <LinearLayout
-            android:id="@+id/red_root"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@android:color/holo_red_dark"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:text="Super cool text" />
-
-        </LinearLayout>
-
-    </FrameLayout>
-
-    <LinearLayout
-        android:id="@+id/lvl_1"
-        android:layout_width="400dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:background="@android:color/holo_blue_bright">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="org.schabi.newpipe.smartlook.SmartlookPlaygroundActivity">
 
         <FrameLayout
-            android:id="@+id/lvl_2"
-            android:layout_width="250dp"
-            android:layout_height="200dp"
-            android:background="@android:color/white">
+            android:id="@+id/top_frame"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
 
-            <FrameLayout
-                android:id="@+id/lvl_3"
-                android:layout_width="200dp"
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@color/audio_already_load_color" />
+
+            <LinearLayout
+                android:id="@+id/red_root"
+                android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:background="@android:color/holo_red_light">
+                android:background="@android:color/holo_red_dark"
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/lvl_4"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/buddy_channel_item" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="Super cool text" />
 
-            </FrameLayout>
+            </LinearLayout>
 
         </FrameLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lvl_1"
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:background="@android:color/holo_blue_bright">
 
-</LinearLayout>
+            <FrameLayout
+                android:id="@+id/lvl_2"
+                android:layout_width="250dp"
+                android:layout_height="200dp"
+                android:background="@android:color/white">
+
+                <FrameLayout
+                    android:id="@+id/lvl_3"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:background="@android:color/holo_red_light">
+
+                    <ImageView
+                        android:id="@+id/lvl_4"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/buddy_channel_item" />
+
+                </FrameLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
+        <EditText
+            android:textColor="@color/white"
+            android:text="Some confidential data!!!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+
+        <EditText
+            android:textColor="@color/white"
+            android:text="Some confidential data!!!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="125dp" />
+
+        <EditText
+            android:textColor="@color/white"
+            android:text="Some confidential data!!!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+    </LinearLayout>
+</ScrollView>
