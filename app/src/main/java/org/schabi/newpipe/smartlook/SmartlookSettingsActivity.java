@@ -35,6 +35,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
     private EditText apiKeyInput;
     private Switch debugSelectors;
     private Button goToPlayground;
+    private Switch runInExperimentalMode;
 
     private int lastSpinnerPosition;
 
@@ -58,6 +59,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
 
         setInitialServerSelection();
         setInitialDebugSelectorsSwitchSelection();
+        setInitialRunInExperimentalModeSelection();
         handleSpinner();
         handleReloadDefault();
         handleConfirm();
@@ -102,6 +104,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
         apiKeyInput = findViewById(R.id.smartlook_input_api_key);
         debugSelectors = findViewById(R.id.smartlook_debug_selectors_switch);
         goToPlayground = findViewById(R.id.smartlook_go_to_playground);
+        runInExperimentalMode = findViewById(R.id.smartlook_run_in_experimental_mode);
     }
 
     private void handleToolbar() {
@@ -119,6 +122,10 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
 
     private void setInitialDebugSelectorsSwitchSelection() {
         debugSelectors.setChecked(SmartlookPreferences.loadDebugSelectors(this));
+    }
+
+    private void setInitialRunInExperimentalModeSelection() {
+        runInExperimentalMode.setChecked(SmartlookPreferences.loadRunInExperimentalMode(this));
     }
 
     private void handleSpinner() {
@@ -151,6 +158,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
             SmartlookPreferences.storeServerSelection(this, server);
             storeApiKeys(server);
             SmartlookPreferences.storeDebugSelectors(this, debugSelectors.isChecked());
+            SmartlookPreferences.storeRunInExperimentalMode(this, runInExperimentalMode.isChecked());
 
             // let app settle before restart
             (new Handler()).postDelayed(this::doRestart, APP_SETTLE_DELAY);

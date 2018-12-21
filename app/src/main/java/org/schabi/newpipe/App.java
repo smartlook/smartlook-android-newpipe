@@ -109,12 +109,17 @@ public class App extends Application {
         int server = SmartlookPreferences.loadServerSelection(this);
         String apiKey = SmartlookPreferences.loadApiKey(this, server);
         boolean debugSelectors = SmartlookPreferences.loadDebugSelectors(this);
+        boolean runInExperimentalMode = SmartlookPreferences.loadRunInExperimentalMode(this);
 
-        Log.i("SmartlookInit", "Initialize smartlook: server=[" + new Server(server).getBaseRawUrl() + "] apiKey=[" + apiKey + "] debugSelectors=[" + debugSelectors + "]");
+        Log.i("SmartlookInit", "Initialize smartlook: " +
+                "server=[" + new Server(server).getBaseRawUrl() + "] " +
+                "apiKey=[" + apiKey + "] " +
+                "debugSelectors=[" + debugSelectors + "] " +
+                "runInExperimentalMode=[" + runInExperimentalMode + "]");
 
         Smartlook.changeServer(server);
         Smartlook.debugSelectors(debugSelectors);
-        Smartlook.init(apiKey);
+        Smartlook.init(apiKey, runInExperimentalMode);
     }
 
     protected Downloader getDownloader() {

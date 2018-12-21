@@ -533,6 +533,7 @@
     <string name="smartlook_api_key">Smartlook api key:</string>
     <string name="show_view_selector_on_click">Show View \"selector\" on click:</string>
     <string name="go_to_playground">Go to playground</string>
+    <string name="run_in_experimental_mode">Run in experimental mode</string>
 
     <string-array name="server_array">
         <item>Alfa (manager.alfa.smartlook.com)</item>

@@ -26,6 +26,9 @@ public class SmartlookPreferences {
     // Private preference key
     private static final String SMARTLOOK_SAMPLE_APP_PREFERENCES = "smartlook_sample_app_preferences";
 
+    // Run in experimental mode
+    private static final String SMARTLOOK_RUN_IN_EXPERIMENTAL_MODE = "smartlook_run_in_experimental_mode";
+
     public static int loadServerSelection(Context context) {
         return getSharedPreferences(context).getInt(SMARTLOOK_SERVER_PREFERENCE, Server.PRODUCTION);
     }
@@ -74,6 +77,18 @@ public class SmartlookPreferences {
                 .apply();
     }
 
+    public static void storeRunInExperimentalMode(Context context, boolean runInExperimentalMode) {
+        getSharedPreferences(context)
+                .edit()
+                .putBoolean(SMARTLOOK_RUN_IN_EXPERIMENTAL_MODE, runInExperimentalMode)
+                .apply();
+
+    }
+
+    public static boolean loadRunInExperimentalMode(Context context) {
+        return getSharedPreferences(context).getBoolean(SMARTLOOK_RUN_IN_EXPERIMENTAL_MODE, false);
+    }
+
     private static SharedPreferences getSharedPreferences(Context context) {
         return context.getSharedPreferences(SMARTLOOK_SAMPLE_APP_PREFERENCES, Context.MODE_PRIVATE);
     }
@@ -90,5 +105,4 @@ public class SmartlookPreferences {
 
         return null;
     }
-
 }
