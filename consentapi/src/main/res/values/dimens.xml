@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Consent dialog dimensions -->
+    <dimen name="consent_dialog_padding">16dp</dimen>
+    <dimen name="consent_dialog_title_text_size">24sp</dimen>
+
+
+    <!-- Consent item dimensions -->
+    <dimen name="consent_item_minimal_height">80dp</dimen>
+    <dimen name="consent_item_padding">8dp</dimen>
+    <dimen name="consent_item_text_horizontal_margin">8dp</dimen>
+    <dimen name="consent_item_link_icon_size">48dp</dimen>
+    <dimen name="consent_item_link_icon_padding">8dp</dimen>
+    <dimen name="consent_dialog_vertical_space">16dp</dimen>
+
+</resources>

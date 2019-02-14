@@ -119,7 +119,7 @@ public class App extends Application {
 
         Smartlook.changeServer(server);
         Smartlook.debugSelectors(debugSelectors);
-        Smartlook.init(apiKey, runInExperimentalMode);
+        Smartlook.init(apiKey, Smartlook.MEDIUM_QUALITY, runInExperimentalMode);
     }
 
     protected Downloader getDownloader() {
