@@ -12,7 +12,9 @@ class ConsentApi(context: Context) : ContextWrapper(context) {
 
     private val sharedPreferences = SharedPreferencesHelper(this)
 
-    fun getConsent(key: String) = sharedPreferences.loadBoolean(key)
+    fun loadConsent(key: String) = sharedPreferences.loadBoolean(key)
+
+    fun saveConsent(key: String, grantResult: Boolean) = sharedPreferences.saveBoolean(key, grantResult)
 
     fun showConsentDialog() = ConsentDialog(
             this,

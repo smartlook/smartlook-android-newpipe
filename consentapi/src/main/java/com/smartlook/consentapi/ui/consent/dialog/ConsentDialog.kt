@@ -81,13 +81,20 @@ class ConsentDialog(context: Context,
 
     private fun handleConfirmButton() {
         consent_dialog_confirm_button.setOnClickListener {
+            storeGrantResults()
             consentListener.onConsentResult(consentKeys, grantResults)
             dismiss()
         }
     }
 
+    private fun storeGrantResults() {
+        consentKeys.forEachIndexed { index, key ->
+            consentApi.saveConsent(key, grantResults[index])
+        }
+    }
+
     private fun obtainGrantResults(consentItems: Array<ConsentItem>) =
-            consentItems.map { consentApi.getConsent(it.key) }.toBooleanArray()
+            consentItems.map { consentApi.loadConsent(it.key) }.toBooleanArray()
 
     private fun obtainConsentKeys(consentItems: Array<ConsentItem>) =
             consentItems.map { it.key }.toTypedArray()
@@ -98,5 +105,4 @@ class ConsentDialog(context: Context,
             updateConfirmButton()
         }
     }
-
 }
