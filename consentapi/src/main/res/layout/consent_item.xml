@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
@@ -8,19 +7,15 @@
     android:orientation="horizontal"
     android:padding="@dimen/consent_item_padding">
 
-    <Switch
+    <com.smartlook.consentapi.ui.customViews.LeftSideSwitch
         android:id="@+id/consent_item_switch"
-        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/consent_item_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/consent_item_text_horizontal_margin"
-        android:layout_marginEnd="@dimen/consent_item_text_horizontal_margin"
-        android:layout_weight="1"
-        tools:text="Your typical long and boring consent item text. That should be correctly displayed to user" />
+    <Space
+        android:layout_width="@dimen/consent_item_horizontal_space"
+        android:layout_height="match_parent" />¨
 
     <ImageView
         android:id="@+id/consent_item_link"
