@@ -9,6 +9,7 @@ import android.view.WindowManager
 import com.smartlook.consentapi.ConsentApi
 import com.smartlook.consentapi.R
 import com.smartlook.consentapi.data.ConsentItem
+import com.smartlook.consentapi.helpers.UtilsHelper
 import com.smartlook.consentapi.listeners.ConsentItemListener
 import com.smartlook.consentapi.listeners.ConsentListener
 import com.smartlook.consentapi.ui.consent.ConsentItemAdapter
@@ -61,6 +62,7 @@ class ConsentDialog(context: Context,
         consentItems ?: return
 
         with(consent_dialog_recycler_view) {
+            UtilsHelper.addDividersToRecyclerView(this) //todo test this
             hasFixedSize()
             layoutManager = LinearLayoutManager(context)
             adapter = ConsentItemAdapter(context, grantResults, consentItems, createConsentItemListener())
