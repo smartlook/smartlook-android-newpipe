@@ -1,4 +1,4 @@
-package com.smartlook.consentapi;
+package com.smartlook.consentsdk;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

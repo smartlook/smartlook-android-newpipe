@@ -1,4 +1,4 @@
-package com.smartlook.consentapi.helpers
+package com.smartlook.consentsdk.helpers
 
 import android.content.Context
 import android.content.ContextWrapper

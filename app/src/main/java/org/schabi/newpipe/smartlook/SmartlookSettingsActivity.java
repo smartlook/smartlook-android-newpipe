@@ -18,9 +18,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 
-import com.smartlook.consentapi.ConsentApi;
-import com.smartlook.consentapi.data.Consent;
-import com.smartlook.consentapi.data.ConsentItem;
+import com.smartlook.consentsdk.ConsentApi;
+import com.smartlook.consentsdk.data.Consent;
+import com.smartlook.consentsdk.data.ConsentItem;
 import com.smartlook.sdk.smartlook.api.client.Server;
 
 import org.schabi.newpipe.R;

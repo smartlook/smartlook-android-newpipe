@@ -1,4 +1,4 @@
-package com.smartlook.consentapi.ui.customViews
+package com.smartlook.consentsdk.ui.customViews
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.CompoundButton
 import android.widget.LinearLayout
-import com.smartlook.consentapi.R
+import com.smartlook.consentsdk.R
 import kotlinx.android.synthetic.main.left_side_switch.view.*
 
 class LeftSideSwitch : LinearLayout {

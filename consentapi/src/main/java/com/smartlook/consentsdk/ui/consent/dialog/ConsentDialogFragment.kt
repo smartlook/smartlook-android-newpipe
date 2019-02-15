@@ -1,11 +1,11 @@
-package com.smartlook.consentapi.ui.consent.dialog
+package com.smartlook.consentsdk.ui.consent.dialog
 
 import android.app.Dialog
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.support.v4.app.FragmentActivity
-import com.smartlook.consentapi.data.Consent
-import com.smartlook.consentapi.listeners.ConsentListener
+import com.smartlook.consentsdk.data.Consent
+import com.smartlook.consentsdk.listeners.ConsentListener
 import java.security.InvalidParameterException
 
 class ConsentDialogFragment : DialogFragment() {

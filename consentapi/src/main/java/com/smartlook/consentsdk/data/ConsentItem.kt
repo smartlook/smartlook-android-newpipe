@@ -1,4 +1,4 @@
-package com.smartlook.consentapi.data
+package com.smartlook.consentsdk.data
 
 import java.io.Serializable
 

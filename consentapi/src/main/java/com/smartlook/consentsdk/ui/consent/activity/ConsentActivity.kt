@@ -1,12 +1,12 @@
-package com.smartlook.consentapi.ui.consent.activity
+package com.smartlook.consentsdk.ui.consent.activity
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.smartlook.consentapi.R
-import com.smartlook.consentapi.data.Consent
-import com.smartlook.consentapi.ui.consent.ConsentBase
+import com.smartlook.consentsdk.R
+import com.smartlook.consentsdk.data.Consent
+import com.smartlook.consentsdk.ui.consent.ConsentBase
 import kotlinx.android.synthetic.main.consent_dialog.*
 import java.security.InvalidParameterException
 

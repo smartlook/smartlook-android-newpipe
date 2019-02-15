@@ -1,16 +1,16 @@
-package com.smartlook.consentapi.ui.consent
+package com.smartlook.consentsdk.ui.consent
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import com.smartlook.consentapi.ConsentApi
-import com.smartlook.consentapi.R
-import com.smartlook.consentapi.data.Consent
-import com.smartlook.consentapi.data.ConsentItem
-import com.smartlook.consentapi.helpers.UtilsHelper
-import com.smartlook.consentapi.listeners.ConsentItemListener
+import com.smartlook.consentsdk.ConsentApi
+import com.smartlook.consentsdk.R
+import com.smartlook.consentsdk.data.Consent
+import com.smartlook.consentsdk.data.ConsentItem
+import com.smartlook.consentsdk.helpers.UtilsHelper
+import com.smartlook.consentsdk.listeners.ConsentItemListener
 
 class ConsentBase(private val consent: Consent,
                   rootView: View,

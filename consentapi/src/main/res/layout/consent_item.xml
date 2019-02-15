@@ -7,7 +7,7 @@
     android:orientation="horizontal"
     android:padding="@dimen/consent_item_padding">
 
-    <com.smartlook.consentapi.ui.customViews.LeftSideSwitch
+    <com.smartlook.consentsdk.ui.customViews.LeftSideSwitch
         android:id="@+id/consent_item_switch"
         android:layout_weight="1"
         android:layout_width="0dp"

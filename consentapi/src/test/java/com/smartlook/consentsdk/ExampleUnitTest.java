@@ -1,4 +1,4 @@
-package com.smartlook.consentapi;
+package com.smartlook.consentsdk;
 
 import org.junit.Test;
 

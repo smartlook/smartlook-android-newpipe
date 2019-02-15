@@ -1,14 +1,14 @@
-package com.smartlook.consentapi.ui.consent.dialog
+package com.smartlook.consentsdk.ui.consent.dialog
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
-import com.smartlook.consentapi.R
-import com.smartlook.consentapi.data.Consent
-import com.smartlook.consentapi.listeners.ConsentListener
-import com.smartlook.consentapi.ui.consent.ConsentBase
+import com.smartlook.consentsdk.R
+import com.smartlook.consentsdk.data.Consent
+import com.smartlook.consentsdk.listeners.ConsentListener
+import com.smartlook.consentsdk.ui.consent.ConsentBase
 import kotlinx.android.synthetic.main.consent_dialog.*
 
 //todo make all text Spannable so they can be formated

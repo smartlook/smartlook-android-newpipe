@@ -1,15 +1,15 @@
-package com.smartlook.consentapi
+package com.smartlook.consentsdk
 
 import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
 import android.support.v4.app.FragmentActivity
-import com.smartlook.consentapi.data.Consent
-import com.smartlook.consentapi.helpers.SharedPreferencesHelper
-import com.smartlook.consentapi.listeners.ConsentListener
-import com.smartlook.consentapi.ui.consent.activity.ConsentActivity
-import com.smartlook.consentapi.ui.consent.dialog.ConsentDialog
-import com.smartlook.consentapi.ui.consent.dialog.ConsentDialogFragment
+import com.smartlook.consentsdk.data.Consent
+import com.smartlook.consentsdk.helpers.SharedPreferencesHelper
+import com.smartlook.consentsdk.listeners.ConsentListener
+import com.smartlook.consentsdk.ui.consent.activity.ConsentActivity
+import com.smartlook.consentsdk.ui.consent.dialog.ConsentDialog
+import com.smartlook.consentsdk.ui.consent.dialog.ConsentDialogFragment
 
 class ConsentApi(context: Context) : ContextWrapper(context) {
 

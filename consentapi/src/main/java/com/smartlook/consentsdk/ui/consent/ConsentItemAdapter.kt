@@ -1,4 +1,4 @@
-package com.smartlook.consentapi.ui.consent
+package com.smartlook.consentsdk.ui.consent
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
-import com.smartlook.consentapi.R
-import com.smartlook.consentapi.data.ConsentItem
-import com.smartlook.consentapi.helpers.UtilsHelper
-import com.smartlook.consentapi.listeners.ConsentItemListener
+import com.smartlook.consentsdk.R
+import com.smartlook.consentsdk.data.ConsentItem
+import com.smartlook.consentsdk.helpers.UtilsHelper
+import com.smartlook.consentsdk.listeners.ConsentItemListener
 import kotlinx.android.synthetic.main.consent_item.view.*
 
 
