@@ -15,8 +15,7 @@ object UtilsHelper {
     }
 
     fun addDividersToRecyclerView(recyclerView: RecyclerView,
-                                  orientation: Int = DividerItemDecoration.HORIZONTAL) {
-
+                                  orientation: Int = DividerItemDecoration.VERTICAL) {
         DividerItemDecoration(recyclerView.context, orientation).let {
             recyclerView.addItemDecoration(it)
         }

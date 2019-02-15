@@ -3,29 +3,21 @@ package com.smartlook.consentapi.ui.consent.dialog
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.view.Window
 import android.view.WindowManager
-import com.smartlook.consentapi.ConsentApi
 import com.smartlook.consentapi.R
 import com.smartlook.consentapi.data.ConsentItem
-import com.smartlook.consentapi.helpers.UtilsHelper
-import com.smartlook.consentapi.listeners.ConsentItemListener
 import com.smartlook.consentapi.listeners.ConsentListener
-import com.smartlook.consentapi.ui.consent.ConsentItemAdapter
+import com.smartlook.consentapi.ui.consent.ConsentBase
 import kotlinx.android.synthetic.main.consent_dialog.*
 
 //todo make all text Spannable so they can be formated
 class ConsentDialog(context: Context,
-                    private val consentApi: ConsentApi,
                     private val title: String,
                     private val text: String,
                     private val confirmButtonText: String,
                     private val consentItems: Array<ConsentItem>?,
                     private val consentListener: ConsentListener) : Dialog(context) {
-
-    private val consentKeys = obtainConsentKeys(consentItems ?: arrayOf())
-    private val grantResults = obtainGrantResults(consentItems ?: arrayOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,11 +25,13 @@ class ConsentDialog(context: Context,
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.consent_dialog)
 
-        displayDialogData()
-        displayConsentItems()
+        with(ConsentBase(consentItems, root, createResultListener())) {
+            displayTexts(title, text, confirmButtonText)
+            displayConsentItems()
 
-        updateConfirmButton()
-        handleConfirmButton()
+            updateConfirmButton()
+            handleConfirmButton()
+        }
     }
 
     override fun show() {
@@ -51,60 +45,12 @@ class ConsentDialog(context: Context,
         }
     }
 
-    private fun displayDialogData() {
-        consent_dialog_title_text.text = title
-        consent_dialog_text.text = text
-        consent_dialog_confirm_button.text = confirmButtonText
-    }
-
-    // recycler view should have nested scroll
-    private fun displayConsentItems() {
-        consentItems ?: return
-
-        with(consent_dialog_recycler_view) {
-            UtilsHelper.addDividersToRecyclerView(this) //todo test this
-            hasFixedSize()
-            layoutManager = LinearLayoutManager(context)
-            adapter = ConsentItemAdapter(context, grantResults, consentItems, createConsentItemListener())
-        }
-    }
-
-    private fun updateConfirmButton() {
-        var enable = true
-
-        consentItems?.forEachIndexed { index, item ->
-            if (item.required && !grantResults[index]) {
-                enable = false
+    private fun createResultListener(): ConsentBase.ResultListener {
+        return object : ConsentBase.ResultListener {
+            override fun onResult(consentKeys: Array<String>, grantResults: BooleanArray) {
+                dismiss()
+                consentListener.onConsentResult(consentKeys, grantResults)
             }
-        }
-
-        consent_dialog_confirm_button.isEnabled = enable
-    }
-
-    private fun handleConfirmButton() {
-        consent_dialog_confirm_button.setOnClickListener {
-            storeGrantResults()
-            consentListener.onConsentResult(consentKeys, grantResults)
-            dismiss()
-        }
-    }
-
-    private fun storeGrantResults() {
-        consentKeys.forEachIndexed { index, key ->
-            consentApi.saveConsent(key, grantResults[index])
-        }
-    }
-
-    private fun obtainGrantResults(consentItems: Array<ConsentItem>) =
-            consentItems.map { consentApi.loadConsent(it.key) }.toBooleanArray()
-
-    private fun obtainConsentKeys(consentItems: Array<ConsentItem>) =
-            consentItems.map { it.key }.toTypedArray()
-
-    private fun createConsentItemListener() = object : ConsentItemListener {
-        override fun onConsentChange(itemIndex: Int, consent: Boolean) {
-            grantResults[itemIndex] = consent
-            updateConfirmButton()
         }
     }
 }

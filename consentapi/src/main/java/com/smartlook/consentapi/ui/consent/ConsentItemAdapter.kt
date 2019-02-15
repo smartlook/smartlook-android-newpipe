@@ -38,8 +38,8 @@ class ConsentItemAdapter(private val context: Context,
                 consent_item_switch.text = consentItem.text
                 consent_item_switch.isChecked = grantResult
 
-                UtilsHelper.hideViewIfNull(consentItem.linkListener, consent_item_link)
-                consent_item_link.setOnClickListener(consentItem.linkListener)
+                UtilsHelper.hideViewIfNull(consentItem.link, consent_item_link)
+                //todo handle link opening
             }
         }
 

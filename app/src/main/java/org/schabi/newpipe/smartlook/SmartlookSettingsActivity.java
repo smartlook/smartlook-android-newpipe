@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 
+import com.smartlook.consentapi.ConsentApi;
 import com.smartlook.sdk.smartlook.api.client.Server;
 
 import org.schabi.newpipe.R;
@@ -167,7 +168,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
 
     private void handleGoToPlayground() {
         goToPlayground.setOnClickListener(v ->
-                startActivity(new Intent(this, SmartlookPlaygroundActivity.class)));
+                new ConsentApi(this).startConsentActivity(this));
     }
 
     private void displayActualServerApiKey(int server) {
