@@ -11,7 +11,7 @@ import com.smartlook.consentsdk.ui.consent.activity.ConsentActivity
 import com.smartlook.consentsdk.ui.consent.dialog.ConsentDialog
 import com.smartlook.consentsdk.ui.consent.dialog.ConsentDialogFragment
 
-class ConsentApi(context: Context) : ContextWrapper(context) {
+class ConsentSDK(context: Context) : ContextWrapper(context) {
 
     private val sharedPreferences = SharedPreferencesHelper(this)
 

@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import com.smartlook.consentsdk.ConsentApi
+import com.smartlook.consentsdk.ConsentSDK
 import com.smartlook.consentsdk.R
 import com.smartlook.consentsdk.data.Consent
 import com.smartlook.consentsdk.data.ConsentItem
@@ -17,7 +17,7 @@ class ConsentBase(private val consent: Consent,
                   private val resultListener: ResultListener,
                   grantResults: BooleanArray? = null) {
 
-    private val consentApi = ConsentApi(rootView.context)
+    private val consentApi = ConsentSDK(rootView.context)
     private lateinit var consentItemAdapter: ConsentItemAdapter
 
     var consentKeys: Array<String>

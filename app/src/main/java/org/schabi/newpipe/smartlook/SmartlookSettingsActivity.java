@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 
-import com.smartlook.consentsdk.ConsentApi;
+import com.smartlook.consentsdk.ConsentSDK;
 import com.smartlook.consentsdk.data.Consent;
 import com.smartlook.consentsdk.data.ConsentItem;
 import com.smartlook.sdk.smartlook.api.client.Server;
@@ -176,7 +176,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
                     new ConsentItem("SDK_CONSENT", false, "I agree to play for free and that my personal data is collected via the SDK tools build into the application.", "https://www.nplix.com/kotlin-parcelable-array-objects/")
             };
 
-            new ConsentApi(SmartlookSettingsActivity.this).showConsentDialogFragment(
+            new ConsentSDK(SmartlookSettingsActivity.this).showConsentDialogFragment(
                     SmartlookSettingsActivity.this,
                     new Consent(
                             "Consent api dialog",
