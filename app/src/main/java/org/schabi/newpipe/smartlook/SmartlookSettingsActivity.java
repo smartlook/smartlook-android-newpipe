@@ -19,6 +19,8 @@ import android.widget.Spinner;
 import android.widget.Switch;
 
 import com.smartlook.consentapi.ConsentApi;
+import com.smartlook.consentapi.data.Consent;
+import com.smartlook.consentapi.data.ConsentItem;
 import com.smartlook.sdk.smartlook.api.client.Server;
 
 import org.schabi.newpipe.R;
@@ -167,8 +169,21 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
     }
 
     private void handleGoToPlayground() {
-        goToPlayground.setOnClickListener(v ->
-                new ConsentApi(this).startConsentActivity(this));
+        goToPlayground.setOnClickListener(v -> {
+
+            ConsentItem[] consentItems = {
+                    new ConsentItem("AGE_CONSENT", true, "I certify that I'm over the age of fifteen, have read, understood adn accepted Privacy Policy.", null),
+                    new ConsentItem("SDK_CONSENT", false, "I agree to play for free and that my personal data is collected via the SDK tools build into the application.", "https://www.nplix.com/kotlin-parcelable-array-objects/")
+            };
+
+            new ConsentApi(SmartlookSettingsActivity.this).showConsentDialogFragment(
+                    SmartlookSettingsActivity.this,
+                    new Consent(
+                            "Consent api dialog",
+                            "Curabitur sagittis hendrerit ante. Aenean fermentum risus id tortor. Integer in sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Aliquam ornare wisi eu metus. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam.",
+                            "This is my will",
+                            consentItems));
+        });
     }
 
     private void displayActualServerApiKey(int server) {

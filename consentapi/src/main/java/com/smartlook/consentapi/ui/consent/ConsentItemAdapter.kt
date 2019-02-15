@@ -40,7 +40,9 @@ class ConsentItemAdapter(private val context: Context,
                 consent_item_switch.isChecked = grantResult
 
                 UtilsHelper.hideViewIfNull(consentItem.link, consent_item_link)
-                //todo handle link opening
+                consent_item_link.setOnClickListener {
+                    UtilsHelper.openLink(context, consentItem.link ?: return@setOnClickListener)
+                }
             }
         }
 

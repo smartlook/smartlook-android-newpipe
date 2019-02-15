@@ -6,17 +6,14 @@ import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
 import com.smartlook.consentapi.R
-import com.smartlook.consentapi.data.ConsentItem
+import com.smartlook.consentapi.data.Consent
 import com.smartlook.consentapi.listeners.ConsentListener
 import com.smartlook.consentapi.ui.consent.ConsentBase
 import kotlinx.android.synthetic.main.consent_dialog.*
 
 //todo make all text Spannable so they can be formated
 class ConsentDialog(context: Context,
-                    private val title: String,
-                    private val text: String,
-                    private val confirmButtonText: String,
-                    private val consentItems: Array<ConsentItem>?,
+                    private val consent: Consent,
                     private val consentListener: ConsentListener) : Dialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,13 +22,7 @@ class ConsentDialog(context: Context,
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.consent_dialog)
 
-        with(ConsentBase(consentItems, root, createResultListener())) {
-            displayTexts(title, text, confirmButtonText)
-            displayConsentItems()
-
-            updateConfirmButton()
-            handleConfirmButton()
-        }
+        ConsentBase(consent, root, createResultListener()).displayConsent()
     }
 
     override fun show() {

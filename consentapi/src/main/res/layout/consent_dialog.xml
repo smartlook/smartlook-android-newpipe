@@ -8,7 +8,7 @@
     android:padding="@dimen/consent_dialog_padding">
 
     <TextView
-        android:id="@+id/consent_title_text"
+        android:id="@+id/consent_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/consent_dialog_title_text_color"
@@ -20,7 +20,7 @@
         android:layout_height="@dimen/consent_dialog_vertical_space" />
 
     <TextView
-        android:id="@+id/consent_text"
+        android:id="@+id/consent_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
