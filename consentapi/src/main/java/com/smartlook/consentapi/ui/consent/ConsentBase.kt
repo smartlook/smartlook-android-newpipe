@@ -13,17 +13,26 @@ import com.smartlook.consentapi.listeners.ConsentItemListener
 
 class ConsentBase(private val consentItems: Array<ConsentItem>?,
                   rootView: View,
-                  private val resultListener: ResultListener) {
+                  private val resultListener: ResultListener,
+                  consentKeys: Array<String>? = null,
+                  grantResults: BooleanArray? = null) {
 
     private val consentApi = ConsentApi(rootView.context)
-    private val consentKeys = obtainConsentKeys(consentItems ?: arrayOf())
-    private val grantResults = obtainGrantResults(consentItems ?: arrayOf())
+    private lateinit var consentItemAdapter: ConsentItemAdapter
+
+    var consentKeys: Array<String>
+    var grantResults: BooleanArray
 
     // We are doing it oldschool because it works for both dialog and activity
     private val tvTitle = rootView.findViewById<TextView>(R.id.consent_title_text)
     private val tvText = rootView.findViewById<TextView>(R.id.consent_text)
     private val rvConsentItems = rootView.findViewById<RecyclerView>(R.id.consent_recycler_view)
     private val bConfirm = rootView.findViewById<Button>(R.id.consent_confirm_button)
+
+    init {
+        this.consentKeys = consentKeys ?: obtainConsentKeys(consentItems ?: arrayOf())
+        this.grantResults = grantResults ?: obtainGrantResults(consentItems ?: arrayOf())
+    }
 
     fun displayTexts(title: String, text: String, confirmButton: String) {
         tvTitle.text = title
@@ -36,10 +45,11 @@ class ConsentBase(private val consentItems: Array<ConsentItem>?,
         consentItems ?: return
 
         with(rvConsentItems) {
-            UtilsHelper.addDividersToRecyclerView(this) //todo test this
+            consentItemAdapter = ConsentItemAdapter(context, grantResults, consentItems, createConsentItemListener())
+            UtilsHelper.addDividersToRecyclerView(this)
             hasFixedSize()
             layoutManager = LinearLayoutManager(context)
-            adapter = ConsentItemAdapter(context, grantResults, consentItems, createConsentItemListener())
+            adapter = consentItemAdapter
         }
     }
 

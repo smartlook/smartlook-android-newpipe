@@ -12,8 +12,9 @@ import com.smartlook.consentapi.helpers.UtilsHelper
 import com.smartlook.consentapi.listeners.ConsentItemListener
 import kotlinx.android.synthetic.main.consent_item.view.*
 
+
 class ConsentItemAdapter(private val context: Context,
-                         private val grantResults: BooleanArray,
+                         private var grantResults: BooleanArray,
                          private val consentItems: Array<ConsentItem>,
                          private val consentItemListener: ConsentItemListener) : RecyclerView.Adapter<ConsentItemAdapter.ConsentItemVH>() {
 

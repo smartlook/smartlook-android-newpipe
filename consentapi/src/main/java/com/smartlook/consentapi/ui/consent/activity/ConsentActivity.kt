@@ -25,15 +25,22 @@ class ConsentActivity : AppCompatActivity() {
     private lateinit var title: String
     private lateinit var text: String
     private lateinit var confirmButtonText: String
+
     private var consentItems: Array<ConsentItem>? = null
+    private lateinit var consentBase: ConsentBase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.consent_activity)
-
         parseOutExtras(intent.extras)
 
-        with(ConsentBase(consentItems, root, createResultListener())) {
+        consentBase = ConsentBase(
+                consentItems,
+                root,
+                createResultListener(),
+                grantResults = restoreGrantResults(savedInstanceState))
+
+        with(consentBase) {
             displayTexts(title, text, confirmButtonText)
             displayConsentItems()
 
@@ -47,6 +54,12 @@ class ConsentActivity : AppCompatActivity() {
         finish()
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putBooleanArray(GRANT_RESULTS_EXTRA, consentBase.grantResults)
+    }
+
     private fun parseOutExtras(extras: Bundle?) {
         with(extras ?: throw InvalidParameterException()) {
             title = getString(TITLE_EXTRA) ?: ""
@@ -56,6 +69,13 @@ class ConsentActivity : AppCompatActivity() {
         }
     }
 
+    private fun restoreGrantResults(savedInstanceState: Bundle?): BooleanArray? {
+        return if (savedInstanceState == null || !savedInstanceState.containsKey(GRANT_RESULTS_EXTRA)) {
+            null
+        } else {
+            savedInstanceState.getBooleanArray(GRANT_RESULTS_EXTRA)
+        }
+    }
 
     private fun createResultListener(): ConsentBase.ResultListener {
         return object : ConsentBase.ResultListener {
