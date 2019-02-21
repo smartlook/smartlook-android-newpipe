@@ -1,5 +1,6 @@
 package org.schabi.newpipe;
 
+import android.annotation.TargetApi;
 import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -66,6 +67,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 public class App extends Application {
     protected static final String TAG = App.class.toString();
     private RefWatcher refWatcher;
+    private static App app;
 
     @SuppressWarnings("unchecked")
     private static final Class<? extends ReportSenderFactory>[]
@@ -89,6 +91,8 @@ public class App extends Application {
         }
         refWatcher = installLeakCanary();
 
+        app = this;
+
         // Initialize settings first because others inits can use its values
         SettingsActivity.initSettings(this);
 
@@ -101,6 +105,10 @@ public class App extends Application {
         ImageLoader.getInstance().init(getImageLoaderConfigurations(10, 50));
 
         configureRxJavaErrorHandler();
+
+
+        // Check for new version
+        new CheckForNewAppVersionTask().execute();
 
         smartlookInit();
     }
@@ -119,7 +127,7 @@ public class App extends Application {
 
         Smartlook.changeServer(server);
         Smartlook.debugSelectors(debugSelectors);
-        Smartlook.init(apiKey, runInExperimentalMode);
+        Smartlook.init(apiKey, Smartlook.MEDIUM_QUALITY, runInExperimentalMode);
     }
 
     protected Downloader getDownloader() {
@@ -231,6 +239,31 @@ public class App extends Application {
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.createNotificationChannel(mChannel);
+
+        setUpUpdateNotificationChannel(importance);
+    }
+
+    /**
+     * Set up notification channel for app update.
+     * @param importance
+     */
+    @TargetApi(Build.VERSION_CODES.O)
+    private void setUpUpdateNotificationChannel(int importance) {
+
+        final String appUpdateId
+                = getString(R.string.app_update_notification_channel_id);
+        final CharSequence appUpdateName
+                = getString(R.string.app_update_notification_channel_name);
+        final String appUpdateDescription
+                = getString(R.string.app_update_notification_channel_description);
+
+        NotificationChannel appUpdateChannel
+                = new NotificationChannel(appUpdateId, appUpdateName, importance);
+        appUpdateChannel.setDescription(appUpdateDescription);
+
+        NotificationManager appUpdateNotificationManager
+                = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        appUpdateNotificationManager.createNotificationChannel(appUpdateChannel);
     }
 
     @Nullable
@@ -245,5 +278,9 @@ public class App extends Application {
 
     protected boolean isDisposedRxExceptionsReported() {
         return false;
+    }
+
+    public static App getApp() {
+        return app;
     }
 }
