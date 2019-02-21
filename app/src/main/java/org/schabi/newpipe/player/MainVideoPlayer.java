@@ -903,7 +903,7 @@ public final class MainVideoPlayer extends AppCompatActivity
 
                 @Override
                 public void onSwiped(int index) {
-                    if(index != -1) playQueue.remove(index);
+                    if (index != -1) playQueue.remove(index);
                 }
             };
         }

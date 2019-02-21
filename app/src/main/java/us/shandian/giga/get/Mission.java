@@ -2,7 +2,6 @@ package us.shandian.giga.get;
 
 import java.io.File;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public abstract class Mission implements Serializable {

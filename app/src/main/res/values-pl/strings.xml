@@ -292,7 +292,7 @@
     <string name="start_here_on_main">Zacznij odtwarzać tutaj</string>
     <string name="start_here_on_background">Odtwórz w tle</string>
     <string name="start_here_on_popup">Zacznij tutaj w nowym wyskakującym okienku</string>
-<string name="no_player_found_toast">Nie znaleziono odtwarzacza strumieniowego (żeby odtworzyć, możesz zainstalować VLC).</string>
+    <string name="no_player_found_toast">Nie znaleziono odtwarzacza strumieniowego (żeby odtworzyć, możesz zainstalować VLC).</string>
     <string name="default_content_country_title">Domyślny kraj zawartości</string>
     <string name="service_title">Usługa</string>
     <string name="always">Zawsze</string>
@@ -310,7 +310,7 @@
     
     <string name="preferred_player_fetcher_notification_title">Informacje…</string>
     <string name="preferred_player_fetcher_notification_message">Ładowanie żądanej zawartości</string>
-<string name="controls_download_desc">Pobierz plik strumienia</string>
+    <string name="controls_download_desc">Pobierz plik strumienia</string>
     <string name="show_info">Pokaż informacje</string>
 
     <string name="controls_add_to_playlist_title">Dodaj do</string>
@@ -351,7 +351,7 @@
 
     <string name="popup_player">Odtwarzacz w okienku</string>
     <string name="always_ask_open_action">Zawsze pytaj</string>
-    
+
     <string name="create_playlist">Nowa playlista</string>
     <string name="delete_playlist">Usuń</string>
     <string name="rename_playlist">Zmień</string>

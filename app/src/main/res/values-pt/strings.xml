@@ -165,7 +165,7 @@
     <string name="popup_remember_size_pos_summary">Lembrar último tamanho e posição do \'popup\'</string>
 
     <string name="popup_resizing_indicator_title">Redimensionar</string>
-<string name="player_gesture_controls_title">Controlo de reprodução por gestos</string>
+    <string name="player_gesture_controls_title">Controlo de reprodução por gestos</string>
     <string name="player_gesture_controls_summary">Usar gestos para controlar o brilho e o volume do reprodutor</string>
     <string name="show_search_suggestions_title">Sugestões de pesquisa</string>
     <string name="show_search_suggestions_summary">Mostrar sugestões ao pesquisar</string>
@@ -219,8 +219,8 @@
 
     <string name="no_subscribers">Sem subscritores</string>
     <plurals name="subscribers">
-	<item quantity="one">%s subscritor</item>
-	<item quantity="other">%s subscritores</item>
+        <item quantity="one">%s subscritor</item>
+        <item quantity="other">%s subscritores</item>
 </plurals>
 
     <string name="no_views">Sem visualizações</string>
@@ -411,7 +411,7 @@
 
     <string name="playback_speed_control">Controlos para velocidade de reprodução</string>
     <string name="playback_tempo">Ritmo</string>
-<string name="clear_views_history_title">Limpar histórico de visualizações</string>
+    <string name="clear_views_history_title">Limpar histórico de visualizações</string>
     <string name="auto_queue_summary">Adicionar automaticamente à fila uma emissão relacionada se em filas não repetíveis.</string>
     <string name="show_hold_to_append_title">Mostrar dica \"Toque longo para colocar na fila\"</string>
     <string name="show_hold_to_append_summary">Mostrar dica quando o botão de fundo ou de \'popup\' for premido na página de detalhes do vídeo</string>

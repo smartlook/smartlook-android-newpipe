@@ -458,6 +458,6 @@
     <string name="minimize_on_exit_background_description">Esita taustal</string>
     <string name="minimize_on_exit_popup_description">Minimeeri hüpikpleierisse</string>
 
-<string name="enable_disposed_exceptions_summary">Jõusta väljaspool fragmenti või elutsüklit olevate kättetoimetamatute Rx erindite raporteerimine nende vabastamise järgselt</string>
+    <string name="enable_disposed_exceptions_summary">Jõusta väljaspool fragmenti või elutsüklit olevate kättetoimetamatute Rx erindite raporteerimine nende vabastamise järgselt</string>
 
-    </resources>
+</resources>

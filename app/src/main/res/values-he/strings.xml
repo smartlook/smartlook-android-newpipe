@@ -190,10 +190,10 @@
 
     <string name="no_videos">אין סרטונים</string>
     <plurals name="videos">
-    <item quantity="one">סרטון אחד</item>
-    <item quantity="two">שני סרטונים</item>
-    <item quantity="many">%s סרטונים</item>
-    <item quantity="other">%s סרטונים</item>
+        <item quantity="one">סרטון אחד</item>
+        <item quantity="two">שני סרטונים</item>
+        <item quantity="many">%s סרטונים</item>
+        <item quantity="other">%s סרטונים</item>
 </plurals>
 
     <string name="start">התחל</string>
@@ -289,7 +289,7 @@
     <string name="start_here_on_main">התחל לנגן כאן</string>
     <string name="start_here_on_background">התחל כאן בנגן הרקע</string>
     <string name="start_here_on_popup">התחל כאן בנגן הצץ</string>
-<string name="controls_download_desc">הורד קובץ הזרמה</string>
+    <string name="controls_download_desc">הורד קובץ הזרמה</string>
     <string name="show_info">הצג מידע</string>
 
     <string name="tab_bookmarks">רשימות השמעה מסומנות</string>

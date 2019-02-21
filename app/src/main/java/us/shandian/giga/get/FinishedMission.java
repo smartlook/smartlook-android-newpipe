@@ -1,6 +1,6 @@
 package us.shandian.giga.get;
 
-public class FinishedMission extends  Mission {
+public class FinishedMission extends Mission {
 
     public FinishedMission() {
     }

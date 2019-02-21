@@ -18,13 +18,9 @@ import org.json.JSONObject;
 import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateEncodingException;
@@ -35,7 +31,6 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
@@ -115,7 +110,7 @@ public class CheckForNewAppVersionTask extends AsyncTask<Void, Void, String> {
             } catch (JSONException ex) {
                 ErrorActivity.reportError(app, ex, null, null,
                         ErrorActivity.ErrorInfo.make(UserAction.SOMETHING_ELSE, "none",
-                        "could not parse app update JSON data", R.string.app_ui_crash));
+                                "could not parse app update JSON data", R.string.app_ui_crash));
             }
         }
     }
@@ -123,6 +118,7 @@ public class CheckForNewAppVersionTask extends AsyncTask<Void, Void, String> {
     /**
      * Method to compare the current and latest available app version.
      * If a newer version is available, we show the update notification.
+     *
      * @param versionName
      * @param apkLocationUrl
      */

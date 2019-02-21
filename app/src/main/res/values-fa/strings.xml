@@ -119,7 +119,7 @@
     <string name="msg_copied">در حافظه رونوشت شد.</string>
     <string name="no_available_dir">لطفاً یک شاخهٔ بارگیری موجود را برگزینید.</string>
 
-<string name="no_player_found_toast">هیچ پخش کننده جریانی پیدا نشد (شما می‌توانید برنامه وی‌ال‌سی را برای پخش آن نصب کنید).</string>
+    <string name="no_player_found_toast">هیچ پخش کننده جریانی پیدا نشد (شما می‌توانید برنامه وی‌ال‌سی را برای پخش آن نصب کنید).</string>
     <string name="controls_download_desc">بارگیری پرونده جریان.</string>
     <string name="use_external_video_player_summary">هنگامی که این گزینه فعال باشد، برخی از کیفیت‌ها فاقد صدا خواهند بود</string>
     <string name="subscribe_button_title">اشتراک</string>
@@ -219,21 +219,21 @@
     <string name="short_billion">B</string>
 
     <plurals name="subscribers">
-	<item quantity="one">%s مشترک</item>
-	<item quantity="other">%s مشترک</item>
-</plurals>
+        <item quantity="one">%s مشترک</item>
+        <item quantity="other">%s مشترک</item>
+    </plurals>
 
     <string name="no_views">بدون بازدید</string>
     <plurals name="views">
-	<item quantity="one">%s بازدید</item>
-	<item quantity="other">%s بازدید</item>
-</plurals>
+        <item quantity="one">%s بازدید</item>
+        <item quantity="other">%s بازدید</item>
+    </plurals>
 
     <string name="no_videos">بدون ویدئو</string>
     <plurals name="videos">
-	<item quantity="one">%s ویدئو</item>
-	<item quantity="other">%s ویدئو</item>
-</plurals>
+        <item quantity="one">%s ویدئو</item>
+        <item quantity="other">%s ویدئو</item>
+    </plurals>
 
     <string name="create">ایجاد</string>
     <string name="delete_one">پاک کردن یک مورد</string>

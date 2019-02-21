@@ -1,15 +1,13 @@
 package org.schabi.newpipe.streams;
 
+import org.schabi.newpipe.streams.io.SharpStream;
+
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
-import java.util.Objects;
-
-import org.schabi.newpipe.streams.io.SharpStream;
 
 /**
- *
  * @author kapodamy
  */
 public class WebMReader {
@@ -306,7 +304,7 @@ public class WebMReader {
                         entry.trackNumber = readNumber(elem);
                         break;
                     case ID_TrackType:
-                        entry.trackType = (int)readNumber(elem);
+                        entry.trackType = (int) readNumber(elem);
                         break;
                     case ID_CodecID:
                         entry.codecId = readString(elem);

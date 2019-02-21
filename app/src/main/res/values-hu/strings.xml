@@ -432,8 +432,8 @@
     <string name="minimize_on_exit_background_description">Lejátszás folytatása a háttérben</string>
     <string name="minimize_on_exit_popup_description">Lejátszás folytatása felugró ablakban</string>
 
-<string name="resume_on_audio_focus_gain_title">Lejátszás folytatása a fókusz visszaszerzésekor</string>
+    <string name="resume_on_audio_focus_gain_title">Lejátszás folytatása a fókusz visszaszerzésekor</string>
     <string name="show_hold_to_append_title">Mutassa a \"Tartsa lenyomva a hozzáadáshoz\" tippet</string>
     <string name="background_player_append">Sorba állítva a háttérben lejátszáshoz</string>
     <string name="toggle_orientation">Elforgatás</string>
-    </resources>
+</resources>

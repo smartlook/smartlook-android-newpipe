@@ -88,7 +88,7 @@ public class DownloadActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRestoreInstanceState(Bundle inState){
+    public void onRestoreInstanceState(Bundle inState) {
         super.onRestoreInstanceState(inState);
     }
 }

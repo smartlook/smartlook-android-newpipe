@@ -14,6 +14,7 @@ import java.io.InputStream;
 
 /**
  * Wrapper for the classic {@link java.io.InputStream}
+ *
  * @author kapodamy
  */
 public class SharpInputStream extends InputStream {

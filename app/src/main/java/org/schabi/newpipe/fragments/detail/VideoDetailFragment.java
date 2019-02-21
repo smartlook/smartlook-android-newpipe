@@ -63,7 +63,6 @@ import org.schabi.newpipe.extractor.stream.Stream;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.extractor.stream.StreamType;
-import org.schabi.newpipe.extractor.stream.SubtitlesStream;
 import org.schabi.newpipe.extractor.stream.VideoStream;
 import org.schabi.newpipe.fragments.BackPressable;
 import org.schabi.newpipe.fragments.BaseStateFragment;
@@ -73,7 +72,6 @@ import org.schabi.newpipe.local.dialog.PlaylistAppendDialog;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.player.MainVideoPlayer;
 import org.schabi.newpipe.player.PopupVideoPlayer;
-import org.schabi.newpipe.player.helper.PlayerHelper;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.player.playqueue.SinglePlayQueue;
 import org.schabi.newpipe.report.ErrorActivity;
@@ -371,14 +369,14 @@ public class VideoDetailFragment
                     Log.w(TAG, "Can't open channel because we got no channel URL");
                 } else {
                     try {
-                    NavigationHelper.openChannelFragment(
-                            getFragmentManager(),
-                            currentInfo.getServiceId(),
-                            currentInfo.getUploaderUrl(),
-                            currentInfo.getUploaderName());
+                        NavigationHelper.openChannelFragment(
+                                getFragmentManager(),
+                                currentInfo.getServiceId(),
+                                currentInfo.getUploaderUrl(),
+                                currentInfo.getUploaderName());
                     } catch (Exception e) {
                         ErrorActivity.reportUiError((AppCompatActivity) getActivity(), e);
-                }
+                    }
                 }
                 break;
             case R.id.detail_thumbnail_root_layout:

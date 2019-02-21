@@ -263,19 +263,19 @@
     <string name="short_billion">亿</string>
     <string name="no_subscribers">没有订阅者</string>
     <plurals name="subscribers">
-    <item quantity="one">%s 位订阅者</item>
-    <item quantity="other"></item>
-</plurals>
+        <item quantity="one">%s 位订阅者</item>
+        <item quantity="other"></item>
+    </plurals>
     <string name="no_views">无观看次数</string>
     <plurals name="views">
-    <item quantity="one">%s 次观看</item>
-    <item quantity="other"></item>
-</plurals>
+        <item quantity="one">%s 次观看</item>
+        <item quantity="other"></item>
+    </plurals>
     <string name="no_videos">没有视频</string>
     <plurals name="videos">
-    <item quantity="one">%s 部视频</item>
-    <item quantity="other"></item>
-</plurals>
+        <item quantity="one">%s 部视频</item>
+        <item quantity="other"></item>
+    </plurals>
     <string name="delete_one">删除</string>
     <string name="checksum">校验</string>
     <string name="dismiss">退出</string>

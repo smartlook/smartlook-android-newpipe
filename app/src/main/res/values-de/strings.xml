@@ -159,7 +159,7 @@
     <string name="controls_popup_title">Pop-up</string>
 
     <string name="popup_remember_size_pos_title">Größe und Position des Pop-ups merken</string>
-<string name="use_external_video_player_summary">Entfernt Tonspur bei manchen Auflösungen</string>
+    <string name="use_external_video_player_summary">Entfernt Tonspur bei manchen Auflösungen</string>
     <string name="popup_remember_size_pos_summary">Letzte Größe und Position des Pop-ups merken</string>
     <string name="player_gesture_controls_title">Gestensteuerung</string>
     <string name="player_gesture_controls_summary">Helligkeit und Lautstärke mittels Gesten einstellen</string>
@@ -214,7 +214,7 @@
     <string name="history_empty">Der Verlauf ist leer</string>
     <string name="history_cleared">Verlauf bereinigt</string>
 
-<string name="subscription_change_failed">Abonnement konnte nicht geändert werden</string>
+    <string name="subscription_change_failed">Abonnement konnte nicht geändert werden</string>
     <string name="subscription_update_failed">Abonnement konnte nicht aktualisiert werden</string>
 
     <string name="resume_on_audio_focus_gain_summary">Nach Unterbrechungen (z.B. Telefonaten) Wiedergabe fortsetzen</string>
@@ -285,7 +285,7 @@
     <string name="background_player_append">In der Warteschlange der Hintergrundwiedergabe</string>
     <string name="new_and_hot">Neu &amp; Heiß</string>
     <string name="hold_to_append">Halten, um zur Wiedergabeliste hinzuzufügen</string>
-<string name="show_hold_to_append_title">\"Gedrückt halten, um hinzuzufügen\" Tipp anzeigen</string>
+    <string name="show_hold_to_append_title">\"Gedrückt halten, um hinzuzufügen\" Tipp anzeigen</string>
     <string name="unknown_content">[Unbekannt]</string>
 
     <string name="enqueue_on_background">In Warteschlange für Hintergrundwiedergabe</string>
@@ -351,7 +351,7 @@
     <string name="title_most_played">Am häufigsten wiedergegeben</string>
 
     <string name="always_ask_open_action">Immer fragen</string>
-    
+
     <string name="create_playlist">Neue Wiedergabeliste</string>
     <string name="delete_playlist">Löschen</string>
     <string name="rename_playlist">Umbenennen</string>
@@ -419,7 +419,7 @@
     <string name="unhook_checkbox">Verknüpfung aufheben (kann zu Verzerrungen führen)</string>
     <string name="playback_nightcore">Nightcore</string>
     <string name="playback_default">Standard</string>
-<string name="download_thumbnail_summary">Wenn ausgeschaltet, werden keine Miniaturansichten geladen, Daten und Speicherverbrauch sparend. Änderungen löschen die Bilder-Caches sowohl im Arbeitsspeicher als auch auf der SD-Karte.</string>
+    <string name="download_thumbnail_summary">Wenn ausgeschaltet, werden keine Miniaturansichten geladen, Daten und Speicherverbrauch sparend. Änderungen löschen die Bilder-Caches sowohl im Arbeitsspeicher als auch auf der SD-Karte.</string>
     <string name="auto_queue_title">Nächsten Stream automatisch einreihen</string>
     <string name="auto_queue_summary">Automatisches Anhängen eines verwandten Streams beim Abspielen des letzten Streams in einer nicht wiederholten Warteschlange.</string>
     <string name="drawer_header_action_paceholder_text">Hier wird bald etwas stehen ;D</string>

@@ -252,7 +252,7 @@
 
     <string name="item_deleted">Элемент удалён</string>
 <string name="delete_item_search_history">Удалить этот элемент из истории поиска?</string>
-<string name="main_page_content">Главная страница</string>
+    <string name="main_page_content">Главная страница</string>
     <string name="blank_page_summary">Пустая страница</string>
     <string name="kiosk_page_summary">Киоск</string>
     <string name="subscription_page_summary">Подписки</string>
@@ -290,7 +290,7 @@
     <string name="start_here_on_main">Начать отсюда в плеере</string>
     <string name="start_here_on_background">Начать отсюда в фоне</string>
     <string name="start_here_on_popup">Начать отсюда в окне</string>
-<string name="no_player_found_toast">Потоковый плеер не найден (можно установить VLC)</string>
+    <string name="no_player_found_toast">Потоковый плеер не найден (можно установить VLC)</string>
     <string name="default_content_country_title">Страна контента по умолчанию</string>
     <string name="service_title">Сервис</string>
     <string name="always">Всегда</string>
@@ -321,7 +321,7 @@
 
     <string name="preferred_player_fetcher_notification_title">Получение сведений…</string>
     <string name="preferred_player_fetcher_notification_message">Загрузка запрошенного контента</string>
-<string name="controls_download_desc">Скачать файл прямой трансляции</string>
+    <string name="controls_download_desc">Скачать файл прямой трансляции</string>
     <string name="show_info">Показать сведения</string>
 
     <string name="tab_bookmarks">Закладки</string>

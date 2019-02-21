@@ -352,7 +352,7 @@
     <string name="title_most_played">Vidéos les plus regardées</string>
 
     <string name="always_ask_open_action">Toujours demander</string>
-    
+
     <string name="create_playlist">Nouvelle liste de lecture</string>
     <string name="delete_playlist">Supprimer</string>
     <string name="rename_playlist">Renommer</string>
@@ -476,7 +476,7 @@
 
     <string name="accept">Accepter</string>
     <string name="decline">Refuser</string>
-<string name="privacy_policy_encouragement">Le projet NewPipe prend votre vie privée très à cœur. Ainsi, l’application n’envoie aucune donnée sans votre consentement.
+    <string name="privacy_policy_encouragement">Le projet NewPipe prend votre vie privée très à cœur. Ainsi, l’application n’envoie aucune donnée sans votre consentement.
 \nLa politique de confidentialité de NewPipe explique en détail quelles données sont envoyées et stockées lorsque vous envoyez un rapport de plantage.</string>
     <string name="start_accept_privacy_policy">Afin de se conformer au Règlement Général sur la Protection des Données (RGPD ou GDPR), nous attirons votre attention sur la politique de vie privée de NewPipe. Merci de la lire attentivement.
 \nVous devez l\'accepter pour nous envoyer le rapport de bug.</string>

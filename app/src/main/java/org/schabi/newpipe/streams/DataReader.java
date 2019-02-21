@@ -1,9 +1,9 @@
 package org.schabi.newpipe.streams;
 
+import org.schabi.newpipe.streams.io.SharpStream;
+
 import java.io.EOFException;
 import java.io.IOException;
-
-import org.schabi.newpipe.streams.io.SharpStream;
 
 /**
  * @author kapodamy

@@ -45,7 +45,7 @@ public class DownloadMissionHelper extends SQLiteOpenHelper {
 
     static final String KEY_TIMESTAMP = "timestamp";
 
-    static  final String KEY_KIND = "kind";
+    static final String KEY_KIND = "kind";
 
     /**
      * The statement to create the table
@@ -102,7 +102,8 @@ public class DownloadMissionHelper extends SQLiteOpenHelper {
         FinishedMission mission = new FinishedMission();
         mission.name = cursor.getString(cursor.getColumnIndexOrThrow(KEY_NAME));
         mission.location = cursor.getString(cursor.getColumnIndexOrThrow(KEY_LOCATION));
-        mission.source = cursor.getString(cursor.getColumnIndexOrThrow(KEY_SOURCE_URL));;
+        mission.source = cursor.getString(cursor.getColumnIndexOrThrow(KEY_SOURCE_URL));
+        ;
         mission.length = cursor.getLong(cursor.getColumnIndexOrThrow(KEY_DONE));
         mission.timestamp = cursor.getLong(cursor.getColumnIndexOrThrow(KEY_TIMESTAMP));
         mission.kind = kind.charAt(0);

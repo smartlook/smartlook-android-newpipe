@@ -1,16 +1,14 @@
 package org.schabi.newpipe.streams;
 
+import org.schabi.newpipe.streams.io.SharpStream;
+
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
-
 import java.nio.ByteBuffer;
-
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
-
-import org.schabi.newpipe.streams.io.SharpStream;
 
 /**
  * @author kapodamy
@@ -329,7 +327,7 @@ public class Mp4DashReader {
                 return obj;
             }
         }
-        
+
         return obj;
     }
 

@@ -238,7 +238,7 @@
     <string name="history_cleared">已清除歷史紀錄</string>
     <string name="item_deleted">項目已刪除</string>
     <string name="delete_item_search_history">確定要刪除此項搜尋紀錄嗎？</string>
-<string name="no_player_found_toast">找不到串流播放器（您可以安裝 VLC 播放）。</string>
+    <string name="no_player_found_toast">找不到串流播放器（您可以安裝 VLC 播放）。</string>
     <string name="show_hold_to_append_title">顯示「長按以新增」提示</string>
     <string name="default_content_country_title">預設內容國家</string>
     <string name="service_title">服務</string>
@@ -314,7 +314,7 @@
     
     <string name="preferred_player_fetcher_notification_title">正在取得資訊…</string>
     <string name="preferred_player_fetcher_notification_message">正在載入要求的內容</string>
-<string name="controls_download_desc">下載串流檔案</string>
+    <string name="controls_download_desc">下載串流檔案</string>
     <string name="show_info">顯示資訊</string>
 
     <string name="tab_bookmarks">書籤已加入播放清單</string>
@@ -335,7 +335,7 @@
     <string name="title_most_played">最常播放</string>
 
     <string name="always_ask_open_action">總是詢問</string>
-    
+
     <string name="create_playlist">新的播放清單</string>
     <string name="delete_playlist">刪除</string>
     <string name="rename_playlist">重新命名</string>

@@ -354,7 +354,7 @@ abrir en modo popup</string>
     <string name="title_most_played">Más reproducido</string>
 
     <string name="always_ask_open_action">Preguntar siempre</string>
-    
+
     <string name="create_playlist">Nueva lista de reproducción</string>
     <string name="delete_playlist">Eliminar</string>
     <string name="rename_playlist">Renombrar</string>
@@ -490,13 +490,13 @@ abrir en modo popup</string>
     <string name="tracks">Pistas</string>
     <string name="missions_header_finished">Finalizadas</string>
     <string name="missions_header_pending">En cola</string>
-    
+
     <string name="paused">pausado</string>
     <string name="queued">en cola</string>
     <string name="post_processing">post-procesado</string>
-    
+
     <string name="enqueue">Encolar</string>
-    
+
     <string name="permission_denied">Acción denegada por el sistema</string>
 
     <string name="file_deleted">Archivo borrado</string>
@@ -537,5 +537,5 @@ abrir en modo popup</string>
     <string name="error_http_requested_range_not_satisfiable">Rango solicitado no satisfactorio</string>
     <string name="error_http_not_found">No encontrado</string>
     <string name="error_postprocessing_failed">Fallo el post-procesado</string>
-    
+
 </resources>

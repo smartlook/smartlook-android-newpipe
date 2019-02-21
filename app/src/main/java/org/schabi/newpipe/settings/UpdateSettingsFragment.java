@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.preference.Preference;
 
-import org.schabi.newpipe.CheckForNewAppVersionTask;
 import org.schabi.newpipe.R;
 
 public class UpdateSettingsFragment extends BasePreferenceFragment {
@@ -23,7 +22,7 @@ public class UpdateSettingsFragment extends BasePreferenceFragment {
     }
 
     private Preference.OnPreferenceChangeListener updatePreferenceChange
-            = (preference, newValue) ->  {
+            = (preference, newValue) -> {
 
         defaultPreferences.edit().putBoolean(getString(R.string.update_app_key),
                 (boolean) newValue).apply();

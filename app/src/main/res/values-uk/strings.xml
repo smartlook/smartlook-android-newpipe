@@ -123,7 +123,7 @@
     <string name="msg_copied">Копійовано до сховку</string>
     <string name="no_available_dir">Будь ласка, оберіть теку для завантаження</string>
 
-<string name="no_player_found_toast">Потокового програвача не знайдено (ви можете встановити VLC для відтворення).</string>
+    <string name="no_player_found_toast">Потокового програвача не знайдено (ви можете встановити VLC для відтворення).</string>
     <string name="open_in_popup_mode">Відкрити у віконному режимі</string>
     <string name="use_external_video_player_summary">Усувається звук ПЕВНИХ роздільностей</string>
     <string name="popup_mode_share_menu_title">NewPipe у віконному режимі</string>
@@ -237,7 +237,7 @@
     
     <string name="preferred_player_fetcher_notification_title">Отримую інформацію…</string>
     <string name="preferred_player_fetcher_notification_message">Завантажується запитаний контент</string>
-<string name="controls_download_desc">Завантажити потоковий файл</string>
+    <string name="controls_download_desc">Завантажити потоковий файл</string>
     <string name="show_info">Показати інформацію</string>
 
     <string name="tab_bookmarks">Закладкові плейлисти</string>
@@ -344,7 +344,7 @@
 
 
     <string name="always_ask_open_action">Завжди питати</string>
-    
+
     <string name="create_playlist">Новий плейлист</string>
     <string name="delete_playlist">Видалити</string>
     <string name="rename_playlist">Змінити назву</string>
@@ -375,7 +375,7 @@
     <string name="enable_disposed_exceptions_title">Зазвітувати out-of-lifecycle хиби</string>
     <string name="enable_disposed_exceptions_summary">Примусове звітування про неможливість доставлення Rx винятків, які відбуваються за межами фраґменту або діяльності життєвого циклу після усунення</string>
 
-<string name="use_inexact_seek_title">Використовувати неточний пошук</string>
+    <string name="use_inexact_seek_title">Використовувати неточний пошук</string>
     <string name="use_inexact_seek_summary">Неточний пошук дозволяє програвачеві рухатися позиціями швидше, проте з меншою точністю</string>
     <string name="auto_queue_title">Додавати в чергу наступний стрим</string>
     <string name="auto_queue_summary">Автоматично додавати пов\'язаний стрим під час відтворення останнього у черзі без повторювань.</string>
@@ -428,7 +428,7 @@
     <string name="playback_tempo">Темп</string>
     <string name="playback_pitch">Тон</string>
     <string name="unhook_checkbox">Від\'єднати (може спричинити спотворення)</string>
-<string name="no_streams_available_download">Стрими недоступні для завантаження</string>
+    <string name="no_streams_available_download">Стрими недоступні для завантаження</string>
 
     <string name="preferred_open_action_settings_title">Переважний спосіб \"відкриття\"</string>
     <string name="preferred_open_action_settings_summary">Типова дія під час відкриття вмісту — %s</string>

@@ -172,12 +172,12 @@
 
     <string name="no_subscribers">ليس هناك مشترِكون</string>
     <plurals name="subscribers">
-	<item quantity="zero">%s لا يوجد مشترك</item>
-	<item quantity="one">%s مشترك</item>
-	<item quantity="two">%s اثنتين مشتركين</item>
-	<item quantity="few">%s اشتراكات</item>
-	<item quantity="many">%s مشتركين</item>
-	<item quantity="other">%s مشتركين</item>
+        <item quantity="zero">%s لا يوجد مشترك</item>
+        <item quantity="one">%s مشترك</item>
+        <item quantity="two">%s اثنتين مشتركين</item>
+        <item quantity="few">%s اشتراكات</item>
+        <item quantity="many">%s مشتركين</item>
+        <item quantity="other">%s مشتركين</item>
 </plurals>
 
     <string name="no_views">دون مشاهدات</string>
@@ -258,7 +258,7 @@
     <string name="play_queue_audio_settings">الإعدادات الصوتية</string>
     <string name="start_here_on_main">تشغيل هنا</string>
     <string name="start_here_on_popup">تشغيل هنا في وضع النافذة المنبثقة</string>
-<string name="reCaptcha_title">تحدي الكابتشا</string>
+    <string name="reCaptcha_title">تحدي الكابتشا</string>
     <string name="hold_to_append">اضغط للإدراج في قائمة الانتظار</string>
     <plurals name="views">
 	<item quantity="zero">بدون مشاهدات</item>
@@ -385,7 +385,7 @@
     <string name="import_soundcloud_instructions_hint">"معرفك , soundcloud.com/ الخاص بك  "</string>
 
     <string name="playback_default">إفتراضي</string>
-<string name="download_thumbnail_summary">عند إيقاف تحميل أي صور مصغرة ، وتوفير البيانات واستخدام الذاكرة. تعمل التغييرات على محو ذاكرة التخزين المؤقت للصورة الموجودة على الذاكرة أو على القرص.</string>
+    <string name="download_thumbnail_summary">عند إيقاف تحميل أي صور مصغرة ، وتوفير البيانات واستخدام الذاكرة. تعمل التغييرات على محو ذاكرة التخزين المؤقت للصورة الموجودة على الذاكرة أو على القرص.</string>
     <string name="metadata_cache_wipe_title">امسح البيانات الوصفية المخزنة مؤقتًا</string>
     <string name="metadata_cache_wipe_summary">إزالة جميع بيانات صفحات الويب المخزنة مؤقتًا</string>
     <string name="metadata_cache_wipe_complete_notice">تم محو ذاكرة التخزين المؤقت للبيانات الوصفية</string>

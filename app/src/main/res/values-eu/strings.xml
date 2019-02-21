@@ -312,7 +312,7 @@
     
     <string name="preferred_player_fetcher_notification_title">Informazioa eskuratzen…</string>
     <string name="preferred_player_fetcher_notification_message">Kargatzen eskatutako edukia</string>
-<string name="controls_download_desc">Deskargatu jario fitxategia</string>
+    <string name="controls_download_desc">Deskargatu jario fitxategia</string>
     <string name="show_info">Erakutsi informazioa</string>
 
     <string name="tab_bookmarks">Gogoko erreprodukzio-zerrendak</string>

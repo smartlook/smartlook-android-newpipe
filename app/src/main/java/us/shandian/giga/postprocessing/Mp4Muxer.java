@@ -6,8 +6,6 @@ import android.media.MediaMuxer;
 import android.media.MediaMuxer.OutputFormat;
 import android.util.Log;
 
-import static org.schabi.newpipe.BuildConfig.DEBUG;
-
 import org.schabi.newpipe.streams.io.SharpStream;
 
 import java.io.File;
@@ -16,6 +14,8 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 
 import us.shandian.giga.get.DownloadMission;
+
+import static org.schabi.newpipe.BuildConfig.DEBUG;
 
 
 class Mp4Muxer extends Postprocessing {

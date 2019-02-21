@@ -127,7 +127,7 @@ public class App extends Application {
 
         Smartlook.changeServer(server);
         Smartlook.debugSelectors(debugSelectors);
-        Smartlook.init(apiKey, Smartlook.MEDIUM_QUALITY, runInExperimentalMode);
+        Smartlook.init(apiKey, runInExperimentalMode);
     }
 
     protected Downloader getDownloader() {
@@ -245,6 +245,7 @@ public class App extends Application {
 
     /**
      * Set up notification channel for app update.
+     *
      * @param importance
      */
     @TargetApi(Build.VERSION_CODES.O)

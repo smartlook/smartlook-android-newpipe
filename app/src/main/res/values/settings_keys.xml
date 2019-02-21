@@ -174,7 +174,7 @@
     </string-array>
 
     <string name="default_file_charset_value" translatable="false">@string/charset_most_special_characters_value</string>
-    
+
     <string name="downloads_maximum_retry" translatable="false">downloads_max_retry</string>
     <string name="downloads_maximum_retry_default" translatable="false">3</string>
     <string-array name="downloads_maximum_retry_list" translatable="false">
