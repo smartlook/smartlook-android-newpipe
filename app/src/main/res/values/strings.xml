@@ -544,6 +544,7 @@
     <string name="smartlook_server">Smartlook server:</string>
     <string name="smartlook_api_key">Smartlook api key:</string>
     <string name="show_view_selector_on_click">Show View \"selector\" on click:</string>
+    <string name="crash_the_app">Crash the app</string>
     <string name="go_to_playground">Go to playground</string>
     <string name="run_in_experimental_mode">Run in experimental mode</string>
 

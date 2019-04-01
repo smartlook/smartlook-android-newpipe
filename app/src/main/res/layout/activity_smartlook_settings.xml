@@ -152,10 +152,19 @@
             android:layout_height="100dp" />
 
         <Button
+            android:id="@+id/smartlook_crash_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/crash_the_app" />
+
+        <Button
             android:id="@+id/smartlook_go_to_playground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/go_to_playground" />
 
     </LinearLayout>
