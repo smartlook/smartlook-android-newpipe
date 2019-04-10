@@ -1,7 +1,6 @@
 package org.schabi.newpipe;
 
 import android.annotation.TargetApi;
-import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -128,7 +127,7 @@ public class App extends MultiDexApplication {
 
         Smartlook.changeServer(server);
         Smartlook.debugSelectors(debugSelectors);
-        Smartlook.init(apiKey, true, runInExperimentalMode);
+        Smartlook.init(apiKey, runInExperimentalMode);
     }
 
     protected Downloader getDownloader() {
