@@ -11,8 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.smartlook.sdk.smartlook.Smartlook;
-
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.util.ThemeHelper;
 
@@ -45,8 +43,6 @@ public class SettingsActivity extends AppCompatActivity implements BasePreferenc
 
     @Override
     protected void onCreate(Bundle savedInstanceBundle) {
-        Smartlook.startSensitiveMode();
-
         setTheme(ThemeHelper.getSettingsThemeStyle(this));
 
         super.onCreate(savedInstanceBundle);
@@ -60,12 +56,6 @@ public class SettingsActivity extends AppCompatActivity implements BasePreferenc
                     .replace(R.id.fragment_holder, new MainSettingsFragment())
                     .commit();
         }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Smartlook.stopSensitiveMode();
     }
 
     @Override

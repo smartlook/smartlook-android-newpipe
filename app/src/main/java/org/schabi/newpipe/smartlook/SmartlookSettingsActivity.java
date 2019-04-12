@@ -36,6 +36,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
     private Button reloadDefaultApiKeyButton;
     private EditText apiKeyInput;
     private Switch debugSelectors;
+    private Button identify;
     private Button crashTheApp;
     private Button goToPlayground;
     private Switch runInExperimentalMode;
@@ -66,6 +67,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
         handleSpinner();
         handleReloadDefault();
         handleConfirm();
+        handleIdentify();
         handleCrashTheApp();
         handleGoToPlayground();
     }
@@ -107,6 +109,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
         reloadDefaultApiKeyButton = findViewById(R.id.smartlook_reload_default);
         apiKeyInput = findViewById(R.id.smartlook_input_api_key);
         debugSelectors = findViewById(R.id.smartlook_debug_selectors_switch);
+        identify = findViewById(R.id.smartlook_identify);
         crashTheApp = findViewById(R.id.smartlook_crash_app);
         goToPlayground = findViewById(R.id.smartlook_go_to_playground);
         runInExperimentalMode = findViewById(R.id.smartlook_run_in_experimental_mode);
@@ -169,6 +172,11 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
             (new Handler()).postDelayed(this::doRestart, APP_SETTLE_DELAY);
         });
     }
+
+    private void handleIdentify() {
+        identify.setOnClickListener(v -> startActivity(new Intent(this, SmartlookIdentifyActivity.class)));
+    }
+
 
     private void handleCrashTheApp() {
         crashTheApp.setOnClickListener(v -> {

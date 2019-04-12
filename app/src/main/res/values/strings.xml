@@ -530,10 +530,10 @@
     <string name="minimize_on_exit_none_description">None</string>
     <string name="minimize_on_exit_background_description">Minimize to background player</string>
     <string name="minimize_on_exit_popup_description">Minimize to popup player</string>
-	  <string name="list_view_mode">List view mode</string>
+    <string name="list_view_mode">List view mode</string>
     <string name="list">List</string>
     <string name="grid">Grid</string>
-	  <string name="auto">Auto</string>
+    <string name="auto">Auto</string>
     <string name="switch_view">Switch View</string>
 
     <string name="smartlook_settings">Smartlook settings</string>
@@ -544,6 +544,7 @@
     <string name="smartlook_server">Smartlook server:</string>
     <string name="smartlook_api_key">Smartlook api key:</string>
     <string name="show_view_selector_on_click">Show View \"selector\" on click:</string>
+    <string name="identify">Identify</string>
     <string name="crash_the_app">Crash the app</string>
     <string name="go_to_playground">Go to playground</string>
     <string name="run_in_experimental_mode">Run in experimental mode</string>

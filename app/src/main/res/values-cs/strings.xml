@@ -500,22 +500,4 @@ otevření ve vyskakovacím okně</string>
     <string name="minimize_on_exit_none_description">Žádná</string>
     <string name="minimize_on_exit_background_description">Minimalizovat přehrávač na pozadí</string>
     <string name="minimize_on_exit_popup_description">Minimalizovat přehrávač do vyskakovacího okna</string>
-
-    <string name="smartlook_settings">Smartlook nastavení</string>
-    <string name="apply_changes_n_this_will_restart_the_app">Aplikuj a ulož změny\n(aplikace bude restartována)</string>
-    <string name="api_key">Api klíč</string>
-    <string name="reload_ndefault">Obnov\nvýchozí</string>
-    <string name="exit_dialog_message">Všechny neuložené změny budou ztraceny!</string>
-    <string name="smartlook_api_key">Smartlook api klíč:</string>
-    <string name="show_view_selector_on_click">Zobraz \"selector\" pohledu při kliknutí:</string>
-    <string name="crash_the_app">Vyvolat pád</string>
-    <string name="go_to_playground">Jdi na hřiště</string>
-    <string name="run_in_experimental_mode">Spustit v experimentálním módu</string>
-
-    <string-array name="server_array">
-        <item>Alfa (manager.alfa.smartlook.com)</item>
-        <item>Beta (manager.beta.smartlook.com)</item>
-        <item>Produkce (manager.smartlook.com)</item>
-    </string-array>
-
 </resources>
