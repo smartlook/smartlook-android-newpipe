@@ -19,11 +19,11 @@
         app:titleTextAppearance="@style/Toolbar.Title" />
 
     <LinearLayout
-        android:padding="16dp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <!-- Dummy item to prevent AutoCompleteTextView from receiving focus -->
         <LinearLayout
@@ -41,7 +41,13 @@
         <EditText
             android:id="@+id/smartlook_user_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/bluegray"
+            android:textCursorDrawable="@color/white"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,7 +67,12 @@
             android:id="@+id/smartlook_user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName" />
+            android:cursorVisible="true"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/bluegray"
+            android:textCursorDrawable="@color/white"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,7 +84,12 @@
             android:id="@+id/smartlook_user_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal" />
+            android:cursorVisible="true"
+            android:inputType="numberDecimal"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/bluegray"
+            android:textCursorDrawable="@color/white"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,7 +101,12 @@
             android:id="@+id/smartlook_user_company"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName" />
+            android:cursorVisible="true"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/bluegray"
+            android:textCursorDrawable="@color/white"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/smartlook_identify"
