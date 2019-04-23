@@ -127,7 +127,8 @@ public class App extends MultiDexApplication {
 
         Smartlook.changeServer(server);
         Smartlook.debugSelectors(debugSelectors);
-        Smartlook.init(apiKey, true, runInExperimentalMode);
+        Smartlook.init(apiKey, runInExperimentalMode);
+        Smartlook.enableWebviewRecording(true);
     }
 
     protected Downloader getDownloader() {

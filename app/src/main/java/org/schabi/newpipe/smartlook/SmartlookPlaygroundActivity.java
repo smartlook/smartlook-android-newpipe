@@ -3,6 +3,7 @@ package org.schabi.newpipe.smartlook;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,6 +22,7 @@ public class SmartlookPlaygroundActivity extends AppCompatActivity {
         FrameLayout level3 = findViewById(R.id.lvl_3);
         ImageView level4 = findViewById(R.id.lvl_4);
 
+        setupWebView(findViewById(R.id.web_view));
 
         level2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,5 +38,9 @@ public class SmartlookPlaygroundActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setupWebView(WebView webView) {
+        webView.loadUrl("https://media1.tenor.com/images/03e468923066c91149f70139de82f6ea/tenor.gif?itemid=12187647");
     }
 }
