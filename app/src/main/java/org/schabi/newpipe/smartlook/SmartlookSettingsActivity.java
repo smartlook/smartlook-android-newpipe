@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 
-import com.smartlook.sdk.smartlook.api.client.SmartlookServer;
+import com.smartlook.sdk.smartlook.api.anotations.SmartlookServer;
 
 import org.schabi.newpipe.R;
 
