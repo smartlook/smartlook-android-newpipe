@@ -18,6 +18,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.smartlook.sdk.smartlook.Smartlook;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.schabi.newpipe.BaseFragment;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
@@ -163,6 +167,18 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     @Override
     public void onTabSelected(TabLayout.Tab selectedTab) {
         if (DEBUG) Log.d(TAG, "onTabSelected() called with: selectedTab = [" + selectedTab + "]");
+
+        JSONObject tabProperties = new JSONObject();
+
+        try {
+            tabProperties.put("position", selectedTab.getPosition());
+            tabProperties.put("text", selectedTab.getText());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Smartlook.track("tab_selected", tabProperties);
+
         updateCurrentTitle();
     }
 

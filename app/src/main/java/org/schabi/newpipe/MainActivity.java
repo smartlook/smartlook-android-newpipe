@@ -49,6 +49,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.smartlook.sdk.smartlook.Smartlook;
+
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.StreamingService;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
@@ -77,11 +79,11 @@ public class MainActivity extends AppCompatActivity {
     private boolean servicesShown = false;
     private ImageView serviceArrow;
 
-    private static final int ITEM_ID_SUBSCRIPTIONS = - 1;
-    private static final int ITEM_ID_FEED = - 2;
-    private static final int ITEM_ID_BOOKMARKS = - 3;
-    private static final int ITEM_ID_DOWNLOADS = - 4;
-    private static final int ITEM_ID_HISTORY = - 5;
+    private static final int ITEM_ID_SUBSCRIPTIONS = -1;
+    private static final int ITEM_ID_FEED = -2;
+    private static final int ITEM_ID_BOOKMARKS = -3;
+    private static final int ITEM_ID_DOWNLOADS = -4;
+    private static final int ITEM_ID_HISTORY = -5;
     private static final int ITEM_ID_SETTINGS = 0;
     private static final int ITEM_ID_SMARTLOOK_SETTINGS = 2;
     private static final int ITEM_ID_ABOUT = 1;
@@ -94,7 +96,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (DEBUG) Log.d(TAG, "onCreate() called with: savedInstanceState = [" + savedInstanceState + "]");
+        if (DEBUG)
+            Log.d(TAG, "onCreate() called with: savedInstanceState = [" + savedInstanceState + "]");
 
         ThemeHelper.setTheme(this, ServiceHelper.getSelectedServiceId(this));
 
@@ -133,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
             drawerItems.getMenu()
                     .add(R.id.menu_tabs_group, kioskId, 0, KioskTranslator.getTranslatedKioskName(ks, this))
                     .setIcon(KioskTranslator.getKioskIcons(ks, this));
-            kioskId ++;
+            kioskId++;
         }
 
         drawerItems.getMenu()
@@ -176,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onDrawerClosed(View drawerView) {
-                if(servicesShown) {
+                if (servicesShown) {
                     toggleServices();
                 }
                 if (lastService != ServiceHelper.getSelectedServiceId(MainActivity.this)) {
@@ -212,14 +215,14 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    private  void changeService(MenuItem item) {
+    private void changeService(MenuItem item) {
         drawerItems.getMenu().getItem(ServiceHelper.getSelectedServiceId(this)).setChecked(false);
         ServiceHelper.setSelectedServiceId(this, item.getItemId());
         drawerItems.getMenu().getItem(ServiceHelper.getSelectedServiceId(this)).setChecked(true);
     }
 
     private void tabSelected(MenuItem item) throws ExtractionException {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case ITEM_ID_SUBSCRIPTIONS:
                 NavigationHelper.openSubscriptionFragment(getSupportFragmentManager());
                 break;
@@ -242,10 +245,10 @@ public class MainActivity extends AppCompatActivity {
 
                 int kioskId = 0;
                 for (final String ks : service.getKioskList().getAvailableKiosks()) {
-                    if(kioskId == item.getItemId()) {
+                    if (kioskId == item.getItemId()) {
                         serviceName = ks;
                     }
-                    kioskId ++;
+                    kioskId++;
                 }
 
                 NavigationHelper.openKioskFragment(getSupportFragmentManager(), currentServiceId, serviceName);
@@ -254,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void optionsAboutSelected(MenuItem item) {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case ITEM_ID_SETTINGS:
                 NavigationHelper.openSettings(this);
                 break;
@@ -269,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupDrawerHeader() {
         NavigationView navigationView = findViewById(R.id.navigation);
-        View hView =  navigationView.getHeaderView(0);
+        View hView = navigationView.getHeaderView(0);
 
         serviceArrow = hView.findViewById(R.id.drawer_arrow);
         headerServiceView = hView.findViewById(R.id.drawer_header_service_view);
@@ -286,7 +289,7 @@ public class MainActivity extends AppCompatActivity {
         drawerItems.getMenu().removeGroup(R.id.menu_tabs_group);
         drawerItems.getMenu().removeGroup(R.id.menu_options_about_group);
 
-        if(servicesShown) {
+        if (servicesShown) {
             showServices();
         } else {
             try {
@@ -300,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
     private void showServices() {
         serviceArrow.setImageResource(R.drawable.ic_arrow_up_white);
 
-        for(StreamingService s : NewPipe.getServices()) {
+        for (StreamingService s : NewPipe.getServices()) {
             final String title = s.getServiceInfo().getName() +
                     (ServiceHelper.isBeta(s) ? " (beta)" : "");
 
@@ -324,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
             drawerItems.getMenu()
                     .add(R.id.menu_tabs_group, kioskId, ORDER, KioskTranslator.getTranslatedKioskName(ks, this))
                     .setIcon(KioskTranslator.getKioskIcons(ks, this));
-            kioskId ++;
+            kioskId++;
         }
 
         drawerItems.getMenu()
@@ -398,7 +401,8 @@ public class MainActivity extends AppCompatActivity {
             // Return if launched from a launcher (e.g. Nova Launcher, Pixel Launcher ...)
             // to not destroy the already created backstack
             String action = intent.getAction();
-            if ((action != null && action.equals(Intent.ACTION_MAIN)) && intent.hasCategory(Intent.CATEGORY_LAUNCHER)) return;
+            if ((action != null && action.equals(Intent.ACTION_MAIN)) && intent.hasCategory(Intent.CATEGORY_LAUNCHER))
+                return;
         }
 
         super.onNewIntent(intent);
@@ -424,8 +428,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        for (int i: grantResults){
-            if (i == PackageManager.PERMISSION_DENIED){
+        for (int i : grantResults) {
+            if (i == PackageManager.PERMISSION_DENIED) {
                 return;
             }
         }
@@ -515,13 +519,16 @@ public class MainActivity extends AppCompatActivity {
                 onHomeButtonPressed();
                 return true;
             case R.id.action_show_downloads:
-                    return NavigationHelper.openDownloads(this);
+                Smartlook.track("menu_downloads");
+                return NavigationHelper.openDownloads(this);
             case R.id.action_history:
-                    NavigationHelper.openStatisticFragment(getSupportFragmentManager());
-                    return true;
+                Smartlook.track("menu_history");
+                NavigationHelper.openStatisticFragment(getSupportFragmentManager());
+                return true;
             case R.id.action_settings:
-                    NavigationHelper.openSettings(this);
-                    return true;
+                Smartlook.track("menu_settings");
+                NavigationHelper.openSettings(this);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

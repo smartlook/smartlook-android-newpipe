@@ -22,6 +22,8 @@ import org.acra.config.ACRAConfiguration;
 import org.acra.config.ACRAConfigurationException;
 import org.acra.config.ConfigurationBuilder;
 import org.acra.sender.ReportSenderFactory;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.schabi.newpipe.extractor.Downloader;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.report.AcraReportSenderFactory;
@@ -129,6 +131,28 @@ public class App extends MultiDexApplication {
         Smartlook.debugSelectors(debugSelectors);
         Smartlook.init(apiKey, runInExperimentalMode);
         Smartlook.enableWebviewRecording(true);
+
+
+        JSONObject globalProperties = new JSONObject();
+
+        try {
+            globalProperties.put("name", "František");
+            globalProperties.put("surname", "Spurný");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Smartlook.setGlobalProperties(globalProperties);
+
+        JSONObject globalImmutableProperties = new JSONObject();
+
+        try {
+            globalImmutableProperties.put("immutable", "test");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Smartlook.setGlobalImmutableProperties(globalImmutableProperties);
     }
 
     protected Downloader getDownloader() {
@@ -218,7 +242,7 @@ public class App extends MultiDexApplication {
                     null,
                     null,
                     ErrorActivity.ErrorInfo.make(UserAction.SOMETHING_ELSE, "none",
-                    "Could not initialize ACRA crash report", R.string.app_ui_crash));
+                            "Could not initialize ACRA crash report", R.string.app_ui_crash));
         }
     }
 

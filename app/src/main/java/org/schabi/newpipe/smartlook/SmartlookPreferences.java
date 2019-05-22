@@ -3,7 +3,7 @@ package org.schabi.newpipe.smartlook;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.smartlook.sdk.smartlook.api.anotations.SmartlookServer;
+import com.smartlook.sdk.smartlook.api.client.SmartlookServer;
 
 public class SmartlookPreferences {
 
