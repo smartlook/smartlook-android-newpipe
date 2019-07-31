@@ -21,5 +21,6 @@ allprojects {
         google()
         maven { url "https://jitpack.io" }
         maven { url "https://clojars.org/repo" }
+        maven { url "https://sdk.smartlook.com/android/release" }
     }
 }

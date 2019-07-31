@@ -49,6 +49,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.smartlook.consentsdk.ConsentSDK;
+import com.smartlook.consentsdk.data.ConsentFormData;
+import com.smartlook.consentsdk.data.ConsentFormItem;
+import com.smartlook.consentsdk.listeners.ConsentResultsListener;
+
+import org.jetbrains.annotations.NotNull;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.StreamingService;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
@@ -65,7 +71,9 @@ import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.StateSaver;
 import org.schabi.newpipe.util.ThemeHelper;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.HashMap;
+
+public class MainActivity extends AppCompatActivity implements ConsentResultsListener {
     private static final String TAG = "MainActivity";
     public static final boolean DEBUG = !BuildConfig.BUILD_TYPE.equals("release");
 
@@ -116,6 +124,26 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             ErrorActivity.reportUiError(this, e);
         }
+
+
+        ConsentSDK consentSDK = new ConsentSDK(getApplicationContext());
+
+        ConsentFormItem[] consentFormItems = {
+                new ConsentFormItem("key", true, "Gimme this shit!", null)
+        };
+
+        ConsentFormData consentFormData = new ConsentFormData(
+                "Super cool title",
+                "Super annoying form!",
+                "OK",
+                consentFormItems);
+
+        consentSDK.showConsentFormDialogFragment(this, consentFormData);
+    }
+
+    @Override
+    public void onConsentResults(@NotNull HashMap<String, Boolean> hashMap) {
+
     }
 
     private void setupDrawer() throws Exception {

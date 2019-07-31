@@ -3,7 +3,7 @@ package org.schabi.newpipe.smartlook;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.smartlook.sdk.smartlook.api.client.Server;
+import com.smartlook.sdk.smartlook.api.anotations.SmartlookServer;
 
 public class SmartlookPreferences {
 
@@ -30,7 +30,7 @@ public class SmartlookPreferences {
     private static final String SMARTLOOK_RUN_IN_EXPERIMENTAL_MODE = "smartlook_run_in_experimental_mode";
 
     public static int loadServerSelection(Context context) {
-        return getSharedPreferences(context).getInt(SMARTLOOK_SERVER_PREFERENCE, Server.PRODUCTION);
+        return getSharedPreferences(context).getInt(SMARTLOOK_SERVER_PREFERENCE, SmartlookServer.PRODUCTION);
     }
 
     public static void storeServerSelection(Context context, int server) {
@@ -55,11 +55,11 @@ public class SmartlookPreferences {
 
     public static String getDefaultApiKey(int server) {
         switch (server) {
-            case Server.ALFA:
+            case SmartlookServer.ALFA:
                 return SMARTLOOK_ALFA_API_KEY;
-            case Server.BETA:
+            case SmartlookServer.BETA:
                 return SMARTLOOK_BETA_API_KEY;
-            case Server.PRODUCTION:
+            case SmartlookServer.PRODUCTION:
                 return SMARTLOOK_PRODUCTION_API_KEY;
         }
 
@@ -95,11 +95,11 @@ public class SmartlookPreferences {
 
     private static String getServerApiKeyPreferenceKey(int server) {
         switch (server) {
-            case Server.ALFA:
+            case SmartlookServer.ALFA:
                 return SMARTLOOK_ALFA_API_KEY_PREFERENCE;
-            case Server.BETA:
+            case SmartlookServer.BETA:
                 return SMARTLOOK_BETA_API_KEY_PREFERENCE;
-            case Server.PRODUCTION:
+            case SmartlookServer.PRODUCTION:
                 return SMARTLOOK_PRODUCTION_API_KEY_PREFERENCE;
         }
 

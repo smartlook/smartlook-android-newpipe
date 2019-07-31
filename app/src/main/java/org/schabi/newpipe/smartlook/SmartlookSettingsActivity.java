@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 
-import com.smartlook.sdk.smartlook.api.client.Server;
+import com.smartlook.sdk.smartlook.api.anotations.SmartlookServer;
 
 import org.schabi.newpipe.R;
 
@@ -54,9 +54,9 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smartlook_settings);
 
-        alfaApiKey = SmartlookPreferences.loadApiKey(this, Server.ALFA);
-        betaApiKey = SmartlookPreferences.loadApiKey(this, Server.BETA);
-        productionApiKey = SmartlookPreferences.loadApiKey(this, Server.PRODUCTION);
+        alfaApiKey = SmartlookPreferences.loadApiKey(this, SmartlookServer.ALFA);
+        betaApiKey = SmartlookPreferences.loadApiKey(this, SmartlookServer.BETA);
+        productionApiKey = SmartlookPreferences.loadApiKey(this, SmartlookServer.PRODUCTION);
 
         initViews();
         handleToolbar();
@@ -191,13 +191,13 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
 
     private void displayActualServerApiKey(int server) {
         switch (server) {
-            case Server.ALFA:
+            case SmartlookServer.ALFA:
                 apiKeyInput.setText(alfaApiKey);
                 break;
-            case Server.BETA:
+            case SmartlookServer.BETA:
                 apiKeyInput.setText(betaApiKey);
                 break;
-            case Server.PRODUCTION:
+            case SmartlookServer.PRODUCTION:
                 apiKeyInput.setText(productionApiKey);
                 break;
         }
@@ -205,13 +205,13 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
 
     private void rememberApiKey(int position) {
         switch (lastSpinnerPosition) {
-            case Server.ALFA:
+            case SmartlookServer.ALFA:
                 alfaApiKey = apiKeyInput.getText().toString();
                 break;
-            case Server.BETA:
+            case SmartlookServer.BETA:
                 betaApiKey = apiKeyInput.getText().toString();
                 break;
-            case Server.PRODUCTION:
+            case SmartlookServer.PRODUCTION:
                 productionApiKey = apiKeyInput.getText().toString();
                 break;
         }
@@ -222,9 +222,9 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
     private void storeApiKeys(int server) {
         rememberApiKey(server);
 
-        SmartlookPreferences.storeApiKey(this, alfaApiKey, Server.ALFA);
-        SmartlookPreferences.storeApiKey(this, betaApiKey, Server.BETA);
-        SmartlookPreferences.storeApiKey(this, productionApiKey, Server.PRODUCTION);
+        SmartlookPreferences.storeApiKey(this, alfaApiKey, SmartlookServer.ALFA);
+        SmartlookPreferences.storeApiKey(this, betaApiKey, SmartlookServer.BETA);
+        SmartlookPreferences.storeApiKey(this, productionApiKey, SmartlookServer.PRODUCTION);
     }
 
     public void doRestart() {

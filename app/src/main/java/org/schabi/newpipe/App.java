@@ -5,6 +5,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
+import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
@@ -13,7 +14,7 @@ import com.nostra13.universalimageloader.cache.memory.impl.LRULimitedMemoryCache
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.smartlook.sdk.smartlook.Smartlook;
-import com.smartlook.sdk.smartlook.api.client.Server;
+import com.smartlook.sdk.smartlook.api.Server;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -22,6 +23,8 @@ import org.acra.config.ACRAConfiguration;
 import org.acra.config.ACRAConfigurationException;
 import org.acra.config.ConfigurationBuilder;
 import org.acra.sender.ReportSenderFactory;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.schabi.newpipe.extractor.Downloader;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.report.AcraReportSenderFactory;
@@ -84,6 +87,16 @@ public class App extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
 
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .detectAll()
+                .penaltyLog()
+                .build());
+
+        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                .detectAll()
+                .penaltyLog()
+                .build());
+
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
@@ -126,8 +139,15 @@ public class App extends MultiDexApplication {
                 "runInExperimentalMode=[" + runInExperimentalMode + "]");
 
         Smartlook.changeServer(server);
-        Smartlook.debugSelectors(debugSelectors);
+        Smartlook.debugSelectors(false);
         Smartlook.init(apiKey, runInExperimentalMode);
+
+        try {
+            JSONObject json = new JSONObject("{\"name\":\"userData.name\",\"email\":\"userData.email\"}");
+            Smartlook.setUserIdentifier("USER", json);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     protected Downloader getDownloader() {

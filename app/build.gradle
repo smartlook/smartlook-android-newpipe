@@ -133,6 +133,8 @@ dependencies {
     // FFmpeg Android/Java wrapper
     implementation "com.writingminds:FFmpegAndroid:0.3.2"
 
+    implementation 'com.smartlook:consent:1.0'
+
     // Espresso
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
