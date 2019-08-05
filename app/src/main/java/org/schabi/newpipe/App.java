@@ -9,6 +9,7 @@ import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
+import android.webkit.WebView;
 
 import com.nostra13.universalimageloader.cache.memory.impl.LRULimitedMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -141,6 +142,7 @@ public class App extends MultiDexApplication {
         Smartlook.changeServer(server);
         Smartlook.debugSelectors(false);
         Smartlook.init(apiKey, runInExperimentalMode);
+        Smartlook.unregisterBlacklistedClass(WebView.class);
 
         try {
             JSONObject json = new JSONObject("{\"name\":\"userData.name\",\"email\":\"userData.email\"}");
