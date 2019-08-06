@@ -23,21 +23,30 @@ public class SmartlookPlaygroundActivity extends AppCompatActivity {
             "</head>\n" +
             "\n" +
             "<body>\n" +
-            "\t<div class='random'>\n" +
-            "\t\t<h1>Smartlook testing</h1>\n" +
-            "\t</div>\n" +
-            "\t<div class='smartlook-hide'>\n" +
-            "\t\t<h1>Smartlook HIDDEN</h1>\n" +
-            "\t</div>\n" +
-            "\t<div class='random'>\n" +
-            "\t\t<h1>Smartlook testing</h1>\n" +
-            "\t</div>\n" +
-            "\t<div class='smartlook-hide'>\n" +
-            "\t\t<h1>Smartlook HIDDEN</h1>\n" +
-            "\t</div>\n" +
-            "\t<div class='random'>\n" +
-            "\t\t<h1>Smartlook testing</h1>\n" +
-            "\t</div>\n" +
+            "    <div class='random'>\n" +
+            "        <h1>Smartlook testing</h1>\n" +
+            "    </div>\n" +
+            "    <div class='smartlook-hide'>\n" +
+            "        <h1>Smartlook HIDDEN</h1>\n" +
+            "    </div>\n" +
+            "    <div class='random'>\n" +
+            "        <h1>Smartlook testing</h1>\n" +
+            "    </div>\n" +
+            "    <div class='smartlook-hide'>\n" +
+            "        <h1>Smartlook HIDDEN</h1>\n" +
+            "    </div>\n" +
+            "    <div class='random'>\n" +
+            "        <h1>Smartlook testing</h1>\n" +
+            "    </div>\n" +
+            "    <div>\n" +
+            "        <input type='text' />\n" +
+            "    </div>\n" +
+            "    <div>\n" +
+            "        <input type='button' value='Button' />\n" +
+            "    </div>\n" +
+            "    <div>\n" +
+            "        <input type='password' />\n" +
+            "    </div>\n" +
             "</body>\n" +
             "</html>";
 
