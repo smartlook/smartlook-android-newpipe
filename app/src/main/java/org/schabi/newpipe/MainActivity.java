@@ -49,9 +49,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.smartlook.consentsdk.ConsentSDK;
-import com.smartlook.consentsdk.data.ConsentFormData;
-import com.smartlook.consentsdk.data.ConsentFormItem;
 import com.smartlook.consentsdk.listeners.ConsentResultsListener;
 
 import org.jetbrains.annotations.NotNull;
@@ -125,20 +122,19 @@ public class MainActivity extends AppCompatActivity implements ConsentResultsLis
             ErrorActivity.reportUiError(this, e);
         }
 
-
-        ConsentSDK consentSDK = new ConsentSDK(getApplicationContext());
-
-        ConsentFormItem[] consentFormItems = {
-                new ConsentFormItem("key", true, "Gimme this shit!", null)
-        };
-
-        ConsentFormData consentFormData = new ConsentFormData(
-                "Super cool title",
-                "Super annoying form!",
-                "OK",
-                consentFormItems);
-
-        consentSDK.showConsentFormDialogFragment(this, consentFormData);
+//        ConsentSDK consentSDK = new ConsentSDK(getApplicationContext());
+//
+//        ConsentFormItem[] consentFormItems = {
+//                new ConsentFormItem("key", true, "Gimme this shit!", null)
+//        };
+//
+//        ConsentFormData consentFormData = new ConsentFormData(
+//                "Super cool title",
+//                "Super annoying form!",
+//                "OK",
+//                consentFormItems);
+//
+//        consentSDK.showConsentFormDialogFragment(this, consentFormData);
     }
 
     @Override

@@ -8,6 +8,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.smartlook.sdk.smartlook.Smartlook;
+
 import org.schabi.newpipe.R;
 
 public class SmartlookPlaygroundActivity extends AppCompatActivity {
@@ -61,6 +63,8 @@ public class SmartlookPlaygroundActivity extends AppCompatActivity {
         ImageView level4 = findViewById(R.id.lvl_4);
         WebView webView = findViewById(R.id.webview);
 
+        Smartlook.registerWhitelistedView(findViewById(R.id.et_whitelisted1));
+        Smartlook.registerWhitelistedView(findViewById(R.id.et_whitelisted2));
 
         webView.loadDataWithBaseURL("", HTML, "text/html", "UTF-8", "");
         webView.getSettings().setJavaScriptEnabled(true);

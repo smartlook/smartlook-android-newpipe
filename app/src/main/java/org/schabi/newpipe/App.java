@@ -145,7 +145,7 @@ public class App extends MultiDexApplication {
         Smartlook.unregisterBlacklistedClass(WebView.class);
 
         try {
-            JSONObject json = new JSONObject("{\"name\":\"userData.name\",\"email\":\"userData.email\"}");
+            JSONObject json = new JSONObject("{\"name\":\"Karel\",\"email\":\"karel@mail.com\"}");
             Smartlook.setUserIdentifier("USER", json);
         } catch (JSONException e) {
             e.printStackTrace();
