@@ -3,9 +3,6 @@ package org.schabi.newpipe;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
-import com.smartlook.sdk.smartlook.interceptors.SmartlookOkHttpInterceptor;
-import com.smartlook.sdk.smartlook.interceptors.UrlMask;
-
 import org.schabi.newpipe.extractor.exceptions.ReCaptchaException;
 import org.schabi.newpipe.extractor.utils.Localization;
 
@@ -52,7 +49,6 @@ public class Downloader implements org.schabi.newpipe.extractor.Downloader {
     private Downloader(OkHttpClient.Builder builder) {
         this.client = builder
                 .readTimeout(30, TimeUnit.SECONDS)
-                .addNetworkInterceptor(new SmartlookOkHttpInterceptor(new UrlMask("sqp=.*")))
                 //.cache(new Cache(new File(context.getExternalCacheDir(), "okhttp"), 16 * 1024 * 1024))
                 .build();
     }
