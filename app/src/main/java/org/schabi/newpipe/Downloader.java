@@ -105,7 +105,7 @@ public class Downloader implements org.schabi.newpipe.extractor.Downloader {
      * but set the HTTP header field "Accept-Language" to the supplied string.
      *
      * @param siteUrl  the URL of the text file to return the contents of
-     * @param localization the language and country (usually a 2-character code) to set
+     * @param localization the language and language (usually a 2-character code) to set
      * @return the contents of the specified text file
      */
     @Override
