@@ -92,7 +92,7 @@
         <EditText
             android:id="@+id/et_whitelisted1"
             android:textColor="@color/white"
-            android:text="Some confidential data!!!"
+            android:text="Some confidential data!!! but whitelisted"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -103,13 +103,51 @@
         <EditText
             android:id="@+id/et_whitelisted2"
             android:textColor="@color/white"
-            android:text="Some confidential data!!!"
+            android:text="Some confidential data!!! but whitelisted"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="200dp" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout
+            android:id="@+id/clip_fl"
+            android:clipChildren="false"
+            android:background="@android:color/holo_red_dark"
+            android:layout_marginTop="300dp"
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
+
+            <View
+                android:id="@+id/uncliped_view"
+                android:background="@android:color/holo_blue_bright"
+                android:translationY="-100dp"
+                android:layout_width="30dp"
+                android:layout_height="50dp"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/clip_fl_v2"
+            android:clipChildren="true"
+            android:background="@android:color/holo_green_dark"
+            android:layout_marginTop="300dp"
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
+
+            <View
+                android:id="@+id/uncliped_view_v2"
+                android:background="@android:color/holo_orange_dark"
+                android:translationY="-100dp"
+                android:layout_width="30dp"
+                android:layout_height="50dp"/>
+
+        </FrameLayout>
 
     </LinearLayout>
 </ScrollView>

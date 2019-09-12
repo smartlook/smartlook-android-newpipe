@@ -7,6 +7,7 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.smartlook.sdk.smartlook.Smartlook;
 
@@ -65,6 +66,11 @@ public class SmartlookPlaygroundActivity extends AppCompatActivity {
 
         Smartlook.registerWhitelistedView(findViewById(R.id.et_whitelisted1));
         Smartlook.registerWhitelistedView(findViewById(R.id.et_whitelisted2));
+        Smartlook.registerBlacklistedView(findViewById(R.id.clip_fl));
+        Smartlook.registerBlacklistedView(findViewById(R.id.uncliped_view));
+        Smartlook.registerBlacklistedView(findViewById(R.id.clip_fl_v2));
+        Smartlook.registerBlacklistedView(findViewById(R.id.uncliped_view_v2));
+        Smartlook.registerBlacklistedClass(ProgressBar.class);
 
         webView.loadDataWithBaseURL("", HTML, "text/html", "UTF-8", "");
         webView.getSettings().setJavaScriptEnabled(true);
