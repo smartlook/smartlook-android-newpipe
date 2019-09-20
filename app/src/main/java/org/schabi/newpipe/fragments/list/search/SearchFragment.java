@@ -277,7 +277,7 @@ public class SearchFragment
                 break;
 
             default:
-                Log.e(TAG, "Request code from activity not supported [" + requestCode + "]");
+                Log.e(TAG, "StringRequest code from activity not supported [" + requestCode + "]");
                 break;
         }
     }

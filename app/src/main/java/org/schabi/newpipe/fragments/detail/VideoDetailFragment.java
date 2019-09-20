@@ -272,7 +272,7 @@ public class VideoDetailFragment
                 } else Log.e(TAG, "ReCaptcha failed");
                 break;
             default:
-                Log.e(TAG, "Request code from activity not supported [" + requestCode + "]");
+                Log.e(TAG, "StringRequest code from activity not supported [" + requestCode + "]");
                 break;
         }
     }
