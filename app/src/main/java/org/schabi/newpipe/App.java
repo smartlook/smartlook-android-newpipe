@@ -147,6 +147,10 @@ public class App extends MultiDexApplication {
         try {
             JSONObject json = new JSONObject("{\"name\":\"Karel\",\"email\":\"karel@mail.com\"}");
             Smartlook.setUserIdentifier("USER", json);
+
+            JSONObject eventProps = new JSONObject("{\"global\":\"yes\",\"prop\":\"yes\"}");
+            Smartlook.setGlobalEventProperties(eventProps, false);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
