@@ -140,7 +140,7 @@ public class App extends MultiDexApplication {
 
         Smartlook.changeServer(server);
         Smartlook.debugSelectors(false);
-        Smartlook.setupAndStartRecording(apiKey, runInExperimentalMode);
+        Smartlook.setupAndStartRecording(apiKey, runInExperimentalMode, 1);
 
         Smartlook.unregisterBlacklistedClass(WebView.class);
 
