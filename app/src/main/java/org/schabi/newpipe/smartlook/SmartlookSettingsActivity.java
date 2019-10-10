@@ -18,8 +18,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 
+import com.smartlook.sdk.smartlook.Smartlook;
 import com.smartlook.sdk.smartlook.api.anotations.SmartlookServer;
 
+import org.json.JSONObject;
 import org.schabi.newpipe.R;
 
 import java.security.InvalidParameterException;
@@ -174,7 +176,12 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
     }
 
     private void handleIdentify() {
-        identify.setOnClickListener(v -> startActivity(new Intent(this, SmartlookIdentifyActivity.class)));
+        try {
+            JSONObject json = new JSONObject("{\"name\":\"Karel_new\",\"email\":\"karel_new@mail.com\"}");
+            Smartlook.setUserIdentifier("NEW_USER", json);
+        } catch (Exception ignored) {
+
+        }
     }
 
 
