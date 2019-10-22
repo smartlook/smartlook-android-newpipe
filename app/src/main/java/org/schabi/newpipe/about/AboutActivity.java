@@ -18,6 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.smartlook.sdk.smartlook.SmartlookNamedView;
+
+import org.jetbrains.annotations.NotNull;
 import org.schabi.newpipe.BuildConfig;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.util.NavigationHelper;
@@ -111,7 +114,7 @@ public class AboutActivity extends AppCompatActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class AboutFragment extends Fragment {
+    public static class AboutFragment extends Fragment implements SmartlookNamedView {
 
         public AboutFragment() {
         }
@@ -153,6 +156,11 @@ public class AboutActivity extends AppCompatActivity {
             context.startActivity(intent);
         }
 
+        @NotNull
+        @Override
+        public String getCustomName() {
+            return "CustomAboutFragmentName";
+        }
     }
 
 
