@@ -11,7 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.ViewTreeObserver;
 
-import com.smartlook.sdk.smartlook.SmartlookNamedView;
+import com.smartlook.sdk.smartlook.SmartlookNamedController;
 
 import org.jetbrains.annotations.NotNull;
 import org.schabi.newpipe.R;
@@ -21,7 +21,7 @@ import org.schabi.newpipe.util.ThemeHelper;
 import us.shandian.giga.service.DownloadManagerService;
 import us.shandian.giga.ui.fragment.MissionsFragment;
 
-public class DownloadActivity extends AppCompatActivity implements SmartlookNamedView {
+public class DownloadActivity extends AppCompatActivity implements SmartlookNamedController {
 
     private static final String MISSIONS_FRAGMENT_TAG = "fragment_tag";
 

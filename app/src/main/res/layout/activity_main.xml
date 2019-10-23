@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <tag android:id="@+id/smartlook_custom_controller_name" android:value="Custom Main Activity Name" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

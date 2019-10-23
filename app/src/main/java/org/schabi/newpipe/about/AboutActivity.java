@@ -18,7 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.smartlook.sdk.smartlook.SmartlookNamedView;
+import com.smartlook.sdk.smartlook.SmartlookNamedController;
 
 import org.jetbrains.annotations.NotNull;
 import org.schabi.newpipe.BuildConfig;
@@ -114,7 +114,7 @@ public class AboutActivity extends AppCompatActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class AboutFragment extends Fragment implements SmartlookNamedView {
+    public static class AboutFragment extends Fragment implements SmartlookNamedController {
 
         public AboutFragment() {
         }
