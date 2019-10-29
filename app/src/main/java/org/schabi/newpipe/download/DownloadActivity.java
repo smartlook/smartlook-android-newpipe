@@ -11,9 +11,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.ViewTreeObserver;
 
-import com.smartlook.sdk.smartlook.SmartlookNamedController;
-
-import org.jetbrains.annotations.NotNull;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.settings.SettingsActivity;
 import org.schabi.newpipe.util.ThemeHelper;
@@ -21,7 +18,7 @@ import org.schabi.newpipe.util.ThemeHelper;
 import us.shandian.giga.service.DownloadManagerService;
 import us.shandian.giga.ui.fragment.MissionsFragment;
 
-public class DownloadActivity extends AppCompatActivity implements SmartlookNamedController {
+public class DownloadActivity extends AppCompatActivity {
 
     private static final String MISSIONS_FRAGMENT_TAG = "fragment_tag";
 
@@ -93,11 +90,5 @@ public class DownloadActivity extends AppCompatActivity implements SmartlookName
     @Override
     public void onRestoreInstanceState(Bundle inState) {
         super.onRestoreInstanceState(inState);
-    }
-
-    @NotNull
-    @Override
-    public String getCustomName() {
-        return "CustomDownloadActivityName";
     }
 }

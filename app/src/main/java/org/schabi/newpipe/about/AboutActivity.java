@@ -18,9 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.smartlook.sdk.smartlook.SmartlookNamedController;
-
-import org.jetbrains.annotations.NotNull;
 import org.schabi.newpipe.BuildConfig;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.util.NavigationHelper;
@@ -114,7 +111,7 @@ public class AboutActivity extends AppCompatActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class AboutFragment extends Fragment implements SmartlookNamedController {
+    public static class AboutFragment extends Fragment {
 
         public AboutFragment() {
         }
@@ -154,12 +151,6 @@ public class AboutActivity extends AppCompatActivity {
         private void openWebsite(String url, Context context) {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             context.startActivity(intent);
-        }
-
-        @NotNull
-        @Override
-        public String getCustomName() {
-            return "CustomAboutFragmentName";
         }
     }
 
