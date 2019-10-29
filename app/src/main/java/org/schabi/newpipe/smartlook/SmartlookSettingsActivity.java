@@ -176,12 +176,13 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
     }
 
     private void handleIdentify() {
-        try {
-            JSONObject json = new JSONObject("{\"name\":\"Karel_new\",\"email\":\"karel_new@mail.com\"}");
-            Smartlook.setUserIdentifier("NEW_USER", json);
-        } catch (Exception ignored) {
-
-        }
+        identify.setOnClickListener(v -> {
+            try {
+                JSONObject json = new JSONObject("{\"name\":\"Karel_new\",\"email\":\"karel_new@mail.com\"}");
+                Smartlook.setUserIdentifier("NEW_USER", json);
+            } catch (Exception ignored) {
+            }
+        });
     }
 
 
