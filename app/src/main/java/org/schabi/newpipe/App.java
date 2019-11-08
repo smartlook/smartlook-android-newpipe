@@ -23,6 +23,8 @@ import org.acra.config.ACRAConfiguration;
 import org.acra.config.ACRAConfigurationException;
 import org.acra.config.ConfigurationBuilder;
 import org.acra.sender.ReportSenderFactory;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.schabi.newpipe.extractor.Downloader;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.report.AcraReportSenderFactory;
@@ -141,6 +143,19 @@ public class App extends MultiDexApplication {
         Smartlook.setupAndStartRecording(apiKey, runInExperimentalMode);
 
         Smartlook.unregisterBlacklistedClass(WebView.class);
+
+        JSONObject sessionProperties = new JSONObject();
+        try {
+            sessionProperties.put("Name", "");
+            sessionProperties.put("Mobile Number", "");
+            sessionProperties.put("Email", null);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        String userId = null;
+        Smartlook.setUserIdentifier("", sessionProperties);
+
 
 //        try {
 //            JSONObject json = new JSONObject("{\"name\":\"Karel\",\"email\":\"karel@mail.com\"}");
