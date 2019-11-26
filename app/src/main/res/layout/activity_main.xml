@@ -6,32 +6,17 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <tag android:id="@+id/smartlook_custom_controller_name" android:value="Custom Main Activity Name" />
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context="org.schabi.newpipe.MainActivity">
 
-
-        <LinearLayout
-            android:layout_marginTop="?attr/actionBarSize"
+        <FrameLayout
+            android:id="@+id/fragment_holder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <FrameLayout
-                android:id="@+id/fragment_holder"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-        </LinearLayout>
+            android:layout_marginTop="?attr/actionBarSize" />
 
         <include layout="@layout/toolbar_layout" />
     </FrameLayout>

@@ -14,7 +14,7 @@ import com.nostra13.universalimageloader.cache.memory.impl.LRULimitedMemoryCache
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.smartlook.sdk.smartlook.Smartlook;
-import com.smartlook.sdk.smartlook.api.Server;
+import com.smartlook.sdk.smartlook.api.anotations.SmartlookServer;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -31,7 +31,6 @@ import org.schabi.newpipe.report.AcraReportSenderFactory;
 import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.settings.SettingsActivity;
-import org.schabi.newpipe.smartlook.SmartlookPreferences;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.StateSaver;
 
@@ -40,6 +39,7 @@ import java.io.InterruptedIOException;
 import java.net.SocketException;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.exceptions.CompositeException;
@@ -87,16 +87,6 @@ public class App extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
 
-//        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
-//                .detectAll()
-//                .penaltyLog()
-//                .build());
-//
-//        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
-//                .detectAll()
-//                .penaltyLog()
-//                .build());
-
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
@@ -127,46 +117,32 @@ public class App extends MultiDexApplication {
     }
 
     private void smartlookInit() {
-        int server = SmartlookPreferences.loadServerSelection(this);
-        String apiKey = SmartlookPreferences.loadApiKey(this, server);
-        boolean debugSelectors = SmartlookPreferences.loadDebugSelectors(this);
-        boolean runInExperimentalMode = SmartlookPreferences.loadRunInExperimentalMode(this);
 
-        Log.i("SmartlookInit", "Initialize smartlook: " +
-                "server=[" + new Server(server).getBaseRawUrl() + "] " +
-                "apiKey=[" + apiKey + "] " +
-                "debugSelectors=[" + debugSelectors + "] " +
-                "runInExperimentalMode=[" + runInExperimentalMode + "]");
-
-        Smartlook.changeServer(server);
+        Smartlook.changeServer(SmartlookServer.PRODUCTION);
         Smartlook.debugSelectors(false);
-        Smartlook.setupAndStartRecording(apiKey, runInExperimentalMode);
-
+        Smartlook.setupAndStartRecording("9f83a8f96ecc2af2926a5a22a37c2907e606b2ce", true, 5);
         Smartlook.unregisterBlacklistedClass(WebView.class);
+
+        String[] usernames = new String[]{"bob.89", "james_rook", "user1992", "gluebow", "levelfun"};
+        String[] currencyCode = new String[]{"USD", "EUR", "CZK"};
+        String[] emails = new String[]{"bob@company.com", "rook@gmail.com", "user1992@post.cz", "gluebow@bow.org", "level@fun.com"};
 
         JSONObject sessionProperties = new JSONObject();
         try {
-            sessionProperties.put("Name", "");
-            sessionProperties.put("Mobile Number", "");
-            sessionProperties.put("Email", null);
+            sessionProperties.put("user_subscription", "active");
+            sessionProperties.put("user_currency_code", getRandom(currencyCode));
+            sessionProperties.put("email", getRandom(emails));
+            sessionProperties.put("name", getRandom(usernames));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        String userId = null;
-        Smartlook.setUserIdentifier("", sessionProperties);
+        Smartlook.setUserIdentifier(getRandom(usernames), sessionProperties);
+    }
 
-
-//        try {
-//            JSONObject json = new JSONObject("{\"name\":\"Karel\",\"email\":\"karel@mail.com\"}");
-//            Smartlook.setUserIdentifier("USER", json);
-//
-//            JSONObject eventProps = new JSONObject("{\"global\":\"yes\",\"prop\":\"yes\"}");
-//            Smartlook.setGlobalEventProperties(eventProps, false);
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
+    public static String getRandom(String[] array) {
+        int rnd = new Random().nextInt(array.length);
+        return array[rnd];
     }
 
     protected Downloader getDownloader() {
