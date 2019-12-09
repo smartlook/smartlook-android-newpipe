@@ -135,21 +135,20 @@ public class App extends Application {
 
         Smartlook.changeServer(server);
         Smartlook.debugSelectors(false);
-        Smartlook.setupAndStartRecording(apiKey, runInExperimentalMode);
+        Smartlook.setupAndStartRecording(apiKey, runInExperimentalMode, 5);
 
         Smartlook.unregisterBlacklistedClass(WebView.class);
 
         JSONObject sessionProperties = new JSONObject();
         try {
-            sessionProperties.put("Name", "");
-            sessionProperties.put("Mobile Number", "");
-            sessionProperties.put("Email", null);
+            sessionProperties.put("name", SmartlookPreferences.loadName(this));
+            sessionProperties.put("email", SmartlookPreferences.loadMail(this));
+            sessionProperties.put("company", SmartlookPreferences.loadCompany(this));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        String userId = null;
-        Smartlook.setUserIdentifier("", sessionProperties);
+        Smartlook.setUserIdentifier(SmartlookPreferences.loadUserId(this), sessionProperties);
     }
 
     protected Downloader getDownloader() {

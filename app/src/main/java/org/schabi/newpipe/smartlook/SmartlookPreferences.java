@@ -10,7 +10,7 @@ public class SmartlookPreferences {
     // Default api keys
     private static final String SMARTLOOK_ALFA_API_KEY = "dce4cb5b71c0c45aed88ad89a11cfe8977807b45";
     private static final String SMARTLOOK_BETA_API_KEY = "c8d68fc8cfc145993b983d4404f85f8d4ff59773";
-    private static final String SMARTLOOK_PRODUCTION_API_KEY = "85d3eb951c75ff51df3ca8c24cc4eb51efd68822";
+    private static final String SMARTLOOK_PRODUCTION_API_KEY = "9f83a8f96ecc2af2926a5a22a37c2907e606b2ce";
 
     // Api preference keys
     private static final String SMARTLOOK_ALFA_API_KEY_PREFERENCE = "smartlook_alfa_api_key_preference";
@@ -19,15 +19,13 @@ public class SmartlookPreferences {
 
     // Server preference key
     private static final String SMARTLOOK_SERVER_PREFERENCE = "smartlook_server_preference";
-
-    // Debug selectors
     private static final String SMARTLOOK_DEBUG_SELECTORS_PREFERENCE = "smartlook_debug_selectors_preference";
-
-    // Private preference key
     private static final String SMARTLOOK_SAMPLE_APP_PREFERENCES = "smartlook_sample_app_preferences";
-
-    // Run in experimental mode
     private static final String SMARTLOOK_RUN_IN_EXPERIMENTAL_MODE = "smartlook_run_in_experimental_mode";
+    private static final String SMARTLOOK_IDENTIFY_USER_ID = "smartlook_identify_user_id";
+    private static final String SMARTLOOK_IDENTIFY_NAME = "smartlook_identify_name";
+    private static final String SMARTLOOK_IDENTIFY_MAIL = "smartlook_identify_mail";
+    private static final String SMARTLOOK_IDENTIFY_COMPANY = "smartlook_identify_company";
 
     public static int loadServerSelection(Context context) {
         return getSharedPreferences(context).getInt(SMARTLOOK_SERVER_PREFERENCE, SmartlookServer.PRODUCTION);
@@ -53,6 +51,50 @@ public class SmartlookPreferences {
                 .apply();
     }
 
+    public static String loadUserId(Context context) {
+        return getSharedPreferences(context).getString(SMARTLOOK_IDENTIFY_USER_ID, "test_user");
+    }
+
+    public static void storeUserId(Context context, String userId) {
+        getSharedPreferences(context)
+                .edit()
+                .putString(SMARTLOOK_IDENTIFY_USER_ID, userId)
+                .apply();
+    }
+
+    public static String loadName(Context context) {
+        return getSharedPreferences(context).getString(SMARTLOOK_IDENTIFY_NAME, "Karel Novák");
+    }
+
+    public static void storeName(Context context, String name) {
+        getSharedPreferences(context)
+                .edit()
+                .putString(SMARTLOOK_IDENTIFY_NAME, name)
+                .apply();
+    }
+
+    public static String loadMail(Context context) {
+        return getSharedPreferences(context).getString(SMARTLOOK_IDENTIFY_MAIL, "novak@mail.com");
+    }
+
+    public static void storeMail(Context context, String mail) {
+        getSharedPreferences(context)
+                .edit()
+                .putString(SMARTLOOK_IDENTIFY_MAIL, mail)
+                .apply();
+    }
+
+    public static String loadCompany(Context context) {
+        return getSharedPreferences(context).getString(SMARTLOOK_IDENTIFY_COMPANY, "Smartlook");
+    }
+
+    public static void storeCompany(Context context, String company) {
+        getSharedPreferences(context)
+                .edit()
+                .putString(SMARTLOOK_IDENTIFY_COMPANY, company)
+                .apply();
+    }
+
     public static String getDefaultApiKey(int server) {
         switch (server) {
             case SmartlookServer.ALFA:
@@ -67,7 +109,7 @@ public class SmartlookPreferences {
     }
 
     public static boolean loadDebugSelectors(Context context) {
-        return getSharedPreferences(context).getBoolean(SMARTLOOK_DEBUG_SELECTORS_PREFERENCE, true);
+        return getSharedPreferences(context).getBoolean(SMARTLOOK_DEBUG_SELECTORS_PREFERENCE, false);
     }
 
     public static void storeDebugSelectors(Context context, boolean debugSelectors) {

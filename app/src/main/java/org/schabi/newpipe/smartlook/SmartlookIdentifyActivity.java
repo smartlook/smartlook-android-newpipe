@@ -19,7 +19,7 @@ public class SmartlookIdentifyActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private EditText etUserId;
     private EditText etName;
-    private EditText etAge;
+    private EditText etMail;
     private EditText etCompany;
     private Button bIdentify;
 
@@ -47,8 +47,13 @@ public class SmartlookIdentifyActivity extends AppCompatActivity {
 
         etUserId = findViewById(R.id.smartlook_user_id);
         etName = findViewById(R.id.smartlook_user_name);
-        etAge = findViewById(R.id.smartlook_user_age);
+        etMail = findViewById(R.id.smartlook_user_email);
         etCompany = findViewById(R.id.smartlook_user_company);
+
+        etUserId.setText(SmartlookPreferences.loadUserId(this));
+        etName.setText(SmartlookPreferences.loadName(this));
+        etMail.setText(SmartlookPreferences.loadMail(this));
+        etCompany.setText(SmartlookPreferences.loadCompany(this));
 
         bIdentify = findViewById(R.id.smartlook_identify);
     }
@@ -60,28 +65,23 @@ public class SmartlookIdentifyActivity extends AppCompatActivity {
 
     private void handleIdentify() {
         bIdentify.setOnClickListener(v -> {
-            Smartlook.identify(etUserId.getText().toString(),
-                    formatUserProperties());
+
+            SmartlookPreferences.storeUserId(this, etUserId.getText().toString());
+            SmartlookPreferences.storeName(this, etName.getText().toString());
+            SmartlookPreferences.storeMail(this, etMail.getText().toString());
+            SmartlookPreferences.storeCompany(this, etCompany.getText().toString());
+
+            Smartlook.setUserIdentifier(etUserId.getText().toString(), formatUserProperties());
         });
     }
 
     private JSONObject formatUserProperties() {
         JSONObject jsonObject = new JSONObject();
 
-        String name = etName.getText().toString();
-        String age = etAge.getText().toString();
-        String company = etCompany.getText().toString();
-
         try {
-            if (!name.isEmpty()) {
-                jsonObject.put("name", name);
-            }
-            if (!age.isEmpty()) {
-                jsonObject.put("age", age);
-            }
-            if (!company.isEmpty()) {
-                jsonObject.put("company", company);
-            }
+            jsonObject.put("name", etName.getText().toString());
+            jsonObject.put("email", etMail.getText().toString());
+            jsonObject.put("company", etCompany.getText().toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }

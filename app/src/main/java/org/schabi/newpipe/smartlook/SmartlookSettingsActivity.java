@@ -19,10 +19,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.smartlook.sdk.smartlook.Smartlook;
 import com.smartlook.sdk.smartlook.api.anotations.SmartlookServer;
 
-import org.json.JSONObject;
 import org.schabi.newpipe.R;
 
 import java.security.InvalidParameterException;
@@ -177,13 +175,7 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
     }
 
     private void handleIdentify() {
-        identify.setOnClickListener(v -> {
-            try {
-                JSONObject json = new JSONObject("{\"name\":\"Karel_new\",\"email\":\"karel_new@mail.com\"}");
-                Smartlook.setUserIdentifier("NEW_USER", json);
-            } catch (Exception ignored) {
-            }
-        });
+        identify.setOnClickListener(v -> startActivity(new Intent(this, SmartlookIdentifyActivity.class)));
     }
 
 
