@@ -32,7 +32,6 @@ import org.schabi.newpipe.extractor.Info;
 import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.ListExtractor.InfoItemsPage;
 import org.schabi.newpipe.extractor.NewPipe;
-import org.schabi.newpipe.extractor.suggestion.SuggestionExtractor;
 import org.schabi.newpipe.extractor.channel.ChannelInfo;
 import org.schabi.newpipe.extractor.comments.CommentsInfo;
 import org.schabi.newpipe.extractor.exceptions.ContentNotAvailableException;
@@ -43,6 +42,7 @@ import org.schabi.newpipe.extractor.playlist.PlaylistInfo;
 import org.schabi.newpipe.extractor.search.SearchInfo;
 import org.schabi.newpipe.extractor.services.youtube.extractors.YoutubeStreamExtractor;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
+import org.schabi.newpipe.extractor.suggestion.SuggestionExtractor;
 import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
 

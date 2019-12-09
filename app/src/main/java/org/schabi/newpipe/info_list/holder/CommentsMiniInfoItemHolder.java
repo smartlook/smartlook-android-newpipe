@@ -1,9 +1,10 @@
 package org.schabi.newpipe.info_list.holder;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.text.util.Linkify;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.jsoup.helper.StringUtil;
 import org.schabi.newpipe.R;

@@ -2,6 +2,8 @@ package org.schabi.newpipe;
 
 import android.text.TextUtils;
 
+import androidx.annotation.Nullable;
+
 import org.schabi.newpipe.extractor.downloader.Downloader;
 import org.schabi.newpipe.extractor.downloader.Request;
 import org.schabi.newpipe.extractor.downloader.Response;
@@ -15,7 +17,6 @@ import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Nonnull;
 
-import androidx.annotation.Nullable;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;

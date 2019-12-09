@@ -21,6 +21,7 @@ package org.schabi.newpipe.local.history;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+
 import androidx.annotation.NonNull;
 
 import org.schabi.newpipe.NewPipeDatabase;

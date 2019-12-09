@@ -1,10 +1,10 @@
 package org.schabi.newpipe.database.stream.model;
 
 
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.annotation.Nullable;
 
 import java.util.concurrent.TimeUnit;
 

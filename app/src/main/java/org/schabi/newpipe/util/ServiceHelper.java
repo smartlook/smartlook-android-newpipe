@@ -2,6 +2,7 @@ package org.schabi.newpipe.util;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
+
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 

@@ -28,12 +28,13 @@ import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.IBinder;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;

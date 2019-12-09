@@ -8,11 +8,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.preference.Preference;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.nononsenseapps.filepicker.Utils;
 

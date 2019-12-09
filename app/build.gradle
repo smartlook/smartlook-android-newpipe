@@ -32,6 +32,13 @@ android {
         }
     }
 
+    flavorDimensions "sdkVersion"
+    productFlavors {
+        nativeapp {
+            dimension "sdkVersion"
+        }
+    }
+
     lintOptions {
         checkReleaseBuilds false
         // Or, if you prefer, you can continue to check for errors in release builds,
@@ -53,6 +60,10 @@ ext {
     okHttpLibVersion = '3.12.6'
     icepickLibVersion = '3.2.0'
     stethoLibVersion = '1.5.0'
+}
+
+configurations {
+    nativeappDebugImplementation
 }
 
 dependencies {
@@ -108,4 +119,6 @@ dependencies {
 
     implementation "com.squareup.okhttp3:okhttp:${okHttpLibVersion}"
     debugImplementation "com.facebook.stetho:stetho-okhttp3:${stethoLibVersion}"
+
+    implementation project(':smartlooksdk')
 }

@@ -11,15 +11,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.fragment.app.DialogFragment;
-import androidx.documentfile.provider.DocumentFile;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.view.menu.ActionMenuItemView;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -33,6 +24,16 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.view.menu.ActionMenuItemView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.documentfile.provider.DocumentFile;
+import androidx.fragment.app.DialogFragment;
 
 import com.nononsenseapps.filepicker.Utils;
 

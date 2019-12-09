@@ -1,8 +1,9 @@
 package org.schabi.newpipe;
 
-import androidx.room.Room;
 import android.content.Context;
+
 import androidx.annotation.NonNull;
+import androidx.room.Room;
 
 import org.schabi.newpipe.database.AppDatabase;
 

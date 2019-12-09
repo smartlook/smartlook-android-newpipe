@@ -22,11 +22,12 @@ package org.schabi.newpipe.util;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.preference.PreferenceManager;
+import android.util.TypedValue;
+import android.view.ContextThemeWrapper;
+
 import androidx.annotation.AttrRes;
 import androidx.annotation.StyleRes;
 import androidx.core.content.ContextCompat;
-import android.util.TypedValue;
-import android.view.ContextThemeWrapper;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.NewPipe;

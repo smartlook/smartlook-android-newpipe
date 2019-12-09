@@ -1,10 +1,11 @@
 package org.schabi.newpipe.settings;
 
 import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.preference.Preference;
-import android.widget.Toast;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.local.history.HistoryRecordManager;

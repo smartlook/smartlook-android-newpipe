@@ -1,9 +1,10 @@
 package org.schabi.newpipe.player.resolver;
 
 import android.net.Uri;
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.text.TextUtils;
 
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.source.MediaSource;

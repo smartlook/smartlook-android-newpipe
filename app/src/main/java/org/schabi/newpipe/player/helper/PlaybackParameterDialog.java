@@ -3,15 +3,16 @@ package org.schabi.newpipe.player.helper;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.util.SliderStrategy;

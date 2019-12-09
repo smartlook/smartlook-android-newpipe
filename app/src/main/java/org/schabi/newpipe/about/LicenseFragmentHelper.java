@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.webkit.WebView;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import android.webkit.WebView;
+
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.util.ThemeHelper;
 

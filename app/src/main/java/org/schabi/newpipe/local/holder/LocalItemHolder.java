@@ -1,8 +1,9 @@
 package org.schabi.newpipe.local.holder;
 
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.schabi.newpipe.database.LocalItem;
 import org.schabi.newpipe.local.LocalItemBuilder;

@@ -1,6 +1,7 @@
 package org.schabi.newpipe.util;
 
 import android.content.Context;
+
 import androidx.fragment.app.Fragment;
 
 import org.schabi.newpipe.R;

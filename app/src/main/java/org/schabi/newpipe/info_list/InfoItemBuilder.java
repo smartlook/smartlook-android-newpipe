@@ -1,9 +1,10 @@
 package org.schabi.newpipe.info_list;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 

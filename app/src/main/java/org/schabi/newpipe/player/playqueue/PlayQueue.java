@@ -1,8 +1,9 @@
 package org.schabi.newpipe.player.playqueue;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.util.Log;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;

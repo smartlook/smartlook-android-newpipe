@@ -20,9 +20,10 @@
 package org.schabi.newpipe.local.subscription.services;
 
 import android.content.Intent;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;

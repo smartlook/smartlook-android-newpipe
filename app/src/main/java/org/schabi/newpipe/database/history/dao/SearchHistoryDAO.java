@@ -1,8 +1,8 @@
 package org.schabi.newpipe.database.history.dao;
 
+import androidx.annotation.Nullable;
 import androidx.room.Dao;
 import androidx.room.Query;
-import androidx.annotation.Nullable;
 
 import org.schabi.newpipe.database.history.model.SearchHistoryEntry;
 

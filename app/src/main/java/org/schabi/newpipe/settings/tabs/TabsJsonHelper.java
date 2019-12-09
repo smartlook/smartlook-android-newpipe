@@ -1,5 +1,7 @@
 package org.schabi.newpipe.settings.tabs;
 
+import androidx.annotation.Nullable;
+
 import com.grack.nanojson.JsonArray;
 import com.grack.nanojson.JsonObject;
 import com.grack.nanojson.JsonParser;
@@ -11,8 +13,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import androidx.annotation.Nullable;
 
 /**
  * Class to get a JSON representation of a list of tabs, and the other way around.

@@ -1,8 +1,9 @@
 package org.schabi.newpipe.player.mediasource;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.util.Log;
 
 import com.google.android.exoplayer2.source.BaseMediaSource;
 import com.google.android.exoplayer2.source.MediaPeriod;

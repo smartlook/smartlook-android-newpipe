@@ -7,11 +7,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.Preference;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.nononsenseapps.filepicker.Utils;
 import com.nostra13.universalimageloader.core.ImageLoader;

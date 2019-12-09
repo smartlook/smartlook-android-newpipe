@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+
 import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 

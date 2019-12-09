@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.preference.PreferenceManager;
+
 import androidx.annotation.StringRes;
 
 import org.schabi.newpipe.R;

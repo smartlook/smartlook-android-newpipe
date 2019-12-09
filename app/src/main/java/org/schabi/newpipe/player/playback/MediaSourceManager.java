@@ -1,9 +1,11 @@
 package org.schabi.newpipe.player.playback;
+
 import android.os.Handler;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.ArraySet;
-import android.util.Log;
 
 import com.google.android.exoplayer2.source.MediaSource;
 

@@ -2,13 +2,14 @@ package org.schabi.newpipe.fragments.list.search;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import androidx.annotation.AttrRes;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.AttrRes;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.schabi.newpipe.R;
 

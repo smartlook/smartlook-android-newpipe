@@ -9,8 +9,9 @@ import android.media.AudioFocusRequest;
 import android.media.AudioManager;
 import android.media.audiofx.AudioEffect;
 import android.os.Build;
-import androidx.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.analytics.AnalyticsListener;

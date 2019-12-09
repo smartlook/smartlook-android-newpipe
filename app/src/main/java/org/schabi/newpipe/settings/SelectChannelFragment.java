@@ -3,24 +3,25 @@ package org.schabi.newpipe.settings;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.DialogFragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.database.subscription.SubscriptionEntity;
+import org.schabi.newpipe.local.subscription.SubscriptionService;
 import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
-import org.schabi.newpipe.local.subscription.SubscriptionService;
 
 import java.util.List;
 import java.util.Vector;

@@ -1,8 +1,9 @@
 package org.schabi.newpipe.local.subscription;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.NewPipeDatabase;

@@ -4,10 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.view.accessibility.CaptioningManager;
+
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.view.accessibility.CaptioningManager;
 
 import com.google.android.exoplayer2.SeekParameters;
 import com.google.android.exoplayer2.text.CaptionStyleCompat;

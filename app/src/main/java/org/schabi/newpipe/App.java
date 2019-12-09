@@ -6,13 +6,16 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
+import android.webkit.WebView;
 
 import androidx.annotation.Nullable;
-import android.util.Log;
 
 import com.nostra13.universalimageloader.cache.memory.impl.LRULimitedMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.smartlook.sdk.smartlook.Smartlook;
+import com.smartlook.sdk.smartlook.api.Server;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -21,12 +24,15 @@ import org.acra.config.ACRAConfiguration;
 import org.acra.config.ACRAConfigurationException;
 import org.acra.config.ConfigurationBuilder;
 import org.acra.sender.ReportSenderFactory;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.downloader.Downloader;
 import org.schabi.newpipe.report.AcraReportSenderFactory;
 import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.settings.SettingsActivity;
+import org.schabi.newpipe.smartlook.SmartlookPreferences;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.StateSaver;
@@ -110,6 +116,40 @@ public class App extends Application {
 
         // Check for new version
         new CheckForNewAppVersionTask().execute();
+
+        smartlookInit();
+    }
+
+    private void smartlookInit() {
+
+        int server = SmartlookPreferences.loadServerSelection(this);
+        String apiKey = SmartlookPreferences.loadApiKey(this, server);
+        boolean debugSelectors = SmartlookPreferences.loadDebugSelectors(this);
+        boolean runInExperimentalMode = SmartlookPreferences.loadRunInExperimentalMode(this);
+
+        Log.i("SmartlookInit", "Initialize smartlook: " +
+                "server=[" + new Server(server).getBaseRawUrl() + "] " +
+                "apiKey=[" + apiKey + "] " +
+                "debugSelectors=[" + debugSelectors + "] " +
+                "runInExperimentalMode=[" + runInExperimentalMode + "]");
+
+        Smartlook.changeServer(server);
+        Smartlook.debugSelectors(false);
+        Smartlook.setupAndStartRecording(apiKey, runInExperimentalMode);
+
+        Smartlook.unregisterBlacklistedClass(WebView.class);
+
+        JSONObject sessionProperties = new JSONObject();
+        try {
+            sessionProperties.put("Name", "");
+            sessionProperties.put("Mobile Number", "");
+            sessionProperties.put("Email", null);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        String userId = null;
+        Smartlook.setUserIdentifier("", sessionProperties);
     }
 
     protected Downloader getDownloader() {

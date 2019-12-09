@@ -8,14 +8,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AlertDialog;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -53,6 +54,7 @@ import org.schabi.newpipe.player.PopupVideoPlayerActivity;
 import org.schabi.newpipe.player.VideoPlayer;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.settings.SettingsActivity;
+import org.schabi.newpipe.smartlook.SmartlookSettingsActivity;
 
 import java.util.ArrayList;
 
@@ -419,6 +421,11 @@ public class NavigationHelper {
         Intent openIntent = getOpenIntent(context, url, serviceId, StreamingService.LinkType.STREAM);
         if (title != null && !title.isEmpty()) openIntent.putExtra(Constants.KEY_TITLE, title);
         context.startActivity(openIntent);
+    }
+
+    public static void openSmartlookSettings(Context context) {
+        Intent intent = new Intent(context, SmartlookSettingsActivity.class);
+        context.startActivity(intent);
     }
 
     public static void openMainActivity(Context context) {

@@ -12,13 +12,6 @@ import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.core.app.NavUtils;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,6 +20,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NavUtils;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.acra.ReportField;
 import org.acra.collector.CrashReportData;

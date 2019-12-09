@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".smartlook.SmartlookIdentifyActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/light_settings_accent_color"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:title="@string/smartlook_settings"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:titleTextAppearance="@style/Toolbar.Title" />
+
+    <LinearLayout
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Dummy item to prevent AutoCompleteTextView from receiving focus -->
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User id"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+        <EditText
+            android:id="@+id/smartlook_user_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="4dp"
+            android:text="Custom user properties"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+        <EditText
+            android:id="@+id/smartlook_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+        <EditText
+            android:id="@+id/smartlook_user_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Company"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+        <EditText
+            android:id="@+id/smartlook_user_company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/smartlook_identify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="identify user" />
+    </LinearLayout>
+
+
+</LinearLayout>

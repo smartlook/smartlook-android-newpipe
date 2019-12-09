@@ -1,6 +1,7 @@
 package org.schabi.newpipe.report;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 
 import org.acra.config.ACRAConfiguration;

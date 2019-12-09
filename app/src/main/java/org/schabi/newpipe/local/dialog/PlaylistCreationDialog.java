@@ -3,11 +3,12 @@ package org.schabi.newpipe.local.dialog;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;

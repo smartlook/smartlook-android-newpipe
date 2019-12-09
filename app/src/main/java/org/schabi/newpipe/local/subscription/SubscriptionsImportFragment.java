@@ -3,11 +3,6 @@ package org.schabi.newpipe.local.subscription;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.core.text.util.LinkifyCompat;
-import androidx.appcompat.app.ActionBar;
 import android.text.TextUtils;
 import android.text.util.Linkify;
 import android.view.LayoutInflater;
@@ -17,6 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.ActionBar;
+import androidx.core.text.util.LinkifyCompat;
+
 import com.nononsenseapps.filepicker.Utils;
 
 import org.schabi.newpipe.BaseFragment;
@@ -24,9 +25,9 @@ import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.subscription.SubscriptionExtractor;
+import org.schabi.newpipe.local.subscription.services.SubscriptionsImportService;
 import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
-import org.schabi.newpipe.local.subscription.services.SubscriptionsImportService;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.FilePickerActivityHelper;
 import org.schabi.newpipe.util.ServiceHelper;

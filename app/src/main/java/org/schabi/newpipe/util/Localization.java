@@ -5,6 +5,10 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.PluralsRes;
+import androidx.annotation.StringRes;
+
 import org.ocpsoft.prettytime.PrettyTime;
 import org.ocpsoft.prettytime.units.Decade;
 import org.schabi.newpipe.R;
@@ -17,10 +21,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.PluralsRes;
-import androidx.annotation.StringRes;
 
 /*
  * Created by chschtsch on 12/29/15.
