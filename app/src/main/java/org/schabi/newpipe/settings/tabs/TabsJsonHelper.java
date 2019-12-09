@@ -1,7 +1,5 @@
 package org.schabi.newpipe.settings.tabs;
 
-import android.support.annotation.Nullable;
-
 import com.grack.nanojson.JsonArray;
 import com.grack.nanojson.JsonObject;
 import com.grack.nanojson.JsonParser;
@@ -9,14 +7,12 @@ import com.grack.nanojson.JsonParserException;
 import com.grack.nanojson.JsonStringWriter;
 import com.grack.nanojson.JsonWriter;
 
-import org.schabi.newpipe.settings.tabs.Tab.Type;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.schabi.newpipe.extractor.ServiceList.YouTube;
+import androidx.annotation.Nullable;
 
 /**
  * Class to get a JSON representation of a list of tabs, and the other way around.
@@ -24,10 +20,10 @@ import static org.schabi.newpipe.extractor.ServiceList.YouTube;
 public class TabsJsonHelper {
     private static final String JSON_TABS_ARRAY_KEY = "tabs";
 
-    protected static final List<Tab> FALLBACK_INITIAL_TABS_LIST = Collections.unmodifiableList(Arrays.asList(
-            new Tab.KioskTab(YouTube.getServiceId(), "Trending"),
-            Type.SUBSCRIPTIONS.getTab(),
-            Type.BOOKMARKS.getTab()
+    private static final List<Tab> FALLBACK_INITIAL_TABS_LIST = Collections.unmodifiableList(Arrays.asList(
+            Tab.Type.DEFAULT_KIOSK.getTab(),
+            Tab.Type.SUBSCRIPTIONS.getTab(),
+            Tab.Type.BOOKMARKS.getTab()
     ));
 
     public static class InvalidJsonException extends Exception {
@@ -48,7 +44,7 @@ public class TabsJsonHelper {
      * Try to reads the passed JSON and returns the list of tabs if no error were encountered.
      * <p>
      * If the JSON is null or empty, or the list of tabs that it represents is empty, the
-     * {@link #FALLBACK_INITIAL_TABS_LIST fallback list} will be returned.
+     * {@link #getDefaultTabs fallback list} will be returned.
      * <p>
      * Tabs with invalid ids (i.e. not in the {@link Tab.Type} enum) will be ignored.
      *
@@ -58,7 +54,7 @@ public class TabsJsonHelper {
      */
     public static List<Tab> getTabsFromJson(@Nullable String tabsJson) throws InvalidJsonException {
         if (tabsJson == null || tabsJson.isEmpty()) {
-            return FALLBACK_INITIAL_TABS_LIST;
+            return getDefaultTabs();
         }
 
         final List<Tab> returnTabs = new ArrayList<>();
@@ -86,7 +82,7 @@ public class TabsJsonHelper {
         }
 
         if (returnTabs.isEmpty()) {
-            return FALLBACK_INITIAL_TABS_LIST;
+            return getDefaultTabs();
         }
 
         return returnTabs;
@@ -110,5 +106,9 @@ public class TabsJsonHelper {
 
         jsonWriter.end();
         return jsonWriter.done();
+    }
+
+    public static List<Tab> getDefaultTabs(){
+        return FALLBACK_INITIAL_TABS_LIST;
     }
 }

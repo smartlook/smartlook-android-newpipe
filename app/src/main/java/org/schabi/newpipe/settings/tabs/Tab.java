@@ -1,25 +1,34 @@
 package org.schabi.newpipe.settings.tabs;
 
 import android.content.Context;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.grack.nanojson.JsonObject;
 import com.grack.nanojson.JsonSink;
 
 import org.schabi.newpipe.R;
+import org.schabi.newpipe.extractor.NewPipe;
+import org.schabi.newpipe.extractor.StreamingService;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.fragments.BlankFragment;
 import org.schabi.newpipe.fragments.list.channel.ChannelFragment;
+import org.schabi.newpipe.fragments.list.kiosk.DefaultKioskFragment;
 import org.schabi.newpipe.fragments.list.kiosk.KioskFragment;
 import org.schabi.newpipe.local.bookmark.BookmarkFragment;
 import org.schabi.newpipe.local.feed.FeedFragment;
 import org.schabi.newpipe.local.history.StatisticsPlaylistFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionFragment;
+import org.schabi.newpipe.report.ErrorActivity;
+import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.util.KioskTranslator;
+import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.ThemeHelper;
+
+import java.util.Objects;
 
 public abstract class Tab {
     Tab() {
@@ -36,10 +45,12 @@ public abstract class Tab {
     /**
      * Return a instance of the fragment that this tab represent.
      */
-    public abstract Fragment getFragment() throws ExtractionException;
+    public abstract Fragment getFragment(Context context) throws ExtractionException;
 
     @Override
     public boolean equals(Object obj) {
+        if (obj == this) return true;
+
         return obj instanceof Tab && obj.getClass().equals(this.getClass())
                 && ((Tab) obj).getTabId() == this.getTabId();
     }
@@ -123,6 +134,7 @@ public abstract class Tab {
 
     public enum Type {
         BLANK(new BlankTab()),
+        DEFAULT_KIOSK(new DefaultKioskTab()),
         SUBSCRIPTIONS(new SubscriptionsTab()),
         FEED(new FeedTab()),
         BOOKMARKS(new BookmarksTab()),
@@ -165,7 +177,7 @@ public abstract class Tab {
         }
 
         @Override
-        public BlankFragment getFragment() {
+        public BlankFragment getFragment(Context context) {
             return new BlankFragment();
         }
     }
@@ -190,7 +202,7 @@ public abstract class Tab {
         }
 
         @Override
-        public SubscriptionFragment getFragment() {
+        public SubscriptionFragment getFragment(Context context) {
             return new SubscriptionFragment();
         }
 
@@ -216,7 +228,7 @@ public abstract class Tab {
         }
 
         @Override
-        public FeedFragment getFragment() {
+        public FeedFragment getFragment(Context context) {
             return new FeedFragment();
         }
     }
@@ -241,7 +253,7 @@ public abstract class Tab {
         }
 
         @Override
-        public BookmarkFragment getFragment() {
+        public BookmarkFragment getFragment(Context context) {
             return new BookmarkFragment();
         }
     }
@@ -266,7 +278,7 @@ public abstract class Tab {
         }
 
         @Override
-        public StatisticsPlaylistFragment getFragment() {
+        public StatisticsPlaylistFragment getFragment(Context context) {
             return new StatisticsPlaylistFragment();
         }
     }
@@ -316,7 +328,7 @@ public abstract class Tab {
         }
 
         @Override
-        public KioskFragment getFragment() throws ExtractionException {
+        public KioskFragment getFragment(Context context) throws ExtractionException {
             return KioskFragment.getInstance(kioskServiceId, kioskId);
         }
 
@@ -330,6 +342,13 @@ public abstract class Tab {
         protected void readDataFromJson(JsonObject jsonObject) {
             kioskServiceId = jsonObject.getInt(JSON_KIOSK_SERVICE_ID_KEY, -1);
             kioskId = jsonObject.getString(JSON_KIOSK_ID_KEY, "<no-id>");
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return super.equals(obj) &&
+                    kioskServiceId == ((KioskTab) obj).kioskServiceId
+                    && Objects.equals(kioskId, ((KioskTab) obj).kioskId);
         }
 
         public int getKioskServiceId() {
@@ -383,7 +402,7 @@ public abstract class Tab {
         }
 
         @Override
-        public ChannelFragment getFragment() {
+        public ChannelFragment getFragment(Context context) {
             return ChannelFragment.getInstance(channelServiceId, channelUrl, channelName);
         }
 
@@ -401,6 +420,14 @@ public abstract class Tab {
             channelName = jsonObject.getString(JSON_CHANNEL_NAME_KEY, "<no-name>");
         }
 
+        @Override
+        public boolean equals(Object obj) {
+            return super.equals(obj) &&
+                    channelServiceId == ((ChannelTab) obj).channelServiceId
+                    && Objects.equals(channelUrl, ((ChannelTab) obj).channelUrl)
+                    && Objects.equals(channelName, ((ChannelTab) obj).channelName);
+        }
+
         public int getChannelServiceId() {
             return channelServiceId;
         }
@@ -411,6 +438,45 @@ public abstract class Tab {
 
         public String getChannelName() {
             return channelName;
+        }
+    }
+
+    public static class DefaultKioskTab extends Tab {
+        public static final int ID = 7;
+
+        @Override
+        public int getTabId() {
+            return ID;
+        }
+
+        @Override
+        public String getTabName(Context context) {
+            return KioskTranslator.getTranslatedKioskName(getDefaultKioskId(context), context);
+        }
+
+        @DrawableRes
+        @Override
+        public int getTabIconRes(Context context) {
+            return KioskTranslator.getKioskIcons(getDefaultKioskId(context), context);
+        }
+
+        @Override
+        public DefaultKioskFragment getFragment(Context context) throws ExtractionException {
+            return new DefaultKioskFragment();
+        }
+
+        private String getDefaultKioskId(Context context) {
+            final int kioskServiceId = ServiceHelper.getSelectedServiceId(context);
+
+            String kioskId = "";
+            try {
+                final StreamingService service = NewPipe.getService(kioskServiceId);
+                kioskId = service.getKioskList().getDefaultKioskId();
+            } catch (ExtractionException e) {
+                ErrorActivity.reportError(context, e, null, null,
+                        ErrorActivity.ErrorInfo.make(UserAction.REQUESTED_KIOSK, "none", "Loading default kiosk from selected service", 0));
+            }
+            return kioskId;
         }
     }
 }

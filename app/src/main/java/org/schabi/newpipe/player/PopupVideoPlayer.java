@@ -35,9 +35,9 @@ import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.NotificationCompat;
+import androidx.annotation.NonNull;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.core.app.NotificationCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -182,6 +182,11 @@ public final class PopupVideoPlayer extends Service {
     }
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(AudioServiceLeakFix.preventLeakOf(base));
+    }
+
+    @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
     }
@@ -320,6 +325,7 @@ public final class PopupVideoPlayer extends Service {
         isPopupClosing = true;
 
         if (playerImpl != null) {
+            playerImpl.savePlaybackState();
             if (playerImpl.getRootView() != null) {
                 windowManager.removeView(playerImpl.getRootView());
             }
@@ -560,7 +566,8 @@ public final class PopupVideoPlayer extends Service {
                     this.getPlaybackSpeed(),
                     this.getPlaybackPitch(),
                     this.getPlaybackSkipSilence(),
-                    this.getPlaybackQuality()
+                    this.getPlaybackQuality(),
+                    false
             );
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
@@ -626,6 +633,7 @@ public final class PopupVideoPlayer extends Service {
         @Override
         public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
             super.onLoadingComplete(imageUri, view, loadedImage);
+            if (playerImpl == null) return;
             // rebuild notification here since remote view does not release bitmaps,
             // causing memory leaks
             resetNotification();
@@ -1028,7 +1036,7 @@ public final class PopupVideoPlayer extends Service {
         public boolean onTouch(View v, MotionEvent event) {
             popupGestureDetector.onTouchEvent(event);
             if (playerImpl == null) return false;
-            if (event.getPointerCount() == 2 && !isResizing) {
+            if (event.getPointerCount() == 2 && !isMoving && !isResizing) {
                 if (DEBUG) Log.d(TAG, "onTouch() 2 finger pointer detected, enabling resizing.");
                 playerImpl.showAndAnimateControl(-1, true);
                 playerImpl.getLoadingPanel().setVisibility(View.GONE);

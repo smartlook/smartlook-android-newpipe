@@ -2,8 +2,8 @@ package org.schabi.newpipe.util;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.StringRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StringRes;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.NewPipe;
@@ -24,9 +24,11 @@ public class ServiceHelper {
             case 0:
                 return R.drawable.place_holder_youtube;
             case 1:
-                return R.drawable.place_holder_circle;
+                return R.drawable.place_holder_cloud;
+            case 2:
+                return R.drawable.place_holder_gadse;
             default:
-                return R.drawable.service;
+                return R.drawable.place_holder_circle;
         }
     }
 
@@ -38,6 +40,8 @@ public class ServiceHelper {
             case "playlists": return c.getString(R.string.playlists);
             case "tracks": return c.getString(R.string.tracks);
             case "users": return c.getString(R.string.users);
+            case "conferences" : return c.getString(R.string.conferences);
+            case "events" : return c.getString(R.string.events);
             default: return filter;
         }
     }
