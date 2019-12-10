@@ -15,7 +15,6 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.smartlook.sdk.smartlook.Smartlook;
 import com.smartlook.sdk.smartlook.api.Server;
-import com.smartlook.sdk.smartlook.api.anotations.SmartlookServer;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -139,9 +138,9 @@ public class App extends MultiDexApplication {
                 "debugSelectors=[" + debugSelectors + "] " +
                 "runInExperimentalMode=[" + runInExperimentalMode + "]");
 
-        Smartlook.changeServer(SmartlookServer.ALFA);
+        Smartlook.changeServer(server);
         Smartlook.debugSelectors(false);
-        Smartlook.setupAndStartRecording("85d3eb951c75ff51df3ca8c24cc4eb51efd68822", runInExperimentalMode);
+        Smartlook.setupAndStartRecording(apiKey, runInExperimentalMode);
 
         Smartlook.unregisterBlacklistedClass(WebView.class);
 
