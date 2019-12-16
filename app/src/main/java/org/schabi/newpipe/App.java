@@ -66,7 +66,6 @@ import io.reactivex.plugins.RxJavaPlugins;
  * You should have received a copy of the GNU General Public License
  * along with NewPipe.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 public class App extends MultiDexApplication {
     protected static final String TAG = App.class.toString();
     private RefWatcher refWatcher;
