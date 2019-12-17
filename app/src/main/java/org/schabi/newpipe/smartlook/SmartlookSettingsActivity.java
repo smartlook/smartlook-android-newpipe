@@ -71,7 +71,6 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
         handleConfirm();
         handleIdentify();
         handleCrashTheApp();
-        handleGoToPlayground();
     }
 
     @Override
@@ -192,9 +191,8 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
         });
     }
 
-    private void handleGoToPlayground() {
-        goToPlayground.setOnClickListener(v ->
-                startActivity(new Intent(this, SmartlookPlaygroundActivity.class)));
+    public void handleGoToPlayground(View view) {
+        startActivity(new Intent(this, SmartlookPlaygroundActivity.class));
     }
 
     private void displayActualServerApiKey(int server) {

@@ -168,6 +168,7 @@
             android:text="@string/crash_the_app" />
 
         <Button
+            android:onClick="handleGoToPlayground"
             android:id="@+id/smartlook_go_to_playground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
