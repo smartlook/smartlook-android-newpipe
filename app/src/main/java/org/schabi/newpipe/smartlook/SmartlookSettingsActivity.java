@@ -40,7 +40,6 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
     private Switch debugSelectors;
     private Button identify;
     private Button crashTheApp;
-    private Button goToPlayground;
     private Switch runInExperimentalMode;
 
     private int lastSpinnerPosition;
@@ -112,7 +111,6 @@ public class SmartlookSettingsActivity extends AppCompatActivity {
         debugSelectors = findViewById(R.id.smartlook_debug_selectors_switch);
         identify = findViewById(R.id.smartlook_identify);
         crashTheApp = findViewById(R.id.smartlook_crash_app);
-        goToPlayground = findViewById(R.id.smartlook_go_to_playground);
         runInExperimentalMode = findViewById(R.id.smartlook_run_in_experimental_mode);
     }
 
