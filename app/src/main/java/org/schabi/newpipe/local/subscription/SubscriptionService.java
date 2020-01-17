@@ -1,8 +1,9 @@
 package org.schabi.newpipe.local.subscription;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.NewPipeDatabase;
@@ -93,7 +94,7 @@ public class SubscriptionService {
      * in the cooldown interval, only the latest changes are emitted to the subscribers.
      * This reduces the amount of observations caused by frequent updates to the database.
      */
-    @android.support.annotation.NonNull
+    @androidx.annotation.NonNull
     public Flowable<List<SubscriptionEntity>> getSubscription() {
         return subscription;
     }
@@ -147,11 +148,16 @@ public class SubscriptionService {
     }
 
     private boolean isSubscriptionUpToDate(final ChannelInfo info, final SubscriptionEntity entity) {
-        return info.getUrl().equals(entity.getUrl()) &&
+        return equalsAndNotNull(info.getUrl(), entity.getUrl()) &&
                 info.getServiceId() == entity.getServiceId() &&
                 info.getName().equals(entity.getName()) &&
-                info.getAvatarUrl().equals(entity.getAvatarUrl()) &&
-                info.getDescription().equals(entity.getDescription()) &&
+                equalsAndNotNull(info.getAvatarUrl(), entity.getAvatarUrl()) &&
+                equalsAndNotNull(info.getDescription(), entity.getDescription()) &&
                 info.getSubscriberCount() == entity.getSubscriberCount();
+    }
+
+    private boolean equalsAndNotNull(final Object o1, final Object o2) {
+        return (o1 != null && o2 != null)
+                && o1.equals(o2);
     }
 }

@@ -1,8 +1,8 @@
 package org.schabi.newpipe.database.playlist.dao;
 
-import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Query;
-import android.arch.persistence.room.Transaction;
+import androidx.room.Dao;
+import androidx.room.Query;
+import androidx.room.Transaction;
 
 import org.schabi.newpipe.database.BasicDAO;
 import org.schabi.newpipe.database.playlist.PlaylistMetadataEntry;
@@ -14,9 +14,16 @@ import java.util.List;
 import io.reactivex.Flowable;
 
 import static org.schabi.newpipe.database.playlist.PlaylistMetadataEntry.PLAYLIST_STREAM_COUNT;
-import static org.schabi.newpipe.database.playlist.model.PlaylistEntity.*;
-import static org.schabi.newpipe.database.playlist.model.PlaylistStreamEntity.*;
-import static org.schabi.newpipe.database.stream.model.StreamEntity.*;
+import static org.schabi.newpipe.database.playlist.model.PlaylistEntity.PLAYLIST_ID;
+import static org.schabi.newpipe.database.playlist.model.PlaylistEntity.PLAYLIST_NAME;
+import static org.schabi.newpipe.database.playlist.model.PlaylistEntity.PLAYLIST_TABLE;
+import static org.schabi.newpipe.database.playlist.model.PlaylistEntity.PLAYLIST_THUMBNAIL_URL;
+import static org.schabi.newpipe.database.playlist.model.PlaylistStreamEntity.JOIN_INDEX;
+import static org.schabi.newpipe.database.playlist.model.PlaylistStreamEntity.JOIN_PLAYLIST_ID;
+import static org.schabi.newpipe.database.playlist.model.PlaylistStreamEntity.JOIN_STREAM_ID;
+import static org.schabi.newpipe.database.playlist.model.PlaylistStreamEntity.PLAYLIST_STREAM_JOIN_TABLE;
+import static org.schabi.newpipe.database.stream.model.StreamEntity.STREAM_ID;
+import static org.schabi.newpipe.database.stream.model.StreamEntity.STREAM_TABLE;
 
 @Dao
 public abstract class PlaylistStreamDAO implements BasicDAO<PlaylistStreamEntity> {

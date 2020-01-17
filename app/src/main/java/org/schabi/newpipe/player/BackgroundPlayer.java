@@ -28,12 +28,13 @@ import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.IBinder;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
@@ -131,6 +132,11 @@ public final class BackgroundPlayer extends Service {
     }
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(AudioServiceLeakFix.preventLeakOf(base));
+    }
+
+    @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
     }
@@ -145,6 +151,7 @@ public final class BackgroundPlayer extends Service {
             lockManager.releaseWifiAndCpu();
         }
         if (basePlayerImpl != null) {
+            basePlayerImpl.savePlaybackState();
             basePlayerImpl.stopActivityBinding();
             basePlayerImpl.destroy();
         }
@@ -270,6 +277,8 @@ public final class BackgroundPlayer extends Service {
     protected class BasePlayerImpl extends BasePlayer {
 
         @NonNull final private AudioPlaybackResolver resolver;
+        private int cachedDuration;
+        private String cachedDurationString;
 
         BasePlayerImpl(Context context) {
             super(context);
@@ -344,10 +353,15 @@ public final class BackgroundPlayer extends Service {
 
             if (!shouldUpdateOnProgress) return;
             resetNotification();
-            if(Build.VERSION.SDK_INT >= 26 /*Oreo*/) updateNotificationThumbnail();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O /*Oreo*/)
+                updateNotificationThumbnail();
             if (bigNotRemoteView != null) {
+                if (cachedDuration != duration) {
+                    cachedDuration = duration;
+                    cachedDurationString = getTimeString(duration);
+                }
                 bigNotRemoteView.setProgressBar(R.id.notificationProgressBar, duration, currentProgress, false);
-                bigNotRemoteView.setTextViewText(R.id.notificationTime, getTimeString(currentProgress) + " / " + getTimeString(duration));
+                bigNotRemoteView.setTextViewText(R.id.notificationTime, getTimeString(currentProgress) + " / " + cachedDurationString);
             }
             if (notRemoteView != null) {
                 notRemoteView.setProgressBar(R.id.notificationProgressBar, duration, currentProgress, false);

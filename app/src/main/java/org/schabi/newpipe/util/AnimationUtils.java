@@ -24,12 +24,14 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
 import android.content.res.ColorStateList;
-import android.support.annotation.ColorInt;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.core.view.ViewCompat;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
 import org.schabi.newpipe.MainActivity;
 
@@ -362,5 +364,25 @@ public class AnimationUtils {
                 }
             }).start();
         }
+    }
+
+    public static void slideUp(final View view,
+                               long duration,
+                               long delay,
+                               @FloatRange(from = 0.0f, to = 1.0f) float translationPercent) {
+        int translationY = (int) (view.getResources().getDisplayMetrics().heightPixels *
+                (translationPercent));
+
+        view.animate().setListener(null).cancel();
+        view.setAlpha(0f);
+        view.setTranslationY(translationY);
+        view.setVisibility(View.VISIBLE);
+        view.animate()
+                .alpha(1f)
+                .translationY(0)
+                .setStartDelay(delay)
+                .setDuration(duration)
+                .setInterpolator(new FastOutSlowInInterpolator())
+                .start();
     }
 }

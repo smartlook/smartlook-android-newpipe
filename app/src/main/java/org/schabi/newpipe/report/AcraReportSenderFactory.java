@@ -1,7 +1,8 @@
 package org.schabi.newpipe.report;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import org.acra.config.ACRAConfiguration;
 import org.acra.sender.ReportSender;

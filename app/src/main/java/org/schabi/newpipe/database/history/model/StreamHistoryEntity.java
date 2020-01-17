@@ -1,20 +1,20 @@
 package org.schabi.newpipe.database.history.model;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
-import android.arch.persistence.room.Ignore;
-import android.arch.persistence.room.Index;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Ignore;
+import androidx.room.Index;
 
 import org.schabi.newpipe.database.stream.model.StreamEntity;
 
 import java.util.Date;
 
-import static android.arch.persistence.room.ForeignKey.CASCADE;
-import static org.schabi.newpipe.database.history.model.StreamHistoryEntity.STREAM_HISTORY_TABLE;
+import static androidx.room.ForeignKey.CASCADE;
 import static org.schabi.newpipe.database.history.model.StreamHistoryEntity.JOIN_STREAM_ID;
 import static org.schabi.newpipe.database.history.model.StreamHistoryEntity.STREAM_ACCESS_DATE;
+import static org.schabi.newpipe.database.history.model.StreamHistoryEntity.STREAM_HISTORY_TABLE;
 
 @Entity(tableName = STREAM_HISTORY_TABLE,
         primaryKeys = {JOIN_STREAM_ID, STREAM_ACCESS_DATE},

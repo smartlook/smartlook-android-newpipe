@@ -30,17 +30,11 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="android.support.v4.media.session.MediaButtonReceiver">
+        <receiver android:name="androidx.media.session.MediaButtonReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
             </intent-filter>
         </receiver>
-
-        <activity
-            android:name=".player.old.PlayVideoActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/OldVideoPlayerTheme"
-            tools:ignore="UnusedAttribute" />
 
         <service
             android:name=".player.BackgroundPlayer"
@@ -116,7 +110,7 @@
             android:label="@string/reCaptchaActivity" />
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -178,6 +172,19 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="www.youtube-nocookie.com" />
+                <data android:pathPrefix="/embed/" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="vnd.youtube" />
                 <data android:scheme="vnd.youtube.launch" />
             </intent-filter>
@@ -202,6 +209,42 @@
                 <!-- channel prefix -->
                 <data android:pathPrefix="/channel/" />
                 <data android:pathPrefix="/user/" />
+            </intent-filter>
+
+            <!-- Invidious filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="invidio.us" />
+                <data android:host="dev.invidio.us" />
+                <data android:host="www.invidio.us" />
+                <data android:host="invidious.snopyta.org" />
+                <data android:host="de.invidious.snopyta.org" />
+                <data android:host="fi.invidious.snopyta.org" />
+                <data android:host="vid.wxzm.sx" />
+                <data android:host="invidious.kabi.tk" />
+                <data android:host="invidiou.sh" />
+                <data android:host="www.invidiou.sh" />
+                <data android:host="no.invidiou.sh" />
+                <data android:host="invidious.enkirton.net" />
+                <data android:host="tube.poal.co" />
+                <data android:host="invidious.13ad.de" />
+                <data android:host="yt.elukerio.org" />
+                <!-- video prefix -->
+                <data android:pathPrefix="/embed/" />
+                <data android:pathPrefix="/watch" />
+                <!-- channel prefix -->
+                <data android:pathPrefix="/channel/" />
+                <data android:pathPrefix="/user/" />
+                <!-- playlist prefix -->
+                <data android:pathPrefix="/playlist" />
             </intent-filter>
 
             <!-- Soundcloud filter -->

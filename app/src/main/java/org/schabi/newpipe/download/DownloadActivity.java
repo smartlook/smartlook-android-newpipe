@@ -3,13 +3,14 @@ package org.schabi.newpipe.download;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.ViewTreeObserver;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.settings.SettingsActivity;
@@ -47,7 +48,7 @@ public class DownloadActivity extends AppCompatActivity {
             @Override
             public void onGlobalLayout() {
                 updateFragments();
-                getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                getWindow().getDecorView().getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
     }
@@ -55,12 +56,13 @@ public class DownloadActivity extends AppCompatActivity {
     private void updateFragments() {
         MissionsFragment fragment = new MissionsFragment();
 
-        getFragmentManager().beginTransaction()
+        getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frame, fragment, MISSIONS_FRAGMENT_TAG)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
     }
 
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuInflater inflater = getMenuInflater();
@@ -85,10 +87,5 @@ public class DownloadActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle inState) {
-        super.onRestoreInstanceState(inState);
     }
 }

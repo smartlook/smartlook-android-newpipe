@@ -22,11 +22,12 @@ package org.schabi.newpipe.util;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.preference.PreferenceManager;
-import android.support.annotation.AttrRes;
-import android.support.annotation.StyleRes;
-import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
+
+import androidx.annotation.AttrRes;
+import androidx.annotation.StyleRes;
+import androidx.core.content.ContextCompat;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.NewPipe;
@@ -137,7 +138,9 @@ public class ThemeHelper {
         else if (selectedTheme.equals(darkTheme)) themeName = "DarkTheme";
 
         themeName += "." + service.getServiceInfo().getName();
-        int resourceId = context.getResources().getIdentifier(themeName, "style", context.getPackageName());
+        int resourceId = context
+                .getResources()
+                .getIdentifier(themeName, "style", context.getPackageName());
 
         if (resourceId > 0) {
             return resourceId;

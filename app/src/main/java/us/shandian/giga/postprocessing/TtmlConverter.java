@@ -12,17 +12,15 @@ import java.text.ParseException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 
-import us.shandian.giga.get.DownloadMission;
-
 /**
  * @author kapodamy
  */
 class TtmlConverter extends Postprocessing {
     private static final String TAG = "TtmlConverter";
 
-    TtmlConverter(DownloadMission mission) {
+    TtmlConverter() {
         // due how XmlPullParser works, the xml is fully loaded on the ram
-        super(mission, 0, true);
+        super(false, true, ALGORITHM_TTML_CONVERTER);
     }
 
     @Override

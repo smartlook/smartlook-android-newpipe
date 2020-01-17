@@ -1,16 +1,16 @@
 package org.schabi.newpipe.fragments;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 
 import com.jakewharton.rxbinding2.view.RxView;
 
@@ -180,7 +180,7 @@ public abstract class BaseStateFragment<I> extends BaseFragment implements ViewC
         }
 
         if (exception instanceof ReCaptchaException) {
-            onReCaptchaException();
+            onReCaptchaException((ReCaptchaException) exception);
             return true;
         } else if (exception instanceof IOException) {
             showError(getString(R.string.network_error), true);
@@ -190,11 +190,13 @@ public abstract class BaseStateFragment<I> extends BaseFragment implements ViewC
         return false;
     }
 
-    public void onReCaptchaException() {
+    public void onReCaptchaException(ReCaptchaException exception) {
         if (DEBUG) Log.d(TAG, "onReCaptchaException() called");
         Toast.makeText(activity, R.string.recaptcha_request_toast, Toast.LENGTH_LONG).show();
         // Starting ReCaptcha Challenge Activity
-        startActivityForResult(new Intent(activity, ReCaptchaActivity.class), ReCaptchaActivity.RECAPTCHA_REQUEST);
+        Intent intent = new Intent(activity, ReCaptchaActivity.class);
+        intent.putExtra(ReCaptchaActivity.RECAPTCHA_URL_EXTRA, exception.getUrl());
+        startActivityForResult(intent, ReCaptchaActivity.RECAPTCHA_REQUEST);
 
         showError(getString(R.string.recaptcha_request_toast), false);
     }
@@ -229,22 +231,5 @@ public abstract class BaseStateFragment<I> extends BaseFragment implements ViewC
 
         ErrorActivity.reportError(getContext(), exception, MainActivity.class, rootView,
                 ErrorActivity.ErrorInfo.make(userAction, serviceName, request, errorId));
-    }
-
-    /*//////////////////////////////////////////////////////////////////////////
-    // Utils
-    //////////////////////////////////////////////////////////////////////////*/
-
-    protected void openUrlInBrowser(String url) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        startActivity(Intent.createChooser(intent, activity.getString(R.string.share_dialog_title)));
-    }
-
-    protected void shareUrl(String subject, String url) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        intent.putExtra(Intent.EXTRA_TEXT, url);
-        startActivity(Intent.createChooser(intent, getString(R.string.share_dialog_title)));
     }
 }

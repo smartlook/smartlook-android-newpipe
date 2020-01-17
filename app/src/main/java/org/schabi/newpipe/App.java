@@ -5,10 +5,11 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 import android.webkit.WebView;
+
+import androidx.annotation.Nullable;
+import androidx.multidex.MultiDexApplication;
 
 import com.nostra13.universalimageloader.cache.memory.impl.LRULimitedMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -25,13 +26,15 @@ import org.acra.config.ConfigurationBuilder;
 import org.acra.sender.ReportSenderFactory;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.schabi.newpipe.extractor.Downloader;
 import org.schabi.newpipe.extractor.NewPipe;
+import org.schabi.newpipe.extractor.downloader.Downloader;
 import org.schabi.newpipe.report.AcraReportSenderFactory;
 import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.settings.SettingsActivity;
 import org.schabi.newpipe.util.ExtractorHelper;
+import org.schabi.newpipe.util.Localization;
+import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.StateSaver;
 
 import java.io.IOException;
@@ -100,9 +103,14 @@ public class App extends MultiDexApplication {
         SettingsActivity.initSettings(this);
 
         NewPipe.init(getDownloader(),
-                org.schabi.newpipe.util.Localization.getPreferredExtractorLocal(this));
+                Localization.getPreferredLocalization(this),
+                Localization.getPreferredContentCountry(this));
+        Localization.init();
+
         StateSaver.init(this);
         initNotificationChannel();
+
+        ServiceHelper.initServices(this);
 
         // Initialize image loader
         ImageLoader.getInstance().init(getImageLoaderConfigurations(10, 50));
@@ -146,7 +154,7 @@ public class App extends MultiDexApplication {
     }
 
     protected Downloader getDownloader() {
-        return org.schabi.newpipe.Downloader.init(null);
+        return DownloaderImpl.init(null);
     }
 
     private void configureRxJavaErrorHandler() {

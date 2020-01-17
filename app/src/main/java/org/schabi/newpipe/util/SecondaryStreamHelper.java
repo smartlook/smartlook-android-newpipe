@@ -1,6 +1,6 @@
 package org.schabi.newpipe.util;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.schabi.newpipe.extractor.MediaFormat;
 import org.schabi.newpipe.extractor.stream.AudioStream;
@@ -38,7 +38,7 @@ public class SecondaryStreamHelper<T extends Stream> {
     public static AudioStream getAudioStreamFor(@NonNull List<AudioStream> audioStreams, @NonNull VideoStream videoStream) {
         switch (videoStream.getFormat()) {
             case WEBM:
-            case MPEG_4:
+            case MPEG_4:// ¿is mpeg-4 DASH?
                 break;
             default:
                 return null;
@@ -52,10 +52,12 @@ public class SecondaryStreamHelper<T extends Stream> {
             }
         }
 
+        if (m4v) return null;
+
         // retry, but this time in reverse order
         for (int i = audioStreams.size() - 1; i >= 0; i--) {
             AudioStream audio = audioStreams.get(i);
-            if (audio.getFormat() == (m4v ? MediaFormat.MP3 : MediaFormat.OPUS)) {
+            if (audio.getFormat() == MediaFormat.WEBMA_OPUS) {
                 return audio;
             }
         }

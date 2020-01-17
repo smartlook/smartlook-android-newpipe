@@ -5,7 +5,7 @@
         <item name="colorPrimaryDark">@android:color/transparent</item>
         <item name="colorAccent">@android:color/transparent</item>
 
-        <item name="android:windowBackground">@color/dark_background_color</item>
+        <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
     <!-- Base themes -->
@@ -41,8 +41,11 @@
         <item name="search_add">@drawable/ic_arrow_top_left_black_24dp</item>
         <item name="options">@drawable/ic_more_vert_black_24dp</item>
         <item name="play">@drawable/ic_play_arrow_black_24dp</item>
+        <item name="pause">@drawable/ic_pause_black_24dp</item>
         <item name="settings">@drawable/ic_settings_black_24dp</item>
         <item name="ic_hot">@drawable/ic_whatshot_black_24dp</item>
+        <item name="ic_kiosk_local">@drawable/ic_kiosk_local_black_24dp</item>
+        <item name="ic_kiosk_recent">@drawable/ic_kiosk_recent_black_24dp</item>
         <item name="ic_channel">@drawable/ic_channel_black_24dp</item>
         <item name="ic_bookmark">@drawable/ic_bookmark_black_24dp</item>
         <item name="ic_playlist_add">@drawable/ic_playlist_add_black_24dp</item>
@@ -65,6 +68,7 @@
         <item name="toolbar_shadow_drawable">@drawable/toolbar_shadow_light</item>
         <item name="selector_drawable">@drawable/light_selector</item>
         <item name="colorControlHighlight">@color/light_ripple_color</item>
+        <item name="progress_horizontal_drawable">@drawable/progress_youtube_horizontal_light</item>
 
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
@@ -73,7 +77,11 @@
         <item name="android:windowAnimationStyle">@style/SwitchAnimation</item>
     </style>
 
-    <style name="DarkTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="Base.V7.DarkTheme" parent="Theme.AppCompat.NoActionBar" />
+
+    <style name="Base.DarkTheme" parent="Base.V7.DarkTheme" />
+
+    <style name="DarkTheme" parent="Base.DarkTheme">
         <item name="colorPrimary">@color/dark_youtube_primary_color</item>
         <item name="colorPrimaryDark">@color/dark_youtube_dark_color</item>
         <item name="colorAccent">@color/dark_youtube_accent_color</item>
@@ -106,6 +114,8 @@
         <item name="play">@drawable/ic_play_arrow_white_24dp</item>
         <item name="settings">@drawable/ic_settings_white_24dp</item>
         <item name="ic_hot">@drawable/ic_whatshot_white_24dp</item>
+        <item name="ic_kiosk_local">@drawable/ic_kiosk_local_white_24dp</item>
+        <item name="ic_kiosk_recent">@drawable/ic_kiosk_recent_white_24dp</item>
         <item name="ic_channel">@drawable/ic_channel_white_24dp</item>
         <item name="ic_bookmark">@drawable/ic_bookmark_white_24dp</item>
         <item name="ic_playlist_add">@drawable/ic_playlist_add_white_24dp</item>
@@ -119,6 +129,7 @@
         <item name="ic_list">@drawable/ic_list_white_24dp</item>
         <item name="ic_grid">@drawable/ic_grid_white_24dp</item>
         <item name="ic_delete">@drawable/ic_delete_white_24dp</item>
+        <item name="pause">@drawable/ic_pause_white_24dp</item>
         <item name="ic_settings_update">@drawable/ic_settings_update_white</item>
 
         <item name="separator_color">@color/dark_separator_color</item>
@@ -128,6 +139,7 @@
         <item name="toolbar_shadow_drawable">@drawable/toolbar_shadow_dark</item>
         <item name="selector_drawable">@drawable/dark_selector</item>
         <item name="colorControlHighlight">@color/dark_ripple_color</item>
+        <item name="progress_horizontal_drawable">@drawable/progress_youtube_horizontal_dark</item>
 
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
@@ -136,7 +148,11 @@
         <item name="android:windowAnimationStyle">@style/SwitchAnimation</item>
     </style>
 
-    <style name="BlackTheme" parent="DarkTheme">
+    <style name="Base.V7.BlackTheme" parent="DarkTheme" />
+
+    <style name="Base.BlackTheme" parent="Base.V7.BlackTheme" />
+
+    <style name="BlackTheme" parent="Base.BlackTheme">
         <item name="android:windowBackground">@color/black_background_color</item>
         <item name="windowBackground">@color/black_background_color</item>
 
@@ -228,5 +244,9 @@
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="NavViewTextStyle">
+        <item name="android:ellipsize">end</item>
     </style>
 </resources>

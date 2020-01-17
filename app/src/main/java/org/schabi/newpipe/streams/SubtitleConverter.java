@@ -69,7 +69,7 @@ public class SubtitleConverter {
          * Language parsing is not supported
          */
 
-        byte[] buffer = new byte[source.available()];
+        byte[] buffer = new byte[(int) source.available()];
         source.read(buffer);
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -205,7 +205,7 @@ public class SubtitleConverter {
         }
     }
 
-    private static NodeList selectNodes(Document xml, String[] path, String namespaceUri) throws XPathExpressionException {
+    private static NodeList selectNodes(Document xml, String[] path, String namespaceUri) {
         Element ref = xml.getDocumentElement();
 
         for (int i = 0; i < path.length - 1; i++) {

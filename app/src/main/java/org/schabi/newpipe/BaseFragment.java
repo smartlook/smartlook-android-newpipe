@@ -2,12 +2,13 @@ package org.schabi.newpipe;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.squareup.leakcanary.RefWatcher;
@@ -107,6 +108,7 @@ public abstract class BaseFragment extends Fragment {
         if (DEBUG) Log.d(TAG, "setTitle() called with: title = [" + title + "]");
         if((!useAsFrontPage || mIsVisibleToUser)
             && (activity != null && activity.getSupportActionBar() != null)) {
+            activity.getSupportActionBar().setDisplayShowTitleEnabled(true);
             activity.getSupportActionBar().setTitle(title);
         }
     }
