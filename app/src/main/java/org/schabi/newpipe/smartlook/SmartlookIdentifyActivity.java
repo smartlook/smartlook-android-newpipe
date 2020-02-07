@@ -60,7 +60,7 @@ public class SmartlookIdentifyActivity extends AppCompatActivity {
 
     private void handleIdentify() {
         bIdentify.setOnClickListener(v -> {
-            Smartlook.identify(etUserId.getText().toString(),
+            Smartlook.setUserIdentifier(etUserId.getText().toString(),
                     formatUserProperties());
         });
     }

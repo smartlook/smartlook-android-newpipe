@@ -15,7 +15,6 @@ import com.nostra13.universalimageloader.cache.memory.impl.LRULimitedMemoryCache
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.smartlook.sdk.smartlook.Smartlook;
-import com.smartlook.sdk.smartlook.api.anotations.SmartlookServer;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -32,6 +31,7 @@ import org.schabi.newpipe.report.AcraReportSenderFactory;
 import org.schabi.newpipe.report.ErrorActivity;
 import org.schabi.newpipe.report.UserAction;
 import org.schabi.newpipe.settings.SettingsActivity;
+import org.schabi.newpipe.smartlook.SmartlookPreferences;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.ServiceHelper;
@@ -126,9 +126,12 @@ public class App extends MultiDexApplication {
 
     private void smartlookInit() {
 
-        Smartlook.changeServer(SmartlookServer.PRODUCTION);
+        int server = SmartlookPreferences.loadServerSelection(this);
+        String apiKey = SmartlookPreferences.loadApiKey(this, server);
+
+        Smartlook.changeServer(server);
         Smartlook.debugSelectors(false);
-        Smartlook.setupAndStartRecording("9f83a8f96ecc2af2926a5a22a37c2907e606b2ce", true, 5);
+        Smartlook.setupAndStartRecording(apiKey);
         Smartlook.unregisterBlacklistedClass(WebView.class);
 
         String[] usernames = new String[]{"bob.89", "james_rook", "user1992", "gluebow", "levelfun"};
