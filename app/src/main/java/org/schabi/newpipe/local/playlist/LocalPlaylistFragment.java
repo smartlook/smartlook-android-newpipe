@@ -326,6 +326,16 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         headerBackgroundButton.setOnClickListener(view ->
                 NavigationHelper.playOnBackgroundPlayer(activity, getPlayQueue(), false));
 
+        headerPopupButton.setOnLongClickListener(view -> {
+            NavigationHelper.enqueueOnPopupPlayer(activity, getPlayQueue(), true);
+            return true;
+        });
+
+        headerBackgroundButton.setOnLongClickListener(view -> {
+            NavigationHelper.enqueueOnBackgroundPlayer(activity, getPlayQueue(), true);
+            return true;
+        });
+
         hideLoading();
     }
 
@@ -404,10 +414,25 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         disposables.add(disposable);
     }
 
+    private void updateThumbnailUrl() {
+        String newThumbnailUrl;
+
+        if (!itemListAdapter.getItemsList().isEmpty()) {
+            newThumbnailUrl = ((PlaylistStreamEntry) itemListAdapter.getItemsList().get(0)).thumbnailUrl;
+        } else {
+            newThumbnailUrl = "drawable://" + R.drawable.dummy_thumbnail_playlist;
+        }
+
+        changeThumbnailUrl(newThumbnailUrl);
+    }
+
     private void deleteItem(final PlaylistStreamEntry item) {
         if (itemListAdapter == null) return;
 
         itemListAdapter.removeItem(item);
+        if (playlistManager.getPlaylistThumbnail(playlistId).equals(item.thumbnailUrl))
+            updateThumbnailUrl();
+
         setVideoCount(itemListAdapter.getItemsList().size());
         saveChanges();
     }

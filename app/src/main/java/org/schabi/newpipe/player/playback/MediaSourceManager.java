@@ -321,6 +321,7 @@ public class MediaSourceManager {
 
     private Observable<Long> getEdgeIntervalSignal() {
         return Observable.interval(progressUpdateIntervalMillis, TimeUnit.MILLISECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
                 .filter(ignored ->
                         playbackListener.isApproachingPlaybackEdge(playbackNearEndGapMillis));
     }
