@@ -15,6 +15,7 @@ import com.nostra13.universalimageloader.cache.memory.impl.LRULimitedMemoryCache
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.smartlook.sdk.smartlook.Smartlook;
+import com.smartlook.sdk.smartlook.analytics.video.model.annotation.RenderingMethod;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -133,6 +134,7 @@ public class App extends MultiDexApplication {
         Smartlook.debugSelectors(false);
         Smartlook.setupAndStartRecording(apiKey, 5);
         Smartlook.unregisterBlacklistedClass(WebView.class);
+        Smartlook.setRenderingMethod(RenderingMethod.SIMPLIFIED);
 
         String[] usernames = new String[]{"bob.89", "james_rook", "user1992", "gluebow", "levelfun"};
         String[] currencyCode = new String[]{"USD", "EUR", "CZK"};

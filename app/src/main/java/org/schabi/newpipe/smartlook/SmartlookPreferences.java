@@ -10,7 +10,7 @@ public class SmartlookPreferences {
     // Default api keys
     private static final String SMARTLOOK_ALFA_API_KEY = "dce4cb5b71c0c45aed88ad89a11cfe8977807b45";
     private static final String SMARTLOOK_BETA_API_KEY = "c8d68fc8cfc145993b983d4404f85f8d4ff59773";
-    private static final String SMARTLOOK_PRODUCTION_API_KEY = "9f83a8f96ecc2af2926a5a22a37c2907e606b2ce";
+    private static final String SMARTLOOK_PRODUCTION_API_KEY = "85d3eb951c75ff51df3ca8c24cc4eb51efd68822";
 
     // Api preference keys
     private static final String SMARTLOOK_ALFA_API_KEY_PREFERENCE = "smartlook_alfa_api_key_preference";
