@@ -134,7 +134,7 @@ public class App extends MultiDexApplication {
         Smartlook.debugSelectors(false);
         Smartlook.setupAndStartRecording(apiKey, 5);
         Smartlook.unregisterBlacklistedClass(WebView.class);
-        Smartlook.setRenderingMethod(RenderingMethod.SIMPLIFIED);
+        Smartlook.setRenderingMethod(RenderingMethod.ANNOTATED_WIREFRAME);
 
         String[] usernames = new String[]{"bob.89", "james_rook", "user1992", "gluebow", "levelfun"};
         String[] currencyCode = new String[]{"USD", "EUR", "CZK"};
